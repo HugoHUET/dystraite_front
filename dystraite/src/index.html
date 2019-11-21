@@ -9,6 +9,17 @@
 
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <style>
+    .sidenav.sidenav-fixed{
+      position: relative;
+      height: calc(100vh - 64px);
+      white-space: nowrap;
+      transition: 0.5s;
+      width: 85px;
+    }
+  </style>
 
   <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -18,38 +29,52 @@
   <header>
     <nav>
       <div class="nav-wrapper">
-          <ul id="slide-out" class="sidenav">
-            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-            <li><a href="#!">Second Link</a></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-          </ul>
-          <a href="#" data-target="slide-out" class="sidenav-trigger btn"><i class="material-icons">menu</i></a>
-          <a href="#" class="brand-logo center">Logo</a>
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
-          </ul>
-        </div>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" class="brand-logo center">DYSTRAITE</a>
+      </div>
     </nav>
+    <!-- sidenav sur mobile -->
+    <ul id="slide-out" class="sidenav">
+      <li><a href="#!"><i class="material-icons">videogame_asset</i>Jeux</a></li>
+      <li><a href="#!"><i class="material-icons">school</i>Cours</a></li>
+      <li><a href="#!"><i class="material-icons">menu_book</i>Bibliothèque</a></li>
+      <li><a href="#!"><i class="material-icons">supervisor_account</i>Conseils</a></li>
+      <li><a href="#!"><i class="material-icons">account_circle</i>Profil</a></li>
+      <li><a href="#!"><i class="material-icons">work_outline</i>Orthophoniste</a></li>
+    </ul>
   </header>
   <body>
+    <!-- sidenav sur web -->
+    <ul class="sidenav sidenav-fixed" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+      <li><a href="#!"><i class="material-icons">videogame_asset</i>Jeux</a></li>
+      <li><a href="#!"><i class="material-icons">school</i>Cours</a></li>
+      <li><a href="#!"><i class="material-icons">menu_book</i>Bibliothèque</a></li>
+      <li><a href="#!"><i class="material-icons">supervisor_account</i>Conseils</a></li>
+      <li><a href="#!"><i class="material-icons">account_circle</i>Profil</a></li>
+      <li><a href="#!"><i class="material-icons">work_outline</i>Orthophoniste</a></li>
+    </ul>
     <app-root></app-root>    
   </body>
   <footer>
 
   </footer>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.sidenav');
-      var instances = M.Sidenav.init(elems, options);
-    });
-
     $(document).ready(function(){
       $('.sidenav').sidenav();
     });
+
+    var mini = true;
+
+    function toggleSidebar() {
+      if (mini) {
+        document.getElementsByClassName("sidenav-fixed")[0].style.width = "220px";
+        this.mini = false;
+      } else {
+        document.getElementsByClassName("sidenav-fixed")[0].style.width = "85px";
+        this.mini = true;
+      }
+    }
+
   </script>
 </body>
 </html>
