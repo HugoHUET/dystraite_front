@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.sidenav.sidenav-fixed {
+    margin-top: 64px;
+    white-space: nowrap;
+    transition: 0.5s;
+    width: 85px;
+}
+.noBoxShadow {
+    box-shadow: none !important;
+}
+@media screen and (min-width: 993px) {
+    .container-master {
+        margin-left: 85px;
+    }
+}
+.container-master {
+    padding: 0 2% 0 2%;
+}
