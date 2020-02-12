@@ -1,3 +1,31 @@
 a, p, h1,h2,h3,h4,h5,h6, span {
     font-family: 'Nunito';
 }
+.bottomnav {
+    width: 100%;
+    height: 70px;
+    display: none;
+    /* background-color: red;  */
+    padding-top: 20px;
+}
+.whiteblock {
+    box-shadow: 0 0 10px #dcdde0;
+    /* overflow: visible;
+    width: 100%; */
+    height: 100%;
+    /* top: 25px; */
+    background-color: white;
+}
+.main-footer{     
+    position: sticky; 
+    bottom: 0;
+}
+.verticalalignicon i{
+    margin-top: 25%;
+}
+@media only screen and (max-width: 760px)
+{
+    .bottomnav{
+        display: block; 
+    }
+}

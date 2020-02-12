@@ -11,6 +11,8 @@ import { ConseilComponent } from './components/conseil/conseil.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { OrthophonisteComponent } from './components/orthophoniste/orthophoniste.component';
 
+import { HttpClientModule } from '@angular/common/http'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { OrthophonisteComponent } from './components/orthophoniste/orthophoniste
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
