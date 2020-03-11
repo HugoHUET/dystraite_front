@@ -1,4 +1,25 @@
-<header>
+<div *ngIf="isMobile">
+	<div class = "navbar">
+		<a class="selected" href="/"><i class="material-icons">home</i>Accueil</a>
+		<a href="/" style="margin-right: 10%"><i class="material-icons">videogame_asset</i>Jeux</a>
+		<svg class="profil" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51" height="51" viewBox="0 0 51 51">
+			<defs>
+				<pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 525 350">
+					<image width="525" height="350" xlink:href="../assets/mobile/tabbar-profil-image.jpg"/>
+				</pattern>
+			</defs>
+			<g id="Ellipse_2" data-name="Ellipse 2" transform="translate(2 2)" stroke="#565656" stroke-width="2" fill="url(#pattern)">
+				<circle cx="23.5" cy="23.5" r="23.5" stroke="none"/>
+				<circle cx="23.5" cy="23.5" r="24.5" fill="none"/>
+			</g>
+		</svg>
+		<a href="/ortophoniste"><i class="material-icons">work_outline</i>Orthophoniste</a>
+		<a><i class="material-icons plus">more_horiz</i>Plus</a>
+	</div>
+	salut
+</div>
+
+<!--<header>
     <div class="navbar-fixed">
         <nav class="noBoxShadow">
             <div class="nav-wrapper">
@@ -22,28 +43,4 @@
         <router-outlet></router-outlet>
 	</div>
 </main>
-
-<footer class="main-footer">
-	<div class="bottomnav">
-		<div class="whiteblock row center">
-				<div class="col s2 verticalalignicon">
-					<i class="material-icons">home</i>
-				</div>
-				<div class="col s2 verticalalignicon">
-					<i class="material-icons">videogame_asset</i>
-				</div>
-				<div class="col s4">
-					<i class="material-icons">account_circle</i>
-				</div>
-				<div class="col s2 verticalalignicon">
-					<i class="material-icons">work_outline</i>
-				</div>
-				<div class="col s2 verticalalignicon">
-					Plus
-				</div>
-			<!-- <i class="material-icons">school</i>
-			<i class="material-icons">menu_book</i>
-			<i class="material-icons">supervisor_account</i> -->
-		</div>
-	</div>
-</footer>
+-->

@@ -8,11 +8,12 @@ import { TitreService } from './services/titre/titre.service';
 })
 export class AppComponent {
   titre_page: string = "DYSTRAITE";
+  isMobile = true;
 
   constructor(private titreService: TitreService) { }
 
   ngOnInit() {
-    this.titreService.titre$.subscribe(titre => {
+    this.titreService.titre$.subscribe(titre => {
       this.titre_page = titre;
     });
   }
