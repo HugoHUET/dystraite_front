@@ -10,7 +10,8 @@ import { OrthophonisteComponent } from "src/app/components/orthophoniste/orthoph
 
 
 const routes: Routes = [
-  { path: '', component: ActualiteComponent },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: 'accueil', component: ActualiteComponent },
   { path: 'jeux', component: JeuxComponent },
   { path: 'cours', component: CoursComponent },
   { path: 'bibliotheque', component: BibliothequeComponent },

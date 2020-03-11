@@ -1,7 +1,9 @@
+<!-- Version Mobile -->
+
 <div *ngIf="isMobile">
 	<div class = "navbar">
-		<a class="selected" href="/"><i class="material-icons">home</i>Accueil</a>
-		<a href="/" style="margin-right: 10%"><i class="material-icons">videogame_asset</i>Jeux</a>
+		<a class="selected" routerLink="accueil" routerLinkActive="selected"><i class="material-icons">home</i>Accueil</a>
+		<a routerLink="jeux" routerLinkActive="selected" style="margin-right: 10%"><i class="material-icons">videogame_asset</i>Jeux</a>
 		<svg class="profil" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51" height="51" viewBox="0 0 51 51">
 			<defs>
 				<pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 525 350">
@@ -13,34 +15,36 @@
 				<circle cx="23.5" cy="23.5" r="24.5" fill="none"/>
 			</g>
 		</svg>
-		<a href="/ortophoniste"><i class="material-icons">work_outline</i>Orthophoniste</a>
-		<a><i class="material-icons plus">more_horiz</i>Plus</a>
+		<a routerLink="ortophoniste" routerLinkActive="selected"><i class="material-icons">work_outline</i>Orthophoniste</a>
+		<a routerLink="plus" routerLinkActive="selected"><i class="material-icons plus">more_horiz</i>Plus</a>
 	</div>
 	salut
 </div>
 
-<!--<header>
-    <div class="navbar-fixed">
-        <nav class="noBoxShadow">
-            <div class="nav-wrapper">
-                <span class="brand-logo center">{{titre_page}}</span>
-            </div>
-        </nav>
-    </div>
-</header>
+<!-- Version PC -->
+<div *ngIf="!isMobile">
+	<header>
+			<div class="navbar-fixed">
+					<nav class="noBoxShadow">
+							<div class="nav-wrapper">
+									<span class="brand-logo center">{{titre_page}}</span>
+							</div>
+					</nav>
+			</div>
+	</header>
 
-<main>
-    <ul class="sidenav sidenav-fixed" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
-        <li><a href="/"><i class="material-icons">home</i>Accueil</a></li>
-        <li><a href="/jeux"><i class="material-icons">videogame_asset</i>Jeux</a></li>
-        <li><a href="/cours"><i class="material-icons">school</i>Cours</a></li>
-        <li><a href="/bibliotheque"><i class="material-icons">menu_book</i>Bibliothèque</a></li>
-        <li><a href="/conseil"><i class="material-icons">supervisor_account</i>Conseils</a></li>
-        <li><a href="/profil"><i class="material-icons">account_circle</i>Profil</a></li>
-        <li><a href="/ortophoniste"><i class="material-icons">work_outline</i>Orthophoniste</a></li>
-    </ul>
-    <div class="row container-master">
-        <router-outlet></router-outlet>
-	</div>
-</main>
--->
+	<main>
+			<ul class="sidenav sidenav-fixed" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+					<li><a href="/"><i class="material-icons">home</i>Accueil</a></li>
+					<li><a href="/jeux"><i class="material-icons">videogame_asset</i>Jeux</a></li>
+					<li><a href="/cours"><i class="material-icons">school</i>Cours</a></li>
+					<li><a href="/bibliotheque"><i class="material-icons">menu_book</i>Bibliothèque</a></li>
+					<li><a href="/conseil"><i class="material-icons">supervisor_account</i>Conseils</a></li>
+					<li><a href="/profil"><i class="material-icons">account_circle</i>Profil</a></li>
+					<li><a href="/ortophoniste"><i class="material-icons">work_outline</i>Orthophoniste</a></li>
+			</ul>
+			<div class="row container-master">
+					<router-outlet></router-outlet>
+		</div>
+	</main>
+</div>
