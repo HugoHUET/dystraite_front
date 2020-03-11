@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ActualiteComponent } from "src/app/components/actualite/actualite.component";
-import { JeuxComponent } from "src/app/components/jeux/jeux.component";
-import { CoursComponent } from "src/app/components/cours/cours.component";
-import { BibliothequeComponent } from "src/app/components/bibliotheque/bibliotheque.component";
-import { ConseilComponent } from "src/app/components/conseil/conseil.component";
+import { ActualiteComponent } from 'src/app/components/actualite/actualite.component';
+import { JeuxComponent } from 'src/app/components/jeux/jeux.component';
+import { CoursComponent } from 'src/app/components/cours/cours.component';
+import { BibliothequeComponent } from 'src/app/components/bibliotheque/bibliotheque.component';
+import { ConseilComponent } from 'src/app/components/conseil/conseil.component';
 import { ProfilComponent } from './components/profil/profil.component';
-import { OrthophonisteComponent } from "src/app/components/orthophoniste/orthophoniste.component";
+import { OrthophonisteComponent } from 'src/app/components/orthophoniste/orthophoniste.component';
 
 
 const routes: Routes = [
