@@ -7,6 +7,7 @@ import { BibliothequeComponent } from 'src/app/components/bibliotheque/bibliothe
 import { ConseilComponent } from 'src/app/components/conseil/conseil.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { OrthophonisteComponent } from 'src/app/components/orthophoniste/orthophoniste.component';
+import { ArticleComponent } from './components/bibliotheque/article/article.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'jeux', component: JeuxComponent },
   { path: 'cours', component: CoursComponent },
   { path: 'bibliotheque', component: BibliothequeComponent },
+  { path: 'bibliotheque/article', component: ArticleComponent },
   { path: 'conseil', component: ConseilComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'ortophoniste', component: OrthophonisteComponent },
