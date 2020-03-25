@@ -20,15 +20,11 @@ img{
 .information{
     padding: 10px 5% 20px 5%;
 }
-hr{
-    border: 1px solid #eeeeee;
-    margin: 20px 0 20px 0;
-}
 .article-ligne{
     display: grid;
     grid-template-columns: 25% 60% 15%;
     grid-template-rows: auto auto auto;
-    grid-column-gap: 1%;
+    grid-column-gap: 10px;
     grid-row-gap: 10px;
     align-items: center;
     justify-items: center;

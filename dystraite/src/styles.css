@@ -8,6 +8,10 @@
 .noBoxShadow {
     box-shadow: none !important;
 }
+hr{
+    border: 1px solid #eeeeee;
+    margin: 20px 0 20px 0;
+}
 @media screen and (min-width: 993px) {
     .container-master {
         margin-left: 85px;
