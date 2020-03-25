@@ -1,57 +1,18 @@
 <p>cours works!</p>
-<a href="#" class="card horizontal" *ngFor="let onecours of cours">
-    <div class="card-image">
-        <img src="../../assets/RE2VOe0.jpeg">
+<h5>Le cours du moment !</h5>
+<div class="cours-block">
+    <img src="../../assets/RE2VOe0.jpeg" alt="test">
+    <div class="information">
+        <h6>Bien écrire "descendre"</h6>
+        <p>lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu<br>lorem ipsulorem ipsulorem ipsu</p>
+        <a class="read-button" href="#" onclick="return false">
+            Lire
+        </a>
     </div>
-    <div class="card-stacked">
-        <div class="card-content">
-            <span class="card-title">{{onecours.titre}}</span>
-            <p>{{onecours.description}}</p>
-        </div>
-        <div class="card-action">
-            <p>This is a text</p>
-        </div>
-    </div>
-</a>
-<a href="#" class="card horizontal">
-    <div class="card-image">
-        <img src="../../assets/RE2VOe0.jpeg">
-    </div>
-    <div class="card-stacked">
-        <div class="card-content">
-            <span class="card-title">aze</span>
-            <p>treyhjgfs</p>
-        </div>
-        <div class="card-action">
-            <p>This is a text</p>
-        </div>
-    </div>
-</a>
-<a href="#" class="card horizontal">
-    <div class="card-image">
-        <img src="../../assets/RE2VOe0.jpeg">
-    </div>
-    <div class="card-stacked">
-        <div class="card-content">
-            <span class="card-title">aze</span>
-            <p>treyhjgfs</p>
-        </div>
-        <div class="card-action">
-            <p>This is a text</p>
-        </div>
-    </div>
-</a>
-<a href="#" class="card horizontal">
-    <div class="card-image">
-        <img src="../../assets/RE2VOe0.jpeg">
-    </div>
-    <div class="card-stacked">
-        <div class="card-content">
-            <span class="card-title">aze</span>
-            <p>treyhjgfs</p>
-        </div>
-        <div class="card-action">
-            <p>This is a text</p>
-        </div>
-    </div>
-</a>
+</div>
+<hr>
+<div class="cours-ligne" *ngFor="let number of [0,1,2,3,4]">
+    <img src="../../assets/RE2VOe0.jpeg" alt="test">
+    <b>Retenir des mots</b>
+    <a class="read-button" routerLink="cours">Lire</a>
+</div>
