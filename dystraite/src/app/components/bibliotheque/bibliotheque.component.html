@@ -1,8 +1,8 @@
 <p>bibliotheque works!</p>
 <h5>L'article du moment !</h5>
 <div class="article-block">
-	<img width="100%" src="../../assets/RE2VOe0.jpeg" alt="test" style="border-radius: 10px 10px 0px 0px;">
-	<div class="information-block">
+	<img src="../../assets/RE2VOe0.jpeg" alt="test">
+	<div class="information">
 		<h6>La dysorthographie ?</h6>
 		<p>lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu<br>lorem ipsulorem ipsulorem ipsu</p>
 		<a class="read-button" href="#" onclick="return false">
@@ -10,23 +10,9 @@
 		</a>
 	</div>
 </div>
-<div class="article-block">
-	<img width="100%" src="../../assets/RE2VOe0.jpeg" alt="test" style="border-radius: 10px 10px 0px 0px;">
-	<div class="information-block">
-		<h6>La dysorthographie ?</h6>
-		<p>lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu<br>lorem ipsulorem ipsulorem ipsu</p>
-		<a class="read-button" href="#" onclick="return false">
-			Lire
-		</a>
-	</div>
-</div>
-<div class="article-block">
-	<img width="100%" src="../../assets/RE2VOe0.jpeg" alt="test" style="border-radius: 10px 10px 0px 0px;">
-	<div class="information-block">
-		<h6>La dysorthographie ?</h6>
-		<p>lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu<br>lorem ipsulorem ipsulorem ipsu</p>
-		<a class="read-button" href="#" onclick="return false">
-			Lire
-		</a>
-	</div>
+<hr>
+<div class="article-ligne" *ngFor="let number of [0,1,2,3,4]">
+	<img src="../../assets/RE2VOe0.jpeg" alt="test">
+	<p>lorem ipsulorem la la la la la ceci est un titre assez long vraiment beacoup trop long dyftughufty dcgvhiuy futygiuyfufy gifgivi uyuguoh hkblhougu vygiuyfuy</p>
+	<a class="read-button" href="#" onclick="return false">Lire</a>
 </div>
