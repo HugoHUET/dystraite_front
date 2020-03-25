@@ -1,13 +1,15 @@
 .article-block{
-    margin-top: 30px;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
-.information-block{
-    padding: 10px 5% 20px 5%;
+img{
+    object-fit:cover;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
 }
 .read-button{
     height: 30px;
+    color: white;
     border-radius: 5px;
     background-color: #92a3d1;
     margin-top: 25px;
@@ -15,6 +17,28 @@
     align-items: center;
     justify-content: center;
 }
-a{
-    color: white;
+.information{
+    padding: 10px 5% 20px 5%;
+}
+hr{
+    border: 1px solid #eeeeee;
+    margin: 20px 0 20px 0;
+}
+.article-ligne{
+    display: grid;
+    grid-template-columns: 25% 60% 15%;
+    grid-template-rows: auto auto auto;
+    grid-column-gap: 1%;
+    grid-row-gap: 10px;
+    align-items: center;
+    justify-items: center;
+}
+.article-ligne > img{
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+}
+.article-ligne > .read-button{
+    width: 50px;
+    margin-top: 0;
 }
