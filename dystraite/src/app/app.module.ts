@@ -14,6 +14,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleComponent } from './components/bibliotheque/article/article.component'; 
+import { LeconComponent } from './components/cours/lecon/lecon.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ArticleComponent } from './components/bibliotheque/article/article.comp
     ProfilComponent,
     OrthophonisteComponent,
     ArticleComponent
+    LeconComponent
   ],
   imports: [
     BrowserModule,
