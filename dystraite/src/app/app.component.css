@@ -1,5 +1,5 @@
 .container-master {
-    padding: 0 2% 50px 2%;
+    padding: 0 30px 50px 30px;
 }
 a{
     color: rgba(0,0,0,0.54);
@@ -16,7 +16,6 @@ a{
 a {
     display: inline-grid;
     color: #565656;
-    font-family: 'Nunito';
     width:22.5%;
 }
 .plus {
