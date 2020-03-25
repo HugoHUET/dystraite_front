@@ -13,7 +13,7 @@ import { OrthophonisteComponent } from './components/orthophoniste/orthophoniste
 import { ClickOutsideModule } from 'ng-click-outside';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ArticleComponent } from './components/bibliotheque/article/article.component'; 
+import { ArticleComponent } from './components/bibliotheque/article/article.component';
 import { LeconComponent } from './components/cours/lecon/lecon.component';
 
 @NgModule({
@@ -26,8 +26,8 @@ import { LeconComponent } from './components/cours/lecon/lecon.component';
     ConseilComponent,
     ProfilComponent,
     OrthophonisteComponent,
-    ArticleComponent
-    LeconComponent
+    ArticleComponent,
+    LeconComponent,
   ],
   imports: [
     BrowserModule,
