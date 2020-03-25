@@ -10,8 +10,9 @@ import { BibliothequeComponent } from './components/bibliotheque/bibliotheque.co
 import { ConseilComponent } from './components/conseil/conseil.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { OrthophonisteComponent } from './components/orthophoniste/orthophoniste.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ClickOutsideModule
   ],
   providers: [],
   bootstrap: [AppComponent]

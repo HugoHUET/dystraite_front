@@ -16,11 +16,22 @@
 			</g>
 		</svg>
 		<a routerLink="ortophoniste" routerLinkActive="selected"><i class="material-icons">work_outline</i>Orthophoniste</a>
-		<a routerLink="plus" routerLinkActive="selected"><i class="material-icons plus">more_horiz</i>Plus</a>
+		<a class="btn-plus" (click)="togglePlus()" (clickOutside)="untogglePlus()"><i class="material-icons plus" [class.plus-active]="isPlusSelected">more_horiz</i>Plus</a>
+		<div [className]="currentPlusClass">
+			<div class="item-plus" style="bottom: 60px">
+				<a routerLink="cours" routerLinkActive="selected" class="button-plus"><i class="material-icons icon-plus">school</i>Cours</a>
+			</div>
+			<div class="item-plus" style="bottom: 130px">
+				<a routerLink="bibliotheque" routerLinkActive="selected" class="button-plus"><i class="material-icons icon-plus">menu_book</i>Bibliothèque</a>
+			</div>
+			<div class="item-plus" style="bottom: 200px">
+				<a routerLink="conseil" routerLinkActive="selected" class="button-plus"><i class="material-icons icon-plus">supervisor_account</i>Conseils</a>
+			</div>
+		</div>
 	</div>
 	<div class="row container-master">
-		<router-outlet></router-outlet>
-	</div>
+					<router-outlet></router-outlet>
+		</div>
 </div>
 
 <!-- Version PC -->
