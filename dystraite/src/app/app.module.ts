@@ -11,7 +11,8 @@ import { ConseilComponent } from './components/conseil/conseil.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { OrthophonisteComponent } from './components/orthophoniste/orthophoniste.component';
 
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { LeconComponent } from './components/cours/lecon/lecon.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     BibliothequeComponent,
     ConseilComponent,
     ProfilComponent,
-    OrthophonisteComponent
+    OrthophonisteComponent,
+    LeconComponent
   ],
   imports: [
     BrowserModule,
