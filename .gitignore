@@ -10,6 +10,7 @@
 # dependencies
 /dystraite/node_modules
 /Design mobile
+/Maquettes
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
