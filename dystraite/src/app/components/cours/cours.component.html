@@ -1,5 +1,5 @@
 <h5>Le cours du moment !</h5>
-<div class="cours-block">
+<div class="block">
     <img src="../../assets/RE2VOe0.jpeg" alt="test">
     <div class="information">
         <h6>Bien écrire "descendre"</h6>
@@ -8,7 +8,7 @@
     </div>
 </div>
 <hr>
-<div class="cours-ligne" *ngFor="let lecon of cours">
+<div class="ligne" *ngFor="let lecon of cours">
     <img src="data:image/bmp;base64,{{lecon.vignette}}" alt="test">
     <b>{{lecon.titre}}</b>
     <a class="button filled" routerLink="lecon">Lire</a>
