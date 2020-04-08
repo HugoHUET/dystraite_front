@@ -15,3 +15,24 @@ hr{
 html{
     font-family: 'Nunito';
 }
+.button-filled{
+    height: 40px;
+    border-radius: 5px;
+    background-color: #92a3d1;
+    color: white;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button{
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #92a3d1;
+    color: #92a3d1;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
