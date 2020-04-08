@@ -8,16 +8,6 @@ img{
     height: 200px;
     border-radius: 10px 10px 0px 0px;
 }
-.read-button{
-    height: 30px;
-    color: white;
-    border-radius: 5px;
-    background-color: #92a3d1;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .information{
     padding: 10px 5% 20px 5%;
 }
@@ -35,7 +25,7 @@ img{
     height: 75px;
     border-radius: 10px;
 }
-.cours-ligne > .read-button{
+.cours-ligne > .button{
     width: 50px;
     margin-top: 0;
 }

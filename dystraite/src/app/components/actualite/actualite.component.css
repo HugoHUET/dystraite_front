@@ -3,30 +3,14 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 img{
+    object-fit: cover;
     width: 100%;
     border-radius: 10px 10px 0px 0px;
+    height: 200px;
 }
 .information-block{
     padding: 10px 5% 20px 5%;
 }
-.play-button{
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid;
-    border-color: #92a3d1;
-    color: #92a3d1;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.access-button{
+.filled{
     height: 40px;
-    border-radius: 5px;
-    background-color: #92a3d1;
-    color: white;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

@@ -4,15 +4,8 @@
     justify-content: center;
     margin: 0;
 }
-.exercice-button{
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid;
-    border-color: #92a3d1;
-    color: #92a3d1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.button{
+    margin-top: 0;
 }
 img{
     width: 100%;
