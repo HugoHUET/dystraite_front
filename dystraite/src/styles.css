@@ -15,15 +15,9 @@ hr{
 html{
     font-family: 'Nunito';
 }
-.button-filled{
-    height: 30px;
-    border-radius: 5px;
+.filled{
     background-color: #92a3d1;
-    color: white;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: white !important;
 }
 .button{
     height: 30px;
