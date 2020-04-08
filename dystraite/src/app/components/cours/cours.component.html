@@ -11,8 +11,8 @@
     </div>
 </div>
 <hr>
-<div class="cours-ligne" *ngFor="let number of [0,1,2,3,4]">
-    <img src="../../assets/RE2VOe0.jpeg" alt="test">
-    <b>Retenir des mots</b>
+<div class="cours-ligne" *ngFor="let lecon of cours">
+    <img src="data:image/bmp;base64,{{lecon.vignette}}" alt="test">
+    <b>{{lecon.titre}}</b>
     <a class="read-button" routerLink="lecon">Lire</a>
 </div>
