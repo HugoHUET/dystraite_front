@@ -16,7 +16,7 @@ html{
     font-family: 'Nunito';
 }
 .filled{
-    background-color: #92a3d1;
+    background-color: #92a3d1 !important;
     color: white !important;
 }
 .button{
@@ -24,9 +24,13 @@ html{
     border-radius: 5px;
     border: 1px solid;
     border-color: #92a3d1;
+    background-color: white;
     color: #92a3d1;
     margin-top: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.large {
+    width: 100%;
 }
