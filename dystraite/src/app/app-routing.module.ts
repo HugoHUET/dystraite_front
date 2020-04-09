@@ -12,7 +12,7 @@ import { ArticleComponent } from './components/bibliotheque/article/article.comp
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: '404', redirectTo: 'accueil'},
   { path: 'accueil', component: ActualiteComponent },
   { path: 'jeux', component: JeuxComponent },
   { path: 'cours', component: CoursComponent },
