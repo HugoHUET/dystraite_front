@@ -13,6 +13,10 @@ import { OrthophonisteComponent } from './components/orthophoniste/orthophoniste
 import { ClickOutsideModule } from 'ng-click-outside';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ArticleComponent } from './components/bibliotheque/article/article.component';
+import { LeconComponent } from './components/cours/lecon/lecon.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { HttpClientModule } from '@angular/common/http';
     BibliothequeComponent,
     ConseilComponent,
     ProfilComponent,
-    OrthophonisteComponent
+    OrthophonisteComponent,
+    ArticleComponent,
+    LeconComponent,
+    ConnexionComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,

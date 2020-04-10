@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { TitreService } from './services/titre/titre.service';
 
 @Component({
@@ -9,11 +9,16 @@ import { TitreService } from './services/titre/titre.service';
 export class AppComponent {
   titre_page: string = "DYSTRAITE";
   isMobile = true;
+  isConnected = true;
   isPlusSelected = false;
   currentPlusClass = 'plus-initial';
 
-  constructor(private titreService: TitreService) { }
+  constructor(private titreService: TitreService, private cd:ChangeDetectorRef) { }
   ngOnInit() {
+    this.titreService.connect$.subscribe(c => {
+      this.isConnected = c;
+      this.cd.detectChanges();
+    });
     this.titreService.titre$.subscribe(titre => {
       this.titre_page = titre;
     });

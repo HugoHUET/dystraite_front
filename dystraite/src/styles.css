@@ -8,14 +8,64 @@
 .noBoxShadow {
     box-shadow: none !important;
 }
-@media screen and (min-width: 993px) {
-    .container-master {
-        margin-left: 85px;
-    }
-}
-.container-master {
-    padding: 0 2% 0 2%;
+hr{
+    border: 1px solid #eeeeee;
+    margin: 20px 0 20px 0;
 }
 html{
     font-family: 'Nunito';
+}
+.filled{
+    background-color: #92a3d1 !important;
+    color: white !important;
+}
+.button{
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #92a3d1;
+    background-color: white;
+    color: #92a3d1;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.large {
+    width: 100%;
+}
+img{
+    object-fit:cover;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0px 0px;
+}
+.block{
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+.ligne{
+    display: grid;
+    grid-template-columns: 25% 45% auto;
+    grid-template-rows: auto auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    align-items: center;
+    justify-items: center;
+}
+.ligne > img{
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+}
+.ligne > .button{
+    width: 50px;
+    margin-top: 0;
+}
+.rose{
+    color: #FF647C;
+}
+.bleu {
+    color: #92a3d1;
 }
