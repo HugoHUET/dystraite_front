@@ -7,11 +7,11 @@ import { TitreService } from 'src/app/services/titre/titre.service';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent implements OnInit {
-
+  isConnected = false;
   constructor(private titreService: TitreService) { }
 
   ngOnInit() {
-    this.titreService.updateTitle("Profil");
+    this.titreService.updateTitle('Profil');
   }
 
 }
