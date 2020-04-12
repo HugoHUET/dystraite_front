@@ -15,8 +15,9 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleComponent } from './components/bibliotheque/article/article.component';
 import { LeconComponent } from './components/cours/lecon/lecon.component';
-import { ConnexionComponent } from './components/connexion/connexion.component';
-import { InscriptionComponent } from './components/inscription/inscription.component';
+import { ConnexionComponent } from './components/profil/connexion/connexion.component';
+import { InscriptionComponent } from './components/profil/connexion/inscription/inscription.component';
+import { ChoixComponent } from './components/profil/connexion/inscription/choix/choix.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
     LeconComponent,
     ConnexionComponent,
     InscriptionComponent,
+    ChoixComponent,
   ],
   imports: [
     BrowserModule,
