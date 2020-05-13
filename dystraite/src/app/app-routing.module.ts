@@ -10,6 +10,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { OrthophonisteComponent } from 'src/app/components/orthophoniste/orthophoniste.component';
 import { ArticleComponent } from './components/bibliotheque/article/article.component';
 import { ChoixComponent } from './components/profil/connexion/inscription/choix/choix.component';
+import { StatsComponent } from './components/profil/stats/stats.component';
 
 
 const routes: Routes = [
@@ -21,9 +22,12 @@ const routes: Routes = [
   { path: 'bibliotheque', component: BibliothequeComponent },
   { path: 'bibliotheque/article', component: ArticleComponent },
   { path: 'conseil', component: ConseilComponent },
+  { path: 'ortophoniste', component: OrthophonisteComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'inscription', component: ChoixComponent },
   { path: 'ortophoniste', component: OrthophonisteComponent },
+  { path: 'profil/stats', component: StatsComponent },
+
 ];
 
 @NgModule({

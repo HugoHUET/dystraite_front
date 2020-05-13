@@ -1,0 +1,32 @@
+.meter { 
+    height: 30px;
+    position: relative;
+    background:white;
+    overflow: hidden;
+}
+
+.meter div {
+    display: block;
+    height: 100%;
+}
+
+.progress-bar{
+    -webkit-animation: progressBar 3s ease-in-out;
+    -webkit-animation-fill-mode:both; 
+    -moz-animation: progressBar 3s ease-in-out;
+    -moz-animation-fill-mode:both;
+    border-radius: 10px;
+}
+
+@keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@-moz-keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+.bg-rose{
+    background-color: #FF647C;
+}
