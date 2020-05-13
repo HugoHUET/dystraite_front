@@ -1,5 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { TitreService } from './services/titre/titre.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,11 @@ export class AppComponent {
   titre_page: string = "DYSTRAITE";
   isMobile = true;
   isConnected = false;
+  allowed_routes = ['/accueil', '/jeux', '/ortophoniste', '/cours', '/bibliotheque', '/conseil', '/profil', '/inscription'];
   isPlusSelected = false;
   currentPlusClass = 'plus-initial';
 
-  constructor(private titreService: TitreService, private cd:ChangeDetectorRef) { }
+  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router) { }
   ngOnInit() {
     this.titreService.connect$.subscribe(c => {
       this.isConnected = c;
@@ -34,5 +36,8 @@ export class AppComponent {
   untogglePlus() {
     this.isPlusSelected = false;
     this.currentPlusClass = 'plus-notselected';
+  }
+  isRouteAllowed(route) {
+    return this.allowed_routes.indexOf(route) !== -1;
   }
 }

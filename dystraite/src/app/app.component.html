@@ -7,10 +7,12 @@
 
 	<div class="navbar">
 		<a routerLink="accueil" routerLinkActive="selected"><i class="material-icons">home</i>Accueil</a>
-		<a routerLink="jeux" routerLinkActive="selected" style="margin-right: 10%"><i class="material-icons">videogame_asset</i>Jeux</a>
+		<a routerLink="jeux" routerLinkActive="selected" style="margin-right: 10%"><i
+				class="material-icons">videogame_asset</i>Jeux</a>
 
 		<a routerLink="profil" class="profil" routerLinkActive="selected">
-			<svg class="profil" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51" height="51" viewBox="0 0 51 51">
+			<svg class="profil" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51"
+				height="51" viewBox="0 0 51 51">
 				<defs>
 					<pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"
 						viewBox="0 0 525 350">
@@ -42,7 +44,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row container-master">
+	<div class="row container-master" *ngIf="isConnected || isRouteAllowed(router.url)">
 		<router-outlet></router-outlet>
 	</div>
 </div>
