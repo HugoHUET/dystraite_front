@@ -7,6 +7,10 @@ import { TitreService } from 'src/app/services/titre/titre.service';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent implements OnInit {
+
+  nom = 'ALYSSA BERTRAND';
+  score = 3476;
+
   isConnected = false;
   constructor(private titreService: TitreService) { }
 

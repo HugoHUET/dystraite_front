@@ -1,0 +1,42 @@
+<h3>Générales</h3>
+<div class="stat">
+    <div class="meter">
+        <div [style.width]="progress_orthographe">
+            <div class="progress-bar bg-rose">
+                {{progress_orthographe}}
+            </div>
+        </div>
+    </div>
+    <h6 class="rose">Orthographe</h6>
+</div>
+<div class="stat">
+    <div class="meter">
+        <div [style.width]="progress_conjugaison">
+            <div class="progress-bar bg-vert">
+                {{progress_conjugaison}}
+            </div>
+        </div>
+    </div>
+    <h6 class="vert">Conjugaison</h6>
+</div>
+<div class="stat">
+    <div class="meter">
+        <div [style.width]="progress_grammaire">
+            <div class="progress-bar bg-jaune">
+                {{progress_grammaire}}
+            </div>
+        </div>
+    </div>
+    <h6 class="jaune">Grammaire</h6>
+</div>
+<div class="stat">
+    <div class="meter">
+        <div [style.width]="progress_vocabulaire">
+            <div class="progress-bar bg-bleu">
+                {{progress_vocabulaire}}
+            </div>
+        </div>
+    </div>
+    <h6 class="bleu">Vocabulaire</h6>
+</div>
+<hr>
