@@ -11,7 +11,7 @@ a{
     position: fixed;
     top:0px;
     width: 100%;
-    height: 7%;
+    height: 6%;
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -20,10 +20,11 @@ a{
 .selected #contour {
     stroke: #FF647C;
 }
-.topbar > h1 {
+.topbar > p {
         font-size: 16px;
         font-weight: bold;
-        margin-top: 7%;
+        margin-top: 3%;
+        margin-bottom: 0;
 }
 .plus-selected{
     display: block;
@@ -76,7 +77,8 @@ a{
     /*box-shadow: 0 -5px 5px -5px #333; */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    background-color: white;
+	background-color: white;
+	z-index: 15;
 }
 a {
     display: inline-grid;
