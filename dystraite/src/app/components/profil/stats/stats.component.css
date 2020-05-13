@@ -6,7 +6,6 @@
 }
 
 .meter div {
-    display: block;
     height: 100%;
 }
 
@@ -16,6 +15,10 @@
     -moz-animation: progressBar 3s ease-in-out;
     -moz-animation-fill-mode:both;
     border-radius: 10px;
+    align-items: center;
+    padding-left: 10px;
+    color: white;
+    display: flex;
 }
 
 @keyframes progressBar {
@@ -26,7 +29,4 @@
 @-moz-keyframes progressBar {
   0% { width: 0; }
   100% { width: 100%; }
-}
-.bg-rose{
-    background-color: #FF647C;
 }

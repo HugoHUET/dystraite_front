@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsComponent implements OnInit {
   visible = false;
+  progress_orthographe = '50%';
+  progress_conjugaison = '100%';
+  progress_grammaire = '50%';
+  progress_vocabulaire = '75%';
+
   constructor() { }
 
   ngOnInit() {
