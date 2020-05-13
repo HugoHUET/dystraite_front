@@ -41,7 +41,7 @@
 }
 .bottom-container > .button{
     height: 40px;
-    padding: 10px;
+    padding: 0 10px 0 10px;
     display: grid;
     grid-template-columns: 68% 28%;
     grid-column-gap: 10px;
