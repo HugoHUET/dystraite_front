@@ -1,0 +1,55 @@
+<div class="background"></div>
+<div class="main-container" *ngIf="noChoice">
+    <a routerLink="/inscription"><i class="material-icons">arrow_back</i>&nbsp;&nbsp;&nbsp;Retour</a>
+    <div class="text">
+        <h4>Vous êtes ?</h4>
+        <p>Indiquez si vous êtes un utilisateur ou un orthophoniste.</p>
+    </div>
+    <div class="block full-page">
+        <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
+        <p class="cgu">Création de votre compte en deux minutes, préparer votre boite mail !</p>
+        <div class="action">
+            <a class="button filled" (click)="showUser()">
+                <span>Je suis un utilisateur</span>
+                <i class="material-icons">arrow_forward</i>
+            </a>
+            <a class="button" (click)="showOrtho()">
+                <span>Je suis un orthophoniste</span>
+                <i class="material-icons">arrow_forward</i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="main-container" *ngIf="noChoice == false">
+    <a (click)="showChoice()"><i class="material-icons">arrow_back</i>&nbsp;&nbsp;&nbsp;Retour</a>
+    <div class="text" *ngIf="user">
+        <h4>S'inscrire</h4>
+        <p>Remplissez les champs quivants pour créer votre compte utilisateur</p>
+    </div>
+    <div class="text" *ngIf="ortho">
+        <h4>S'inscrire</h4>
+        <p>Remplissez les champs quivants pour créer votre compte orthophoniste</p>
+    </div>
+    <div class="block align-left">
+        <label for="nom">Nom et prénom*</label>
+        <input placeholder="Entrez votre nom et prénom..." id="nom" type="text" class="validate">
+    </div>
+    <div class="block align-left">
+        <label for="email">Adresse email*</label>
+        <input placeholder="Entrez votre adresse email..." id="email" type="email" class="validate">
+    </div>
+    <div class="block align-left">
+        <label for="motdepasse">Mot de passe*</label>
+        <input placeholder="Entrez votre mot de passe..." id="motdepasse" type="password" class="validate">
+    </div>
+    <div class="block align-left">
+        <label for="ville">Ville*</label>
+        <input placeholder="Entrez votre ville..." id="ville" type="text" class="validate">
+    </div>
+    <div class="action">
+        <a class="button filled">
+            <span>Confirmez votre email</span>
+            <i class="material-icons">arrow_forward</i>
+        </a>
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { ConseilComponent } from 'src/app/components/conseil/conseil.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { OrthophonisteComponent } from 'src/app/components/orthophoniste/orthophoniste.component';
 import { ArticleComponent } from './components/bibliotheque/article/article.component';
+import { InscriptionComponent } from './components/profil/connexion/inscription/inscription.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'bibliotheque/article', component: ArticleComponent },
   { path: 'conseil', component: ConseilComponent },
   { path: 'profil', component: ProfilComponent },
+  { path: 'inscription', component: InscriptionComponent },
   { path: 'ortophoniste', component: OrthophonisteComponent },
 ];
 
