@@ -14,7 +14,8 @@ import { InscriptionComponent } from './components/profil/connexion/inscription/
 
 
 const routes: Routes = [
-  { path: '404', redirectTo: 'accueil'},
+  { path: '404', redirectTo: 'accueil' },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: 'accueil', component: ActualiteComponent },
   { path: 'jeux', component: JeuxComponent },
   { path: 'cours', component: CoursComponent },
