@@ -21,8 +21,6 @@ import { ChoixComponent } from './components/profil/connexion/inscription/choix/
 import { StatsComponent } from './components/profil/stats/stats.component';
 import { ProgrammeComponent } from './components/profil/programme/programme.component';
 import { EditComponent } from './components/profil/edit/edit.component';
-import { ConnexionComponent } from './components/connexion/connexion.component';
-import { InscriptionComponent } from './components/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +37,7 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
     ConnexionComponent,
     InscriptionComponent,
     ChoixComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
