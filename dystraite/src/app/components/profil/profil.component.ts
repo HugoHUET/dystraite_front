@@ -11,7 +11,7 @@ export class ProfilComponent implements OnInit {
   nom = 'ALYSSA BERTRAND';
   score = 3476;
 
-  isConnected = false;
+  isConnected = true;
   constructor(private titreService: TitreService) { }
 
   ngOnInit() {

@@ -9,7 +9,7 @@ import { TitreService } from './services/titre/titre.service';
 export class AppComponent {
   titre_page: string = "DYSTRAITE";
   isMobile = true;
-  isConnected = true;
+  isConnected = false;
   isPlusSelected = false;
   currentPlusClass = 'plus-initial';
 
