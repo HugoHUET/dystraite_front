@@ -63,9 +63,27 @@ img{
     width: 50px;
     margin-top: 0;
 }
-.rose{
-    color: #FF647C;
+.bg-rose{
+    background-color: #FF647C;
 }
-.bleu {
-    color: #92a3d1;
+.rose{
+  color: #FF647C;
+}
+.bg-vert{
+  background-color: #79cb7f;
+}
+.vert{
+color: #79cb7f;
+}
+.bg-jaune{
+  background-color: #ffcf5c;
+}
+.jaune{
+color: #ffcf5c;
+}
+.bg-bleu{
+  background-color: #92a3d0;
+}
+.bleu{
+color: #92a3d0;
 }
