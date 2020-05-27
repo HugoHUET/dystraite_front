@@ -10,7 +10,8 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { OrthophonisteComponent } from 'src/app/components/orthophoniste/orthophoniste.component';
 import { ArticleComponent } from './components/bibliotheque/article/article.component';
 import { StatsComponent } from './components/profil/stats/stats.component';
-import { InscriptionComponent } from './components/profil/connexion/inscription/inscription.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
+import { TypeComponent } from './components/inscription/type/type.component';
 
 
 const routes: Routes = [
@@ -26,9 +27,9 @@ const routes: Routes = [
   { path: 'ortophoniste', component: OrthophonisteComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'inscription', component: InscriptionComponent },
+  { path: 'inscription/:type', component: TypeComponent },
   { path: 'ortophoniste', component: OrthophonisteComponent },
   { path: 'profil/stats', component: StatsComponent },
-
 ];
 
 @NgModule({

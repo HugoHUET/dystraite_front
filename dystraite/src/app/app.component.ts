@@ -11,7 +11,7 @@ export class AppComponent {
   titre_page: string = "DYSTRAITE";
   isMobile = true;
   isConnected = false;
-  allowed_routes = ['/accueil', '/jeux', '/ortophoniste', '/cours', '/bibliotheque', '/conseil', '/profil', '/inscription'];
+  allowed_routes = ['/accueil', '/jeux', '/ortophoniste', '/cours', '/bibliotheque', '/conseil', '/profil', '/inscription', '/inscription', '/inscription/user', '/inscription/ortho'];
   isPlusSelected = false;
   currentPlusClass = 'plus-initial';
 

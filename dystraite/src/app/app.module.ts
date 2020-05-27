@@ -15,12 +15,12 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { OrthophonisteComponent } from './components/orthophoniste/orthophoniste.component';
 import { ArticleComponent } from './components/bibliotheque/article/article.component';
 import { LeconComponent } from './components/cours/lecon/lecon.component';
-import { ConnexionComponent } from './components/profil/connexion/connexion.component';
-import { InscriptionComponent } from './components/profil/connexion/inscription/inscription.component';
-import { ChoixComponent } from './components/profil/connexion/inscription/choix/choix.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 import { StatsComponent } from './components/profil/stats/stats.component';
 import { ProgrammeComponent } from './components/profil/programme/programme.component';
 import { EditComponent } from './components/profil/edit/edit.component';
+import { TypeComponent } from './components/inscription/type/type.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +36,8 @@ import { EditComponent } from './components/profil/edit/edit.component';
     LeconComponent,
     ConnexionComponent,
     InscriptionComponent,
-    ChoixComponent,
-    StatsComponent
+    StatsComponent,
+    TypeComponent
   ],
   imports: [
     BrowserModule,
