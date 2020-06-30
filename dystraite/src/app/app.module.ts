@@ -21,6 +21,9 @@ import { StatsComponent } from './components/profil/stats/stats.component';
 import { ProgrammeComponent } from './components/profil/programme/programme.component';
 import { EditComponent } from './components/profil/edit/edit.component';
 import { TypeComponent } from './components/inscription/type/type.component';
+import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
+import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
+import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { TypeComponent } from './components/inscription/type/type.component';
     ConnexionComponent,
     InscriptionComponent,
     StatsComponent,
-    TypeComponent
+    TypeComponent,
+    VerifMailComponent,
+    FinalisationComponent,
+    BravoComponent
   ],
   imports: [
     BrowserModule,

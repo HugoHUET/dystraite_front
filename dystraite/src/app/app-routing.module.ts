@@ -12,6 +12,9 @@ import { ArticleComponent } from './components/bibliotheque/article/article.comp
 import { StatsComponent } from './components/profil/stats/stats.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { TypeComponent } from './components/inscription/type/type.component';
+import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
+import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
+import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
 
 
 const routes: Routes = [
@@ -28,6 +31,9 @@ const routes: Routes = [
   { path: 'profil', component: ProfilComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'inscription/:type', component: TypeComponent },
+  { path: 'inscription/:type/verif-mail', component: VerifMailComponent },
+  { path: 'inscription/:type/finalisation', component: FinalisationComponent },
+  { path: 'inscription/:type/bravo', component: BravoComponent },
   { path: 'ortophoniste', component: OrthophonisteComponent },
   { path: 'profil/stats', component: StatsComponent },
 ];
