@@ -12,12 +12,13 @@ export class ProfilComponent implements OnInit {
   score = 3476;
 
   isConnected = false;
-  
-  constructor(private titreService: TitreService) { 
-    this.titreService.connect$.subscribe(c => {
+
+  constructor(private titreService: TitreService) {
+    /*this.titreService.connect$.subscribe(c => {
       console.log(c);
       this.isConnected = c;
-    });
+    });*/
+    this.isConnected = titreService.isConnected();
   }
 
   ngOnInit() {

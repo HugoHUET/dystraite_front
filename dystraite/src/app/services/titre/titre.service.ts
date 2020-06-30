@@ -8,6 +8,7 @@ export class TitreService {
 
   private titreSource = new Subject<string>();
   private connectSource = new Subject<boolean>();
+  private connected = false;
 
   titre$ = this.titreSource.asObservable();
   connect$ = this.connectSource.asObservable();
@@ -18,7 +19,13 @@ export class TitreService {
     this.titreSource.next(titre);
   }
 
-  updateConnect(c: boolean) {
-    this.connectSource.next(c);
+  connect() {
+    this.connected = true;
+  }
+  disconnect() {
+    this.connected = false;
+  }
+  isConnected() {
+    return this.connected;
   }
 }

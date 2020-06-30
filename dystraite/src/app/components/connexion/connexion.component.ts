@@ -14,8 +14,8 @@ export class ConnexionComponent implements OnInit {
   ngOnInit() {
   }
 
-  connect(){
-    this.titreService.updateConnect(true);
+  connect() {
+    this.titreService.connect();
     this.route.navigate(['/profil']);
   }
 
