@@ -22,7 +22,6 @@ export class ProfilComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.isConnected);
     this.titreService.updateTitle('Profil');
   }
 

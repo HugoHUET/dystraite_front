@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'cours', component: CoursComponent },
   { path: 'cours/lecon/:id', component: LeconComponent },
   { path: 'bibliotheque', component: BibliothequeComponent },
+  { path: 'bibliotheque/article/:id', component: ArticleComponent },
   { path: 'bibliotheque/article', component: ArticleComponent },
   { path: 'conseil', component: ConseilComponent },
   { path: 'ortophoniste', component: OrthophonisteComponent },

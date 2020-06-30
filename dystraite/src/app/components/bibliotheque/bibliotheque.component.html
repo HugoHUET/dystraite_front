@@ -1,15 +1,15 @@
 <h5>L'article du moment !</h5>
 <div class="block">
-	<img src="../../assets/RE2VOe0.jpeg" alt="test">
+	<img src="../../assets/grand-livre-ortho.jpeg" alt="test">
 	<div class="information">
-		<h6>La dysorthographie ?</h6>
-		<p>lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu<br>lorem ipsulorem ipsulorem ipsu</p>
-		<a class="button bg-rose" href="#" onclick="return false">Lire</a>
+		<h6>Le Grand Livre de l'orthographe</h6>
+		<p>La certification Voltaire est la certification de référence en orthographe en France. Sur le même principe que le TOEFL ou le TOEIC, elle propose une évaluation objective des compétences en orthographe française.</p>
+		<a class="button bg-rose" [routerLink]="['/bibliotheque/article', '0']">Lire</a>
 	</div>
 </div>
 <hr>
-<div class="ligne" *ngFor="let number of [0,1,2,3,4]">
-	<img src="../../assets/RE2VOe0.jpeg" alt="test">
-	<b>10 astuces pour comprendre plus facilement l'orthographe !</b>
-	<a class="button bg-rose" routerLink="article">Lire</a>
+<div class="ligne" *ngFor="let livre of livres">
+	<img src="data:image/bmp;base64,{{livre.vignette}}" alt="test">
+	<b>{{livre.titre}}</b>
+	<a class="button bg-rose" [routerLink]="['/bibliotheque/article', livre.id]">Lire</a>
 </div>
