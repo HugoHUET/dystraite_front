@@ -1,0 +1,29 @@
+<div class="background"></div>
+<div class="main-container">
+    <div class="text">
+        <h4>S'inscrire</h4>
+        <p>Dernière étape, complétez les champs suivants pour finaliser votre inscription</p>
+    </div>
+    <div class="block align-left">
+        <label for="tel">Téléphone</label>
+        <input placeholder="Entrez votre numéro de téléphone..." id="tel" type="tel" class="validate">
+    </div>
+    <div class="block align-left">
+        <label for="age">Âge</label>
+        <input placeholder="Entrez votre âge..." id="age" type="number" class="validate">
+    </div>
+    <div *ngIf="type == 'ortho'" class="block align-left">
+        <label for="code">Code d'accès*</label>
+        <input placeholder="Entrez votre code d'accès..." id="code" type="text" class="validate">
+    </div>
+    <div *ngIf="type != 'ortho'" class="block align-left">
+        <label for="mal">Maladie</label>
+        <input placeholder="Sélectionner votre maladie..." id="mal" type="text" class="validate">
+    </div>
+    <div class="action">
+        <a class="button filled" [routerLink]="['/inscription', type, 'bravo']">
+            <span>Finaliser mon inscription</span>
+            <i class="material-icons">arrow_forward</i>
+        </a>
+    </div>
+</div>
