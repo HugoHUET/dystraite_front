@@ -1,0 +1,25 @@
+<div class="background"></div>
+<div class="main-container">
+    <div class="text">
+        <h4>Bravo Machin !</h4>
+        <p *ngIf="type != 'ortho'">Vous êtes maintenant inscrit sur notre application Dystraite en tant qu'utilisateur.</p>
+        <p *ngIf="type == 'ortho'">Vous êtes maintenant inscrit sur notre application Dystraite en tant qu'orthophoniste.</p>
+    </div>
+    <div class="block full-page">
+        <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
+        <p class="cgu" *ngIf="type != 'ortho'">
+            Vous pouvez accèder à des cours, à des articles ou à des jeux et bien plus encore pour vous améliorer ! <br><br>
+            Accédez à un orthophoniste spécialisé avec notre <a href="#" class="rose">forfait PREMIUM</a>.
+        </p>
+        <p class="cgu" *ngIf="type == 'ortho'">
+            Vous pouvez créer des cours, créer des articles ou donner des jeux à vos élèves.<br><br>
+            Un suivi pour chaque élève est primordial pour son amélioration continue.
+        </p>
+        <div class="action">
+            <a class="button filled" [routerLink]="['/']">
+                <span>Compris !</span>
+                <i class="material-icons">arrow_forward</i>
+            </a>
+        </div>
+    </div>
+</div>
