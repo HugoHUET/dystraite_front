@@ -10,18 +10,18 @@ import { Router } from '@angular/router';
 export class AppComponent {
   titre_page: string = "DYSTRAITE";
   isMobile = true;
-  isConnected = false;
+  isConnected = true;
   allowed_routes = [
-    '/accueil', 
-    '/jeux', 
-    '/ortophoniste', 
-    '/cours', 
-    '/bibliotheque', 
-    '/conseil', 
-    '/profil', 
-    '/inscription', 
-    '/inscription', 
-    '/inscription/user', 
+    '/accueil',
+    '/jeux',
+    '/ortophoniste',
+    '/cours',
+    '/bibliotheque',
+    '/conseil',
+    '/profil',
+    '/inscription',
+    '/inscription',
+    '/inscription/user',
     '/inscription/ortho',
     '/inscription/user/verif-mail',
     '/inscription/ortho/verif-mail',
@@ -36,10 +36,7 @@ export class AppComponent {
   constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router) { }
 
   ngOnInit() {
-    this.titreService.connect$.subscribe(c => {
-      this.isConnected = c;
-      this.cd.detectChanges();
-    });
+
     this.titreService.titre$.subscribe(titre => {
       this.titre_page = titre;
     });
