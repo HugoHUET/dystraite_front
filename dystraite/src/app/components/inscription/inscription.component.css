@@ -31,6 +31,9 @@
 .main-container > .text > h4{
     font-weight: bold;
 }
+.main-container > .text > p {
+    text-align: left;
+}
 .main-container > .full-page{
     height: 100%;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TitreService } from 'src/app/services/titre/titre.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titreService: TitreService, private route: Router) { }
 
   ngOnInit() {
+  }
+
+  connect(){
+    this.titreService.updateConnect(true);
+    this.route.navigate(['/profil']);
   }
 
 }
