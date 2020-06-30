@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-type',
   templateUrl: './type.component.html',
-  styleUrls: ['./type.component.css']
+  styleUrls: ['./../inscription.component.css', './type.component.css']
 })
 export class TypeComponent implements OnInit {
 
