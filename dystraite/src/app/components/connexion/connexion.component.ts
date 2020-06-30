@@ -16,7 +16,7 @@ export class ConnexionComponent implements OnInit {
 
   connect() {
     this.titreService.connect();
-    this.route.navigate(['/profil']);
+    this.route.navigate(['/accueil']);
   }
 
 }
