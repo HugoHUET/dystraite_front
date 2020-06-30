@@ -1,0 +1,18 @@
+<div class="background"></div>
+<div class="main-container">
+    <div class="text">
+        <h4>S'inscrire</h4>
+        <p>Entrez votre code de confirmation reçu dans votre boîte mail</p>
+    </div>
+    <div class="block align-left">
+        <label for="code">Votre code*</label>
+        <input placeholder="Entrez votre code..." id="code" type="text" class="validate">
+    </div>
+    <a href="#">Renvoyer le code</a>
+    <div class="action">
+        <a class="button filled" [routerLink]="['/inscription', type, 'finalisation']">
+            <span>Continuer</span>
+            <i class="material-icons">arrow_forward</i>
+        </a>
+    </div>
+</div>

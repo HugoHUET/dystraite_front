@@ -1,0 +1,12 @@
+.action {
+    position: absolute;
+    width: 100%;
+    bottom: 180px;
+}
+.main-container > a {
+    color: grey;
+    text-decoration: underline;
+    font-size: unset;
+    display: inline-block;
+    margin-top: 10%;
+}
