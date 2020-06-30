@@ -1,6 +1,7 @@
 <div class="background"></div>
 <div class="main-container">
     <div class="text">
+        <!-- Formulaire sur une seule page + code ortho en premier -> code email -> bravo -->
         <h4>Se connecter</h4>
         <p>Entrez votre email et votre mot de passe pour vous connecter.</p>
     </div>
@@ -23,11 +24,11 @@
     </form>
 </div>
 <div class="bottom-container">
-    <a class="button filled" href="#" onclick="return false;document.getElementsByTagName('form')[0].submit();">
+    <a class="button bg-rose blanc" href="#" (click)="connect()" onclick="return false;document.getElementsByTagName('form')[0].submit();">
         <span>Se connecter</span>
         <i class="material-icons">arrow_right_alt</i>
     </a>
-    <a class="button" routerLink="/inscription">
+    <a class="button rose" routerLink="/inscription">
         <span>Créer un compte</span>
         <i class="material-icons">arrow_right_alt</i>
     </a>

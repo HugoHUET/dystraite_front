@@ -11,10 +11,17 @@ export class ProfilComponent implements OnInit {
   nom = 'ALYSSA BERTRAND';
   score = 3476;
 
-  isConnected = true;
-  constructor(private titreService: TitreService) { }
+  isConnected = false;
+  
+  constructor(private titreService: TitreService) { 
+    this.titreService.connect$.subscribe(c => {
+      console.log(c);
+      this.isConnected = c;
+    });
+  }
 
   ngOnInit() {
+    console.log(this.isConnected);
     this.titreService.updateTitle('Profil');
   }
 
