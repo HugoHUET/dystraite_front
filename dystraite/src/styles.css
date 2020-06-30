@@ -32,6 +32,7 @@ html{
     justify-content: center;
 }
 .large {
+    height: 40px;
     width: 100%;
 }
 img{
