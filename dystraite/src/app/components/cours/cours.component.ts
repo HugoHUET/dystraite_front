@@ -15,7 +15,7 @@ export class CoursComponent implements OnInit {
 
   ngOnInit() {
     this.titreService.updateTitle('Cours');
-    this.coursService.getCours().subscribe(res => {
+    this.coursService.getAllCours().subscribe(res => {
       this.cours = res;
     });
   }

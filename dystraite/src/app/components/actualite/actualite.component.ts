@@ -16,7 +16,7 @@ export class ActualiteComponent implements OnInit {
   constructor(private coursService: CoursService, private titreService: TitreService) { }
 
   ngOnInit() {
-    this.coursService.getCours().subscribe(cours => {
+    this.coursService.getAllCours().subscribe(cours => {
       this.actuList = cours;
     });
     this.titreService.updateTitle('Accueil');

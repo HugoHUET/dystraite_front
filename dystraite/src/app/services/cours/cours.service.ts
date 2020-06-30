@@ -10,7 +10,11 @@ import { environment } from '../../../environments/environment';
 export class CoursService {
   constructor(private http: HttpClient) { }
 
-  getCours(): Observable<Cours[]> {
+  getAllCours(): Observable<Cours[]> {
     return this.http.get<Cours[]>(environment.apiUrl + '/cours');
+  }
+
+  getCours(id: String): Observable<Cours> {
+    return this.http.get<Cours>(environment.apiUrl + '/cours/' + id);
   }
 }

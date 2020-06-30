@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'accueil', component: ActualiteComponent },
   { path: 'jeux', component: JeuxComponent },
   { path: 'cours', component: CoursComponent },
-  { path: 'cours/lecon', component: LeconComponent },
+  { path: 'cours/lecon/:id', component: LeconComponent },
   { path: 'bibliotheque', component: BibliothequeComponent },
   { path: 'bibliotheque/article', component: ArticleComponent },
   { path: 'conseil', component: ConseilComponent },

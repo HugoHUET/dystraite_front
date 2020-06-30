@@ -2,12 +2,18 @@
     <h4 class="col s8">Le cours</h4>
     <a class="button rose col s4" href="#" onclick="return false">Exercice</a>
 </div>
-<img src="../../assets/RE2VOe0.jpeg" alt="test">
-<h5>Bien écrire "descendre"</h5>
-<p>lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem<br>
-    ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem<br>
-    ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem<br>
-    ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem<br>
-    ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem<br><br>
-    ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsulorem ipsulorem ipsu lorem ipsulorem ipsulorem ipsu
-</p>
+<div *ngIf="cours else default">
+    <img src="data:image/png;base64,{{cours.vignette}}" alt="test">
+    <h5>{{cours.titre}}</h5>
+    <p>{{cours.contenu}}</p>
+</div>
+<ng-template #default>
+    <img src="../../assets/ponctuation.png" alt="test">
+    <h5>La ponctuation</h5>
+    <p>
+        Le point indique qu'une phrase déclarative se termine. On commence ensuite le premier mot de la phrase suivante par une majuscule. À l'oral, le point est marqué par une pause et la voix qui descend.<br><br>
+        "Il faut bien un exemple."<br><br>
+        Le point se met immédiatement après un mot. Ensuite, il faut mettre une espace pour commencer une nouvelle phrase.<br><br>
+        À noter qu'en typographie, une espace est un mot féminin.
+    </p>
+</ng-template>
