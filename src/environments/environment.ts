@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:7050'
 };
+export const tokenKey = 'access_token';
 
 /*
  * For easier debugging in development mode, you can import the following file

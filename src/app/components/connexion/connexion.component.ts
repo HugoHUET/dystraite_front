@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TitreService } from 'src/app/services/titre/titre.service';
 import { Router } from '@angular/router';
+import { UtilisateurService } from 'src/app/services/utilisateur/utilisateur.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-connexion',
@@ -9,14 +11,18 @@ import { Router } from '@angular/router';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor(private titreService: TitreService, private route: Router) { }
+  loginForm = new FormGroup({
+    login: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+  constructor(private utilisateurService: UtilisateurService) { }
 
   ngOnInit() {
   }
 
   connect() {
-    this.titreService.connect();
-    this.route.navigate(['/accueil']);
+    this.utilisateurService.connect(this.loginForm.get('login').value, this.loginForm.get('password').value, ['/accueil']);
   }
 
 }

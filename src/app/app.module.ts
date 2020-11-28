@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,18 @@ import { TypeComponent } from './components/inscription/type/type.component';
 import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
 import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
 import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
+import { JwtHelperService, JwtInterceptor, JwtModule } from "@auth0/angular-jwt";
+import { environment, tokenKey } from 'src/environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpErrorInterceptor } from './services/http/HttpErrorInterceptor';
+import { UtilisateurService } from './services/utilisateur/utilisateur.service';
+import { CoursService } from './services/cours/cours.service';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -50,9 +62,28 @@ import { BravoComponent } from './components/inscription/type/bravo/bravo.compon
     AppRoutingModule,
     HttpClientModule,
     ClickOutsideModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem(tokenKey);
+        },
+        //allowedDomains: [environment.apiUrl],
+        //disallowedRoutes: [environment.apiUrl, environment.apiUrl + '/login', environment.apiUrl + '/register'],
+      },
+    }),
   ],
-  providers: [],
+  providers: [
+    UtilisateurService,
+    CoursService,
+    JwtHelperService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
