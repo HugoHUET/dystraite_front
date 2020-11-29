@@ -60,7 +60,6 @@
     left: 50%;
     transform: translate(-50%, -40%);
     width: 80%;
-    z-index: 15;
 }
 .cgu{
     margin-bottom: 5%;
