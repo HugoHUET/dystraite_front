@@ -47,8 +47,8 @@ img{
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     background-color: white;
 }
-#toast-container > div {
-    opacity:1;
+#toast-container {
+    min-width: 0px;
 }
 .ligne{
     display: grid;

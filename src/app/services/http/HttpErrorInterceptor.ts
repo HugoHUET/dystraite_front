@@ -11,7 +11,9 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(
             catchError((error) => {
-                this.toastr.error(error.message, 'Une erreur est survenue');
+                this.toastr.error(error.message, 'Une erreur est survenue', {
+                    closeButton: true,
+                });
                 return throwError(error.message);
             })
         )
