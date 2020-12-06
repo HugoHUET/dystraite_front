@@ -1,0 +1,16 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "dystraite",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    },
+    "Keyboard": {
+      "resize": "none"
+    }
+  },
+  "cordova": {}
+}

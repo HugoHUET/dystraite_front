@@ -1,6 +1,8 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { TitreService } from './services/titre/titre.service';
 import { Router } from '@angular/router';
+import { Plugins, KeyboardInfo, Capacitor } from '@capacitor/core';
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -32,8 +34,23 @@ export class AppComponent {
   ];
   isPlusSelected = false;
   currentPlusClass = 'plus-initial';
+  appareil = null;
+  isKeyboardUp = false;
 
-  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router) { }
+  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router) {
+    if (Capacitor.platform !== "web") {
+      const { Keyboard } = Plugins;
+      Keyboard.setAccessoryBarVisible({ isVisible: true });
+      Keyboard.addListener('keyboardWillShow', (info: KeyboardInfo) => {
+        console.log('keyboard did show with height', info.keyboardHeight);
+        this.isKeyboardUp = true;
+      });
+      Keyboard.addListener('keyboardWillHide', () => {
+        console.log('keyboard did hide');
+        this.isKeyboardUp = false;
+      });
+    }
+  }
 
   ngOnInit() {
 
@@ -56,4 +73,5 @@ export class AppComponent {
   isRouteAllowed(route) {
     return this.allowed_routes.indexOf(route) !== -1;
   }
+
 }

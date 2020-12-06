@@ -1,38 +1,39 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>Dystraite</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Font family Nunito -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <title>Dystraite</title>
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- JavaScript for: angular-materialize. All of which are needed. -->
-  
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- JavaScript for: angular-materialize. All of which are needed. -->
 
-    <script>
-      var mini = true;
-  
-      function toggleSidebar() {
-        if (mini) {
-          document.getElementsByClassName("sidenav-fixed")[0].style.width = "220px";
-          this.mini = false;
-        } else {
-          document.getElementsByClassName("sidenav-fixed")[0].style.width = "85px";
-          this.mini = true;
-        }
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
+    var mini = true;
+
+    function toggleSidebar() {
+      if (mini) {
+        document.getElementsByClassName("sidenav-fixed")[0].style.width = "220px";
+        this.mini = false;
+      } else {
+        document.getElementsByClassName("sidenav-fixed")[0].style.width = "85px";
+        this.mini = true;
       }
-    </script>
-  </head>
-  <body>
-    <app-root (setTitle)="changeTitle($event)"></app-root>
-  </body>
+    }
+  </script>
+</head>
+
+<body>
+  <app-root (setTitle)="changeTitle($event)"></app-root>
+</body>
+
 </html>

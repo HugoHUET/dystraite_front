@@ -1,0 +1,7 @@
+{
+  "name": "dystraite",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

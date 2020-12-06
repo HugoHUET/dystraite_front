@@ -49,3 +49,5 @@ Thumbs.db
 node_modules/
 
 e2e/
+
+www/
