@@ -1,7 +1,7 @@
 <!-- Version Mobile -->
 <ion-app>
 	<div *ngIf="isMobile">
-		<ion-content no-bounce scroll="true" has-bouncing="false" overflow-scroll=“true” style="height: 95vh;">
+		<ion-content no-bounce scroll="true" has-bouncing="false" style="height: 95vh;">
 			<div class="row container-master" *ngIf="isConnected || isRouteAllowed(router.url)">
 				<router-outlet></router-outlet>
 			</div>
