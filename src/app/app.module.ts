@@ -24,6 +24,8 @@ import { TypeComponent } from './components/inscription/type/type.component';
 import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
 import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
 import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { BravoComponent } from './components/inscription/type/bravo/bravo.compon
     AppRoutingModule,
     HttpClientModule,
     ClickOutsideModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
