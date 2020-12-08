@@ -57,3 +57,6 @@
 .cgu{
     margin-bottom: 5%;
 }
+a {
+    -webkit-appearance: unset;
+}

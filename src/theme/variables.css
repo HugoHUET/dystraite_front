@@ -12,8 +12,12 @@
 
 ion-app {
     padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
 }
 .navbar {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.plus-selected {
     padding-bottom: env(safe-area-inset-bottom);
 }
 /*body {

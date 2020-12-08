@@ -2,7 +2,7 @@
 
 platform :ios, '11.0'
 
-target 'MyApp' do
-	project 'MyApp.xcodeproj'
+target 'Dystraite' do
+	project 'Dystraite.xcodeproj'
 
 end
