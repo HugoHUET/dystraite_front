@@ -49,3 +49,7 @@ Thumbs.db
 node_modules/
 
 e2e/
+
+platforms/ios/
+
+www/

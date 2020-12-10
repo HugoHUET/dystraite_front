@@ -19,6 +19,9 @@ ion-app {
 .plus-selected {
     padding-bottom: env(safe-area-inset-bottom);
 }
+.container-master {
+    padding-bottom: calc(env(safe-area-inset-top) + env(safe-area-inset-bottom) + 30px) !important;
+}
 /*body {
     padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
   }*/
