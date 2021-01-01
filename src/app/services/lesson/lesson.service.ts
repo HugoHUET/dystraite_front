@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class LessonService {
 
-  private REST_API_SERVER = environment.apiUrl + "/lesson/";
+  private REST_API_SERVER = environment.apiUrl + "/lessons/";
 
   constructor(private httpService: HttpClient) { }
 

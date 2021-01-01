@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class TagService {
 
-  private REST_API_SERVER = environment.apiUrl + "/tag/";
+  private REST_API_SERVER = environment.apiUrl + "/tags/";
 
   constructor(private httpService: HttpClient) { }
 
