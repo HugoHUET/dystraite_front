@@ -3,7 +3,10 @@
 	<img src="../../assets/whist.jpg" alt="test">
 	<div class="information-block">
 		<h6>Le whist</h6>
-		<p> Un des plus anciens jeux de cartes et l’on en fait mention en Angleterre dès 1529. En 1742, Edmond Hoyle publia Petit traité sur le jeu de whist (A Short Treatise on the Game of Whist) et établit par la suite les règles qui devaient régir ce jeu pendant plus d’un siècle. Le whist a encore évolué jusqu’à finalement donner naissance au bridge, dans la seconde moitié du XIXe siècle.</p>
+		<p> Un des plus anciens jeux de cartes et l’on en fait mention en Angleterre dès 1529. En 1742, Edmond Hoyle
+			publia Petit traité sur le jeu de whist (A Short Treatise on the Game of Whist) et établit par la suite les
+			règles qui devaient régir ce jeu pendant plus d’un siècle. Le whist a encore évolué jusqu’à finalement
+			donner naissance au bridge, dans la seconde moitié du XIXe siècle.</p>
 		<a class="button rose" href="#" [routerLink]="['/jeux']">Jouer</a>
 	</div>
 </div>
@@ -13,14 +16,13 @@
 <div class="block">
 	<img width="100%" src="../../assets/ponctuation.png" alt="test" style="border-radius: 10px 10px 0px 0px;">
 	<div class="information-block">
-		<h6>La ponctuation</h6>
+		<h6>{{lastLesson?.title}}</h6>
 		<p>
-			La ponctuation permet de lire et de comprendre un texte. Sans elle, il serait impossible de suivre un dialogue ou une conversation. Comment sans elle savoir qui parle ?<br>
-			l'on parle, le ton de la voix monte et descend tout le temps. À l'écrit, les signes de ponctuations indiquent les montées, les descentes et les pauses de la voix.
+			{{lastLesson?.description}}
 		</p>
-		<a class="button rose" href="#" [routerLink]="['/cours/lecon/0']">Lire</a>
+		<a class="button rose" href="#" [routerLink]="['/cours/lecon/'+lastLesson?.id]">Lire</a>
 	</div>
 </div>
 <a class="button bg-rose large" href="#" [routerLink]="['/cours']">
-    Accéder aux cours
+	Accéder aux cours
 </a>

@@ -11,13 +11,13 @@ import { TitreService } from 'src/app/services/titre/titre.service';
 
 export class ActualiteComponent implements OnInit {
 
-  lastLessons: Lesson[];
+  lastLesson: Lesson;
 
   constructor(private lessonService: LessonService, private titreService: TitreService) { }
 
   ngOnInit() {
     this.lessonService.getAllLessons().subscribe(lessons => {
-      this.lastLessons = lessons;
+      this.lastLesson = lessons[0];
     })
     this.titreService.updateTitle('Accueil');
 
