@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from 'src/app/models/book/book.model';
+import { BookService } from 'src/app/services/book/book.service';
 import { TitreService } from 'src/app/services/titre/titre.service';
-import { Livre } from 'src/app/models/livre/livre.model';
-import { LivreService } from 'src/app/services/livre/livre.service';
 
 @Component({
   selector: 'app-bibliotheque',
@@ -10,14 +10,15 @@ import { LivreService } from 'src/app/services/livre/livre.service';
 })
 export class BibliothequeComponent implements OnInit {
 
-  livres: Livre[];
+  books: Book[];
 
-  constructor(private titreService: TitreService, private livreService: LivreService) { }
+  constructor(private titreService: TitreService, private bookService: BookService) { }
 
   ngOnInit() {
     this.titreService.updateTitle("Bibliotheque");
-    this.livreService.getAllLivre().subscribe(res => {
-      this.livres = res;
+
+    this.bookService.getAllBooks().subscribe(books => {
+      this.books = books;
     });
   }
 

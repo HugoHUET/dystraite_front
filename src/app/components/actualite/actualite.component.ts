@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CoursService } from 'src/app/services/cours/cours.service';
-import { Cours } from 'src/app/models/cours/cours.model';
+import { Lesson } from 'src/app/models/lesson/lesson.model';
+import { LessonService } from 'src/app/services/lesson/lesson.service';
 import { TitreService } from 'src/app/services/titre/titre.service';
 
 @Component({
@@ -11,14 +11,14 @@ import { TitreService } from 'src/app/services/titre/titre.service';
 
 export class ActualiteComponent implements OnInit {
 
-  actuList: Cours[];
+  lastLessons: Lesson[];
 
-  constructor(private coursService: CoursService, private titreService: TitreService) { }
+  constructor(private lessonService: LessonService, private titreService: TitreService) { }
 
   ngOnInit() {
-    this.coursService.getAllCours().subscribe(cours => {
-      this.actuList = cours;
-    });
+    this.lessonService.getAllLessons().subscribe(lessons => {
+      this.lastLessons = lessons;
+    })
     this.titreService.updateTitle('Accueil');
 
   }
