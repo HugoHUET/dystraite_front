@@ -3,7 +3,7 @@
     <name>Dystraite</name>
     <description>Une application d'aide � l'orthographe</description>
     <author email="paul.lereverend@ynov.com" href="https://dystraite.fr">Dystraite team</author>
-    <content original-src="index.html" src="http://localhost:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
