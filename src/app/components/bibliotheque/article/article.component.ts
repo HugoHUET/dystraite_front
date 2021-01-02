@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LivreService } from 'src/app/services/livre/livre.service';
-import { Livre } from 'src/app/models/livre/livre.model';
+import { Book } from 'src/app/models/book/book.model';
+import { BookService } from 'src/app/services/book/book.service';
 
 @Component({
   selector: 'app-article',
@@ -10,16 +10,17 @@ import { Livre } from 'src/app/models/livre/livre.model';
 })
 export class ArticleComponent implements OnInit {
 
-  id: String;
-  livre: Livre;
+  id: number;
+  book: Book;
 
-  constructor(private route: ActivatedRoute, private coursService: LivreService) { 
+  constructor(private route: ActivatedRoute, private bookService: BookService) {
     this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
+      this.id = Number(params.get('id'));
 
     });
-    this.coursService.getLivre(this.id).subscribe(res => {
-      this.livre = res;
+
+    this.bookService.getBookById(this.id).subscribe(book => {
+      this.book = book;
     });
   }
 

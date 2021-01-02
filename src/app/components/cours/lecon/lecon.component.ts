@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CoursService } from 'src/app/services/cours/cours.service';
-import { Cours } from 'src/app/models/cours/cours.model';
+import { Lesson } from 'src/app/models/lesson/lesson.model';
+import { LessonService } from 'src/app/services/lesson/lesson.service';
 
 @Component({
   selector: 'app-lecon',
@@ -10,20 +10,21 @@ import { Cours } from 'src/app/models/cours/cours.model';
 })
 export class LeconComponent implements OnInit {
 
-  id: String;
-  cours: Cours;
+  id: number;
+  lesson: Lesson;
 
-  constructor(private route: ActivatedRoute, private coursService: CoursService) { 
+  constructor(private route: ActivatedRoute, private lessonService: LessonService) {
     this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
+      this.id = Number(params.get('id'));
+    });
 
-    });
-    this.coursService.getCours(this.id).subscribe(res => {
-      this.cours = res;
-    });
   }
 
   ngOnInit() {
+    this.lessonService.getLessonById(this.id).subscribe(lesson => {
+      console.log(lesson);
+      this.lesson = lesson;
+    });
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Lesson } from 'src/app/models/lesson/lesson.model';
+import { LessonService } from 'src/app/services/lesson/lesson.service';
 import { TitreService } from 'src/app/services/titre/titre.service';
-import { CoursService } from 'src/app/services/cours/cours.service';
-import { Cours } from 'src/app/models/cours/cours.model';
 
 @Component({
   selector: 'app-cours',
@@ -9,14 +9,14 @@ import { Cours } from 'src/app/models/cours/cours.model';
   styleUrls: ['./cours.component.css']
 })
 export class CoursComponent implements OnInit {
-  cours: Cours[];
+  lessons: Lesson[];
 
-  constructor(private titreService: TitreService, private coursService: CoursService) {}
+  constructor(private titreService: TitreService, private lessonService: LessonService) { }
 
   ngOnInit() {
     this.titreService.updateTitle('Cours');
-    this.coursService.getAllCours().subscribe(res => {
-      this.cours = res;
+    this.lessonService.getAllLessons().subscribe(lessons => {
+      this.lessons = lessons;
     });
   }
 

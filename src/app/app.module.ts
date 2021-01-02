@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,7 +26,10 @@ import { FinalisationComponent } from './components/inscription/type/finalisatio
 import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
+registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +59,7 @@ import { IonicModule } from '@ionic/angular';
     ReactiveFormsModule,
     IonicModule.forRoot()
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

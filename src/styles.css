@@ -100,3 +100,6 @@ img{
 input {
 	border-bottom: none !important;
 }
+p {
+    text-align: justify;
+}
