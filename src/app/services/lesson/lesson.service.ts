@@ -32,7 +32,7 @@ export class LessonService {
   }
 
   getLessonById(id: number): Observable<Lesson> {
-    return this.httpService.get(this.REST_API_SERVER + "?id=" + id).pipe(
+    return this.httpService.get(this.REST_API_SERVER + "/" + id).pipe(
       map((res: Lesson) => res));
   }
   // Need backend implementation

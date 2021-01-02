@@ -16,14 +16,15 @@ export class LeconComponent implements OnInit {
   constructor(private route: ActivatedRoute, private lessonService: LessonService) {
     this.route.paramMap.subscribe(params => {
       this.id = Number(params.get('id'));
+    });
 
-    });
-    this.lessonService.getLessonById(this.id).subscribe(lesson => {
-      this.lesson = lesson;
-    });
   }
 
   ngOnInit() {
+    this.lessonService.getLessonById(this.id).subscribe(lesson => {
+      console.log(lesson);
+      this.lesson = lesson;
+    });
   }
 
 }

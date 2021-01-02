@@ -7,6 +7,6 @@ export class Lesson {
     content: string
     thumbnail: string
     video: string
-    createdat: Date
+    createdAt: Date
     tags: Tag[]
 }

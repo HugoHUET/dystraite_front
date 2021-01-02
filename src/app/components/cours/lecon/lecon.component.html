@@ -2,12 +2,13 @@
     <h4 class="col s8">Le cours</h4>
     <a class="button rose col s4" href="#" onclick="return false">Exercice</a>
 </div>
-<div *ngIf="cours else default">
-    <img src="data:image/png;base64,{{cours.vignette}}" alt="test">
-    <h5>{{cours.titre}}</h5>
-    <p>{{cours.contenu}}</p>
+<div>
+    <img src="data:image/png;base64,{{lesson?.thumbnail}}" alt="test">
+    <h5>{{lesson?.title}}</h5>
+    <div>{{lesson?.createdAt | date}}</div>
+    <p>{{lesson?.content}}</p>
 </div>
-<ng-template #default>
+<!--<ng-template #default>
     <img src="../../assets/ponctuation.png" alt="test">
     <h5>La ponctuation</h5>
     <p>
@@ -16,4 +17,4 @@
         Le point se met immédiatement après un mot. Ensuite, il faut mettre une espace pour commencer une nouvelle phrase.<br><br>
         À noter qu'en typographie, une espace est un mot féminin.
     </p>
-</ng-template>
+</ng-template>-->
