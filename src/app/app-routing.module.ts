@@ -15,6 +15,7 @@ import { TypeComponent } from './components/inscription/type/type.component';
 import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
 import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
 import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
+import { WordblitzComponent } from './components/jeux/wordblitz/wordblitz.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: 'accueil', component: ActualiteComponent },
   { path: 'jeux', component: JeuxComponent },
+  { path: 'jeux/maximots', component: WordblitzComponent },
   { path: 'cours', component: CoursComponent },
   { path: 'cours/lecon/:id', component: LeconComponent },
   { path: 'bibliotheque', component: BibliothequeComponent },

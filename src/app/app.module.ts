@@ -24,6 +24,7 @@ import { TypeComponent } from './components/inscription/type/type.component';
 import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
 import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
 import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
+import { WordblitzComponent } from './components/jeux/wordblitz/wordblitz.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
@@ -46,7 +47,8 @@ registerLocaleData(localeFr, 'fr');
     TypeComponent,
     VerifMailComponent,
     FinalisationComponent,
-    BravoComponent
+    BravoComponent,
+    WordblitzComponent
   ],
   imports: [
     BrowserModule,

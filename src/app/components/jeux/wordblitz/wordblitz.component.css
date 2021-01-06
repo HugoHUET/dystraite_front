@@ -1,0 +1,40 @@
+.main {
+    text-align: center;
+}
+
+.grille {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    justify-items: stretch;
+    grid-gap: 5px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.grille > div {
+    background-color: bisque;
+    border-radius : 10px;
+    display: grid;
+    max-width: 100px;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+    touch-action: none;
+}
+
+.grille > div::before {
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+}
+
+.grille > div > span {
+    margin: auto;
+    font-size: 200%;
+}
+
+.grille > div > *, .grille > div::before {
+    grid-area: 1 / 1 / 2 / 2;
+}
