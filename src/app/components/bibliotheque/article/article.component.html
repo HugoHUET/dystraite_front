@@ -2,11 +2,11 @@
     <h4 class="col s6">L'article</h4>
     <a class="button rose col s6" href="#" onclick="return false">Acheter</a>
 </div>
-<div class="article-block" *ngIf="livre else default">
-	<img src="data:image/png;base64,{{livre.vignette}}" alt="test">
+<div class="article-block" *ngIf="book else default">
+	<img src="data:image/png;base64,{{book.thumbnail}}" alt="test">
 	<div class="information-block">
-		<h5>{{livre.titre}}</h5>
-        <p>{{livre.description}}</p>
+		<h5>{{book.title}}</h5>
+        <p>{{book.description}}</p>
 	</div>
 </div>
 <ng-template #default>
