@@ -8,6 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "ionic-build": "ionic build --project=dystraite",
+    "ionic-serve": "ionic serve --project=dystraite",
     "docker-build": "docker build --tag dystraite-back",
     "docker-run": "docker run --publish 80:80 --detach --name dystraite-back dystraite-back"
   },
@@ -68,7 +70,8 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
