@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Lesson } from 'src/app/models/lesson/lesson.model';
 import { LessonService } from 'src/app/services/lesson/lesson.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-lecon',
@@ -12,8 +13,9 @@ export class LeconComponent implements OnInit {
 
   id: number;
   lesson: Lesson;
+  safeVideoUrl;
 
-  constructor(private route: ActivatedRoute, private lessonService: LessonService) {
+  constructor(private route: ActivatedRoute, private lessonService: LessonService, private _sanitizer: DomSanitizer) {
     this.route.paramMap.subscribe(params => {
       this.id = Number(params.get('id'));
     });
@@ -22,7 +24,7 @@ export class LeconComponent implements OnInit {
 
   ngOnInit() {
     this.lessonService.getLessonById(this.id).subscribe(lesson => {
-      console.log(lesson);
+      this.safeVideoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(lesson.video);
       this.lesson = lesson;
     });
   }

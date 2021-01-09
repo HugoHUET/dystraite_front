@@ -28,7 +28,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { YouTubePlayerModule } from '@angular/youtube-player';
 
 registerLocaleData(localeFr, 'fr');
 @NgModule({
