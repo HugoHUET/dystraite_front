@@ -7,12 +7,12 @@
 			La ponctuation permet de lire et de comprendre un texte. Sans elle, il serait impossible de suivre un dialogue ou une conversation. Comment sans elle savoir qui parle ?<br>
 			l'on parle, le ton de la voix monte et descend tout le temps. À l'écrit, les signes de ponctuations indiquent les montées, les descentes et les pauses de la voix.
 		</p>
-        <a class="button bg-rose" [routerLink]="['/cours/lecon', '0']">Lire</a>
+        <a class="button bg-rose" [routerLink]="['/lessons/lesson', '0']">Lire</a>
     </div>
 </div>
 <hr>
-<div class="ligne" *ngFor="let lecon of cours">
-    <img src="data:image/bmp;base64,{{lecon.vignette}}" alt="test">
-    <b>{{lecon.titre}}</b>
-    <a class="button bg-rose" [routerLink]="['/cours/lecon', lecon.id]">Lire</a>
+<div class="ligne" *ngFor="let lesson of lessons">
+    <img src="data:image/bmp;base64,{{lesson.thumbnail}}" alt="test">
+    <b>{{lesson.title}}</b>
+    <a class="button bg-rose" [routerLink]="['/lessons/lesson', lesson.id]">Lire</a>
 </div>

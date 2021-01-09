@@ -24,6 +24,8 @@ import { TypeComponent } from './components/inscription/type/type.component';
 import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
 import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
 import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
@@ -53,7 +55,9 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     HttpClientModule,
     ClickOutsideModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    IonicModule.forRoot()
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]

@@ -1,0 +1,7 @@
+{
+  "name": "dystraite",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
