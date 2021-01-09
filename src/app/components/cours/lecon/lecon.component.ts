@@ -14,6 +14,7 @@ export class LeconComponent implements OnInit {
   id: number;
   lesson: Lesson;
   safeVideoUrl;
+  thumbnail: any;
 
   constructor(private route: ActivatedRoute, private lessonService: LessonService, private _sanitizer: DomSanitizer) {
     this.route.paramMap.subscribe(params => {
@@ -25,8 +26,10 @@ export class LeconComponent implements OnInit {
   ngOnInit() {
     this.lessonService.getLessonById(this.id).subscribe(lesson => {
       this.safeVideoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(lesson.video);
+      this.thumbnail = 'data:image/jpeg;base64,' + lesson.thumbnail;
       this.lesson = lesson;
     });
   }
+
 
 }

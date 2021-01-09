@@ -4,13 +4,12 @@
         <a class="button rose col s4" href="#" onclick="return false">Exercice</a>-->
 </div>
 <div>
-    <img src="data:image/png;base64,{{lesson?.thumbnail}}" alt="test">
+    <img *ngIf="lesson?.thumbnail" [src]="thumbnail" alt="Image d'illustration">
     <h5>{{lesson?.title}}</h5>
     <div>{{lesson?.createdAt | date}}</div>
     <div class="video-container" *ngIf="lesson?.video">
         <iframe width="560" height="315" [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
     </div>
-
     <p>{{lesson?.content}}</p>
 </div>
 <!--<ng-template #default>
