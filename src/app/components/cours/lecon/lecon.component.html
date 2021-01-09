@@ -1,11 +1,16 @@
 <div class="row">
     <h4 class="col s8">Le cours</h4>
-    <a class="button rose col s4" href="#" onclick="return false">Exercice</a>
+    <!-- Il n'y a pas de système d'exercice pour le moment. Donc on n'affiche pas le bouton
+        <a class="button rose col s4" href="#" onclick="return false">Exercice</a>-->
 </div>
 <div>
     <img src="data:image/png;base64,{{lesson?.thumbnail}}" alt="test">
     <h5>{{lesson?.title}}</h5>
     <div>{{lesson?.createdAt | date}}</div>
+    <div *ngIf="lesson.video">
+        <youtube-player videoId="dQw4w9WgXcQ">
+        </youtube-player>
+    </div>
     <p>{{lesson?.content}}</p>
 </div>
 <!--<ng-template #default>
