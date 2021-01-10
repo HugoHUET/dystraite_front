@@ -1,18 +1,18 @@
 <h5>Le cours du moment !</h5>
 <div class="block">
-    <img src="../../assets/ponctuation.png" alt="test">
+    <img *ngIf="currentLesson?.thumbnail" src="data:image/jpeg;base64,{{currentLesson?.thumbnail}}"
+        alt="Image d'illustration">
     <div class="information">
-        <h6>La ponctuation</h6>
+        <h6>{{currentLesson?.title}}</h6>
         <p>
-			La ponctuation permet de lire et de comprendre un texte. Sans elle, il serait impossible de suivre un dialogue ou une conversation. Comment sans elle savoir qui parle ?<br>
-			l'on parle, le ton de la voix monte et descend tout le temps. À l'écrit, les signes de ponctuations indiquent les montées, les descentes et les pauses de la voix.
-		</p>
-        <a class="button bg-rose" [routerLink]="['/lessons/lesson', '0']">Lire</a>
+            {{currentLesson?.description}}
+        </p>
+        <a class="button bg-rose" [routerLink]="['/cours/lecon/', currentLesson?.id]">Lire</a>
     </div>
 </div>
 <hr>
 <div class="ligne" *ngFor="let lesson of lessons">
     <img src="data:image/bmp;base64,{{lesson.thumbnail}}" alt="test">
     <b>{{lesson.title}}</b>
-    <a class="button bg-rose" [routerLink]="['/lessons/lesson', lesson.id]">Lire</a>
+    <a class="button bg-rose" [routerLink]="['/cours/lecon/', lesson.id]">Lire</a>
 </div>

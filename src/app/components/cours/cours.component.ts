@@ -10,13 +10,19 @@ import { TitreService } from 'src/app/services/titre/titre.service';
 })
 export class CoursComponent implements OnInit {
   lessons: Lesson[];
+  currentLesson: Lesson;
 
   constructor(private titreService: TitreService, private lessonService: LessonService) { }
 
   ngOnInit() {
     this.titreService.updateTitle('Cours');
+
+    this.lessonService.getLast(1).subscribe(lessons => {
+      this.currentLesson = lessons[0];
+    })
     this.lessonService.getAllLessons().subscribe(lessons => {
       this.lessons = lessons;
+      this.lessons = this.lessons.filter(lesson => lesson.id !== this.currentLesson.id);
     });
   }
 

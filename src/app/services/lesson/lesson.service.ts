@@ -35,6 +35,10 @@ export class LessonService {
     return this.httpService.get(this.REST_API_SERVER + "/" + id).pipe(
       map((res: Lesson) => res));
   }
+  getLast(limit: number): Observable<Lesson[]> {
+    return this.httpService.get(this.REST_API_SERVER + "/getLast/" + limit).pipe(
+      map((res: Lesson[]) => res));
+  }
   // Need backend implementation
 
   /*
