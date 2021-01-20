@@ -3,7 +3,8 @@
 	<img src="../../assets/whist.jpg" alt="test">
 	<div class="information-block">
 		<h6>Le whist</h6>
-		<p> Un des plus anciens jeux de cartes et l’on en fait mention en Angleterre dès 1529. En 1742, Edmond Hoyle
+		<p class="description"> Un des plus anciens jeux de cartes et l’on en fait mention en Angleterre dès 1529. En
+			1742, Edmond Hoyle
 			publia Petit traité sur le jeu de whist (A Short Treatise on the Game of Whist) et établit par la suite les
 			règles qui devaient régir ce jeu pendant plus d’un siècle. Le whist a encore évolué jusqu’à finalement
 			donner naissance au bridge, dans la seconde moitié du XIXe siècle.</p>
@@ -18,7 +19,7 @@
 		alt="Image d'illustration">
 	<div class="information-block">
 		<h6>{{lastLesson?.title}}</h6>
-		<p>
+		<p class="description">
 			{{lastLesson?.description}}
 		</p>
 		<a class="button rose" href="#" [routerLink]="['/cours/lecon/'+lastLesson?.id]">Lire</a>

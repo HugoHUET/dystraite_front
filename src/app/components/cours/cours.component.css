@@ -1,3 +1,9 @@
 .information{
     padding: 10px 5% 20px 5%;
 }
+.description{
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
