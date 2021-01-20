@@ -1,15 +1,18 @@
-<h5>L'article du moment !</h5>
+<h5>L'article du moment</h5>
 <div class="block">
-	<img src="../../assets/grand-livre-ortho.jpeg" alt="test">
+	<img *ngIf="currentBook?.thumbnail" src="data:image/jpeg;base64,{{currentBook?.thumbnail}}"
+		alt="Image d'illustration">
 	<div class="information">
-		<h6>Le Grand Livre de l'orthographe</h6>
-		<p>La certification Voltaire est la certification de référence en orthographe en France. Sur le même principe que le TOEFL ou le TOEIC, elle propose une évaluation objective des compétences en orthographe française.</p>
-		<a class="button bg-rose" [routerLink]="['/bibliotheque/article', '0']">Lire</a>
+		<h6>{{currentBook?.title}}</h6>
+		<p class="description">
+			{{currentBook?.description}}
+		</p>
+		<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
 	</div>
 </div>
 <hr>
 <div class="ligne" *ngFor="let book of books">
 	<img src="data:image/bmp;base64,{{book.thumbnail}}" alt="test">
 	<b>{{book.title}}</b>
-	<a class="button bg-rose" [routerLink]="['/bibliotheque/article', book.id]">Lire</a>
+	<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', book.id]">Lire</a>
 </div>

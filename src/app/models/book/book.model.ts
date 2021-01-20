@@ -6,6 +6,6 @@ export class Book {
     description: string
     link: string
     thumbnail: string
-    createdat: Date
+    createdAt: Date
     tags: Tag[]
 }

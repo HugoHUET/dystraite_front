@@ -1,15 +1,14 @@
 <div class="row">
     <h4 class="col s6">L'article</h4>
-    <a class="button rose col s6" href="#" onclick="return false">Acheter</a>
+    <a class="button rose col s6" [href]="book?.link" target="_blank">Découvrir</a>
 </div>
-<div class="article-block" *ngIf="book else default">
-	<img src="data:image/png;base64,{{book.thumbnail}}" alt="test">
-	<div class="information-block">
-		<h5>{{book.title}}</h5>
-        <p>{{book.description}}</p>
-	</div>
+<div>
+    <img *ngIf="book?.thumbnail" [src]="thumbnail" alt="Image d'illustration">
+    <h5>{{book?.title}}</h5>
+    <div>{{book?.createdAt | date}}</div>
+    <p>{{book?.description}}</p>
 </div>
-<ng-template #default>
+<!--<ng-template #default>
     <div class="article-block">
         <img src="../../assets/grand-livre-ortho.jpeg" alt="test">
         <div class="information-block">
@@ -17,4 +16,4 @@
             <p>La certification Voltaire est la certification de référence en orthographe en France. Sur le même principe que le TOEFL ou le TOEIC, elle propose une évaluation objective des compétences en orthographe française.</p>
         </div>
     </div>
-</ng-template>
+</ng-template>-->
