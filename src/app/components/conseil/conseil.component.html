@@ -1,1 +1,13 @@
-<p>conseil works!</p>
+<div class="tip" *ngFor="let tip of tipsList">
+    <div class="profile">
+        <img id="profil_img" src="../assets/mobile/tabbar-profil-image.jpg">
+        Paul
+    </div>
+    <div class="content">
+        {{tip.content}}
+    </div>
+    <div class="like">
+        <i class="material-icons like-icon">favorite_border</i>
+        124k
+    </div>
+</div>

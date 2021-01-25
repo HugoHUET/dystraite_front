@@ -1,3 +1,5 @@
+import { Tips } from "../tips/tips"
+
 export class User {
     id: number
     email: string
@@ -12,4 +14,5 @@ export class User {
     role: string
     photo: any
     speechtherapist: User
+    liked: Tips[]
 }

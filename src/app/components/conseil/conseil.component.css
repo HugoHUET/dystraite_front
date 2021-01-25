@@ -1,0 +1,34 @@
+.tip{
+    width: 120%;
+    background-color: antiquewhite;
+    margin-right: -30px;
+    margin-left: -30px;
+    display: flex;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+#profil_img{
+    border-radius: 50%;
+    width: 51px;
+    height: 51px;
+    border: 2px solid;
+    color: transparent;
+}
+.profile{
+    width: 51px;
+    text-align: center;
+}
+.content{
+    padding: 7px;
+}
+.like{
+    width: 40px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+.like-icon{
+    font-size: 30px;
+}
