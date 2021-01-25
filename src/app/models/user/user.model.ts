@@ -14,5 +14,6 @@ export class User {
     role: string
     photo: any
     speechtherapist: User
-    liked: Tips[]
+    tips: Tips[]
+    likedTips: Tips[]
 }

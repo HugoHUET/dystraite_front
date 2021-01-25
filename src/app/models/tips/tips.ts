@@ -4,5 +4,6 @@ export class Tips {
     id: number
     content: string
     createdAt: Date
-    liked: User[]
+    nbLikes: number
+    owner: User
 }
