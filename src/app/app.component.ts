@@ -2,6 +2,8 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { TitreService } from './services/titre/titre.service';
 import { Router } from '@angular/router';
 import { Key } from 'protractor';
+import { ContextService } from './services/context/context.service';
+import { User } from './models/user/user.model';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +38,7 @@ export class AppComponent {
   appareil = null;
   isKeyboardUp = false;
 
-  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router) {
+  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, private context: ContextService) {
     /*if (Capacitor.platform !== "web") {
       const { Keyboard } = Plugins;
       Keyboard.setAccessoryBarVisible({ isVisible: true });
@@ -52,6 +54,22 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.context.loggedUser = {
+      birthdate: null,
+      city: null,
+      email: null,
+      firstname: null,
+      id: null,
+      lastname: null,
+      latitude: null,
+      likedTips: [],
+      longitude: null,
+      photo: null,
+      role: null,
+      speechtherapist: null,
+      tips: [],
+      zipcode: null
+    };
 
     this.titreService.titre$.subscribe(titre => {
       this.titre_page = titre;

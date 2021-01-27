@@ -38,10 +38,10 @@ export class UserService {
       map((res: User) => res));
   }
   like(tip: Tips): Observable<Tips> {
-    this.context.loggedUser.likedTips.push(tip);
-    return this.httpService.post<Tips>(this.REST_API_SERVER, tip);
-
+    return null;
+    //return this.httpService.post<Tips>(this.REST_API_SERVER, tip);
   }
+
 
   // Need backup implementation
 

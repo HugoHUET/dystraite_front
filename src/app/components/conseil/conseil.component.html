@@ -7,7 +7,9 @@
         {{tip.content}}
     </div>
     <div class="like">
-        <i class="material-icons like-icon">favorite_border</i>
+        <i class="material-icons like-icon" (click)="like(tip)">{{isLiked(tip) ? 'favorite'
+            :
+            'favorite_border'}}</i>
         {{tip.nbLikes}}
     </div>
 </div>

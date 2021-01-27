@@ -10,7 +10,6 @@ export class User {
     longitude: number
     city: string
     zipcode: number
-    password: string
     role: string
     photo: any
     speechtherapist: User

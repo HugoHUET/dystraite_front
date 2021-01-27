@@ -17,9 +17,13 @@
 .profile{
     width: 51px;
     text-align: center;
+    padding-top: 7px;
 }
 .content{
+    height: 130px;
+    width: 80%;
     padding: 7px;
+    text-align: justify;
 }
 .like{
     width: 40px;
