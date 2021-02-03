@@ -1,18 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user/user.model';
-import { environment } from 'src/environments/environment';
+import { environment, tokenKey } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private REST_API_SERVER = environment.apiUrl + "/users/";
+  private REST_API_SERVER = environment.apiUrl + "/users";
 
-  constructor(private httpService: HttpClient) { }
+  constructor(private httpService: HttpClient, private route: Router) { }
 
   getAllUsers(): Observable<User[]> {
     return this.httpService.get(this.REST_API_SERVER).pipe(
@@ -34,6 +36,24 @@ export class UserService {
   getUserByEmail(email: string): Observable<User> {
     return this.httpService.get(this.REST_API_SERVER + "?email=" + email).pipe(
       map((res: User) => res));
+  }
+
+  isConnected() {
+    const helper = new JwtHelperService();
+    if (!helper.tokenGetter() && helper.isTokenExpired(helper.tokenGetter())) {
+      return false;
+    }
+    return true;
+  }
+  connect(email: string, password: string, redirectUrl: any[]) {
+    this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }, { observe: 'response' }).subscribe(response => {
+      localStorage.setItem(tokenKey, response.headers.get('Authorization'));
+      response.headers.get('Authorization');
+      //this.route.navigate(redirectUrl);
+    });
+  }
+  disconnect() {
+    localStorage.setItem(tokenKey, null);
   }
 
   // Need backup implementation

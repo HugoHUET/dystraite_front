@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TitreService } from 'src/app/services/titre/titre.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-profil',
@@ -13,12 +14,8 @@ export class ProfilComponent implements OnInit {
 
   isConnected = false;
 
-  constructor(private titreService: TitreService) {
-    /*this.titreService.connect$.subscribe(c => {
-      console.log(c);
-      this.isConnected = c;
-    });*/
-    this.isConnected = titreService.isConnected();
+  constructor(private titreService: TitreService, private userService: UserService) {
+    //this.isConnected = userService.isConnected();
   }
 
   ngOnInit() {
