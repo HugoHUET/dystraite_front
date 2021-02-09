@@ -75,15 +75,16 @@ registerLocaleData(localeFr, 'fr');
         tokenGetter: () => {
           return localStorage.getItem(tokenKey);
         },
-        //allowedDomains: [environment.apiUrl],
-        //disallowedRoutes: [environment.apiUrl, environment.apiUrl + '/login', environment.apiUrl + '/register'],
+        authScheme: "", // Le bearer est déjà retourné par le back. A enlever si ce n'est plus le cas.
+        whitelistedDomains: [new URL(environment.apiUrl).hostname + ":" + new URL(environment.apiUrl).port],
+        blacklistedRoutes: [environment.apiUrl + '/login', environment.apiUrl + '/register'],
       },
     }),
     IonicModule.forRoot()
   ],
   providers: [
-    JwtHelperService,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    //JwtHelperService,
+    //{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: LOCALE_ID, useValue: 'fr' }
   ],
   bootstrap: [AppComponent]

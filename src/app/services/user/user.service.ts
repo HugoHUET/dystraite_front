@@ -12,7 +12,9 @@ import { environment, tokenKey } from 'src/environments/environment';
 })
 export class UserService {
 
-  private REST_API_SERVER = environment.apiUrl + "/users";
+  private REST_API_SERVER = environment.apiUrl + "/users/";
+
+  public loggedUser: User;
 
   constructor(private httpService: HttpClient, private route: Router) { }
 
@@ -46,14 +48,15 @@ export class UserService {
     return true;
   }
   connect(email: string, password: string, redirectUrl: any[]) {
-    this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }, { observe: 'response' }).subscribe(response => {
-      localStorage.setItem(tokenKey, response.headers.get('Authorization'));
-      response.headers.get('Authorization');
-      //this.route.navigate(redirectUrl);
+    this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).subscribe(response => {
+      localStorage.setItem(tokenKey, response.token);
+      this.loggedUser = response.user;
+      this.route.navigate(redirectUrl);
     });
   }
   disconnect() {
     localStorage.setItem(tokenKey, null);
+    this.loggedUser = null;
   }
 
   // Need backup implementation
