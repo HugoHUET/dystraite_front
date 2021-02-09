@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: 'http://localhost:7050'
 };
 export const tokenKey = 'access_token';
+export const loggedUserKey = 'logged_user';
 
 /*
  * For easier debugging in development mode, you can import the following file

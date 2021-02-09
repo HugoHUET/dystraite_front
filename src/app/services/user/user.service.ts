@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user/user.model';
-import { environment, tokenKey } from 'src/environments/environment';
+import { environment, loggedUserKey, tokenKey } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class UserService {
 
   public loggedUser: User;
 
-  constructor(private httpService: HttpClient, private route: Router) { }
+  constructor(private httpService: HttpClient, private route: Router, private jwtHelper: JwtHelperService) { }
 
   getAllUsers(): Observable<User[]> {
     return this.httpService.get(this.REST_API_SERVER).pipe(
@@ -41,22 +41,28 @@ export class UserService {
   }
 
   isConnected() {
-    const helper = new JwtHelperService();
-    if (!helper.tokenGetter() && helper.isTokenExpired(helper.tokenGetter())) {
-      return false;
+    if (this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter()) && localStorage.getItem(loggedUserKey) != null) {
+      return true;
     }
-    return true;
+    return false;
   }
   connect(email: string, password: string, redirectUrl: any[]) {
     this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).subscribe(response => {
       localStorage.setItem(tokenKey, response.token);
+      localStorage.setItem(loggedUserKey, JSON.stringify(response.user));
       this.loggedUser = response.user;
       this.route.navigate(redirectUrl);
     });
   }
   disconnect() {
     localStorage.setItem(tokenKey, null);
+    localStorage.setItem(loggedUserKey, null);
     this.loggedUser = null;
+  }
+  loadLoggedUser() {
+    if (this.isConnected()) {
+      this.loggedUser = JSON.parse(localStorage.getItem(loggedUserKey));
+    }
   }
 
   // Need backup implementation

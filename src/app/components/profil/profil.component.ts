@@ -14,8 +14,9 @@ export class ProfilComponent implements OnInit {
 
   isConnected = false;
 
-  constructor(private titreService: TitreService, private userService: UserService) {
-    //this.isConnected = userService.isConnected();
+  constructor(private titreService: TitreService, public userService: UserService) {
+
+    this.isConnected = this.userService.isConnected();
   }
 
   ngOnInit() {

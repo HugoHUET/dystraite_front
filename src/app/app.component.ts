@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Key } from 'protractor';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
+import { UserService } from './services/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -38,7 +39,7 @@ export class AppComponent {
   appareil = null;
   isKeyboardUp = false;
 
-  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, public jwtHelper: JwtHelperService) {
+  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, private userService: UserService) {
     /*if (Capacitor.platform !== "web") {
       const { Keyboard } = Plugins;
       Keyboard.setAccessoryBarVisible({ isVisible: true });
@@ -55,9 +56,12 @@ export class AppComponent {
 
   ngOnInit() {
 
+    this.userService.loadLoggedUser();
+
     this.titreService.titre$.subscribe(titre => {
       this.titre_page = titre;
     });
+
 
   }
   togglePlus() {
