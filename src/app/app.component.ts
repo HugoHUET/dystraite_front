@@ -32,7 +32,8 @@ export class AppComponent {
     '/inscription/user/finalisation',
     '/inscription/ortho/finalisation',
     '/inscription/user/bravo',
-    '/inscription/ortho/bravo'
+    '/inscription/ortho/bravo',
+    'changePassword'
   ];
   isPlusSelected = false;
   currentPlusClass = 'plus-initial';

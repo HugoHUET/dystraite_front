@@ -1,41 +1,40 @@
 <div class="main-container">
-    <div class="background">
-        <div class="text">
-            <!-- Formulaire sur une seule page + code ortho en premier -> code email -> bravo -->
-            <h4>Se connecter</h4>
-            <p>Entrez votre email et votre mot de passe pour vous connecter.</p>
-        </div>
+  <div class="background">
+    <div class="text">
+      <!-- Formulaire sur une seule page + code ortho en premier -> code email -> bravo -->
+      <h4>Se connecter</h4>
+      <p>Entrez votre email et votre mot de passe pour vous connecter.</p>
     </div>
-    <form class="input" action="" mode="ios" [formGroup]="loginForm" (ngSubmit)="connect()">
-        <div class="block">
-            <label for="email">Adresse email*</label>
-            <input placeholder="Votre adresse email..." id="email" type="email" class="validate"
-                formControlName="email">
-        </div>
-        <div class="block">
-            <label for="password">Mot de passe*</label>
-            <input placeholder="Votre mot de passe..." id="password" type="password" class="validate"
-                formControlName="password">
-        </div>
-        <div class="option">
-            <p><a href="#" onclick="return false;">Mot de passe oublié ?</a></p>
-            <label>
-                <input type="checkbox" class="filled-in" />
-                <span>Se souvenir de moi</span>
-            </label>
-        </div>
-        <button class="button bg-rose large" type="submit">
-            <span>Se connecter</span>
-            <i class="material-icons">arrow_right_alt</i>
-        </button>
-    </form>
+  </div>
+  <form class="input" action="" mode="ios" [formGroup]="loginForm" (ngSubmit)="connect()">
+    <div class="block">
+      <label for="email">Adresse email*</label>
+      <input placeholder="Votre adresse email..." id="email" type="email" class="validate" formControlName="email">
+    </div>
+    <div class="block">
+      <label for="password">Mot de passe*</label>
+      <input placeholder="Votre mot de passe..." id="password" type="password" class="validate"
+        formControlName="password">
+    </div>
+    <div class="option">
+      <p><a routerLink="/change-password" onclick="return false;">Mot de passe oublié ?</a></p>
+      <label>
+        <input type="checkbox" class="filled-in" />
+        <span>Se souvenir de moi</span>
+      </label>
+    </div>
+    <button class="button bg-rose large" type="submit">
+      <span>Se connecter</span>
+      <i class="material-icons">arrow_right_alt</i>
+    </button>
+  </form>
 </div>
 <div class="bottom-container">
 
-    <a class="button rose large" routerLink="/inscription" style="background-color: white;">
-        <span>Créer un compte</span>
-        <i class="material-icons">arrow_right_alt</i>
-    </a>
-    <p class="cgu">* Champs obligatoire<br>Consulter nos Conditions générales, notre politique de confitentialité et nos
-        conditions de cookies.</p>
+  <a class="button rose large" routerLink="/inscription" style="background-color: white;">
+    <span>Créer un compte</span>
+    <i class="material-icons">arrow_right_alt</i>
+  </a>
+  <p class="cgu">* Champs obligatoire<br>Consulter nos Conditions générales, notre politique de confitentialité et nos
+    conditions de cookies.</p>
 </div>

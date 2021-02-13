@@ -269,6 +269,13 @@
   dependencies:
     tslib "^2.0.0"
 
+"@auth0/angular-jwt@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@auth0/angular-jwt/-/angular-jwt-4.2.0.tgz#60f74552fbdd9404aeb55e41fa4d3d514f8465d6"
+  integrity sha512-kxHMztP0scAaKSfWRQ4y3ba5ggcGh2YVapC1UnimyE1I1Vs68gdSlV00bnpAK4aCaNut9IqtdGurgbljHt24Lw==
+  dependencies:
+    url "^0.11.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
@@ -6075,6 +6082,13 @@ ng-click-outside@^6.0.0:
   resolved "https://registry.yarnpkg.com/ng-click-outside/-/ng-click-outside-6.0.0.tgz#9c4ae02ecf5001582fa15d1614bdce8bce7d6b28"
   integrity sha512-jOUidlFthMz0yI7Aey3fTmThduUIFG0h3kYgqD1uFO0rRvHWF0Cp5g9/fsJrBRFNEzdADRPoZnapyKzjv7m7Ig==
 
+ngx-toastr@^11.3.3:
+  version "11.3.3"
+  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-11.3.3.tgz#d360061edb2bee0a045e6b3bf832754007ac7b3d"
+  integrity sha512-DbLFkSZHsVPuuIIrsY1ziEhdkFUQ0V1yG1N0+1nKXGI5QBVesEDxLUVtntjzxJcWw/uUV+bKApo//tGHHORabQ==
+  dependencies:
+    tslib "^1.9.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -9051,6 +9065,11 @@ url-parse@^1.4.3:
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
+
+url-polyfill@^1.1.12:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/url-polyfill/-/url-polyfill-1.1.12.tgz#6cdaa17f6b022841b3aec0bf8dbd87ac0cd33331"
+  integrity sha512-mYFmBHCapZjtcNHW0MDq9967t+z4Dmg5CJ0KqysK3+ZbyoNOWQHksGCTWwDhxGXllkWlOc10Xfko6v4a3ucM6A==
 
 url@^0.11.0:
   version "0.11.0"
