@@ -14,8 +14,10 @@ export class ChangePasswordComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const email = form.value.email;
-    console.log(email);
-    this.passwordResetTokenService.requestToken(email);
-    window.alert('Nous vous avons envoyé un lien de modification de votre mot de passe par email.');
+    this.passwordResetTokenService.requestToken(email).subscribe(res => {
+      if (res) { window.alert('Nous vous avons envoyé un lien de modification de votre mot de passe par email.'); }
+    }, err => {
+      if (err) { window.alert(`Aucun utilisateur n'à été trouvé`); }
+    });
   }
 }
