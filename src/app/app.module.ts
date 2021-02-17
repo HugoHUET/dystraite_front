@@ -31,6 +31,7 @@ import { HttpErrorInterceptor } from './services/http/HttpErrorInterceptor';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { IonicModule } from '@ionic/angular';
+import { WordblitzComponent } from './components/jeux/wordblitz/wordblitz.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
@@ -57,7 +58,8 @@ registerLocaleData(localeFr, 'fr');
     TypeComponent,
     VerifMailComponent,
     FinalisationComponent,
-    BravoComponent
+    BravoComponent,
+    WordblitzComponent
   ],
   imports: [
     BrowserModule,
