@@ -17,7 +17,7 @@ export class ChangePasswordComponent implements OnInit {
     this.passwordResetTokenService.requestToken(email).subscribe(res => {
       if (res) { window.alert('Nous vous avons envoyé un lien de modification de votre mot de passe par email.'); }
     }, err => {
-      if (err) { window.alert(`Aucun utilisateur n'à été trouvé`); }
+      if (err) { window.alert(`Aucun utilisateur n'a été trouvé`); }
     });
   }
 }

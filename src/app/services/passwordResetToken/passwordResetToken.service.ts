@@ -17,4 +17,10 @@ export class PasswordResetTokenService {
     return this.httpService.post(url, body);
   }
 
+  changePassword(token: string, email: string, password: string) {
+    const url = `${this.REST_API_SERVER}/change-password/${token}`;
+    const body = { email, password };
+    return this.httpService.post(url, body);
+  }
+
 }
