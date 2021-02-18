@@ -46,14 +46,14 @@ export class UserService {
     }
     return false;
   }
-  connect(email: string, password: string, redirectUrl: any[]) {
+  login(email: string, password: string, redirectUrl: any[]) {
     this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).subscribe(response => {
       localStorage.setItem(tokenKey, response.token);
       this.loggedUser = response.user;
       this.route.navigate(redirectUrl);
     });
   }
-  disconnect() {
+  logout() {
     localStorage.setItem(tokenKey, null);
     this.loggedUser = null;
   }

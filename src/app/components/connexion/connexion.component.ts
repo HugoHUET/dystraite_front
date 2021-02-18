@@ -16,13 +16,13 @@ export class ConnexionComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private titreService: TitreService, private route: Router, private userService: UserService) { }
+  constructor(private titreService: TitreService, private userService: UserService) { }
 
   ngOnInit() {
   }
 
   connect() {
-    this.userService.connect(this.loginForm.get('email').value, this.loginForm.get('password').value, ['/accueil']);
+    this.userService.login(this.loginForm.get('email').value, this.loginForm.get('password').value, ['/accueil']);
   }
 
 }
