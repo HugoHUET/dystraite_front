@@ -18,22 +18,22 @@ export class UserService {
 
   constructor(private httpService: HttpClient, private route: Router, private jwtHelper: JwtHelperService) { }
 
-  getAllUsers(): Observable<User[]> {
+  /*getAllUsers(): Observable<User[]> {
     return this.httpService.get(this.REST_API_SERVER).pipe(
       map((res: User[]) => res));
-  }
+  }*/
 
-  createUser(user: User): Observable<User> {
+  /*createUser(user: User): Observable<User> {
     return this.httpService.post<User>(this.REST_API_SERVER, user);
-  }
+  }*/
 
   updateUser(id: number, value: User) {
     return this.httpService.put(this.REST_API_SERVER + id, value);
   }
 
-  deleteUser(id: number): Observable<User> {
+  /*deleteUser(id: number): Observable<User> {
     return this.httpService.delete<User>(this.REST_API_SERVER + id);
-  }
+  }*/
 
   getUserByEmail(email: string): Observable<User> {
     return this.httpService.get(this.REST_API_SERVER + "?email=" + email).pipe(
@@ -41,7 +41,7 @@ export class UserService {
   }
 
   isConnected() {
-    if (this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter()) && localStorage.getItem(loggedUserKey) != null) {
+    if (this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter()) && this.loggedUser) {
       return true;
     }
     return false;
@@ -49,20 +49,17 @@ export class UserService {
   connect(email: string, password: string, redirectUrl: any[]) {
     this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).subscribe(response => {
       localStorage.setItem(tokenKey, response.token);
-      localStorage.setItem(loggedUserKey, JSON.stringify(response.user));
       this.loggedUser = response.user;
       this.route.navigate(redirectUrl);
     });
   }
   disconnect() {
     localStorage.setItem(tokenKey, null);
-    localStorage.setItem(loggedUserKey, null);
     this.loggedUser = null;
   }
   loadLoggedUser() {
-    if (this.isConnected()) {
-      this.loggedUser = JSON.parse(localStorage.getItem(loggedUserKey));
-    }
+    return this.httpService.get(this.REST_API_SERVER + "loggedUser").pipe(
+      map((res: User) => res));
   }
 
   // Need backup implementation
