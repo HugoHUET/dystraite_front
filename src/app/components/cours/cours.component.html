@@ -18,8 +18,8 @@
         </div>
     </div>
 </div>
-<h5>Recommandé</h5>
-<div class="block">
+<h5 [hidden]="!currentLesson">Recommandé</h5>
+<div class="block" [hidden]="!currentLesson">
     <img *ngIf="currentLesson?.thumbnail" src="data:image/jpeg;base64,{{currentLesson?.thumbnail}}"
         alt="Image d'illustration">
     <div class="information">
