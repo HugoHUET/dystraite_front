@@ -13,7 +13,9 @@
 						class="material-icons">videogame_asset</i>Jeux</a>
 
 				<a routerLink="profil" class="profil" routerLinkActive="selected">
-					<img id="profil_img" src="../assets/mobile/tabbar-profil-image.jpg" routerLinkActive="selected">
+					<img *ngIf="userService.loggedUser" id="profil_img" src="../assets/mobile/tabbar-profil-image.jpg"
+						routerLinkActive="selected">
+					<ion-icon *ngIf="!userService.loggedUser" name="log-in-outline" id="profil_icon"></ion-icon>
 				</a>
 				<a routerLink="ortophoniste" routerLinkActive="selected"><i
 						class="material-icons">work_outline</i>Orthophoniste</a>

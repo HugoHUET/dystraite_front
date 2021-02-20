@@ -120,6 +120,15 @@ a {
         border: 2px solid;
         color: transparent;
 }
+#profil_icon{
+        border-radius: 50%;
+        width: 51px;
+        height: 51px;
+        border: 2px solid;
+        background-color: #e7e7e7;
+        padding-right: 5%;
+}
+
 .selected {
     color: #FF647C !important;
 }

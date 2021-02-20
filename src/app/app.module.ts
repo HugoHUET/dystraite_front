@@ -35,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { IonicModule } from '@ionic/angular';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { FilterPipe } from './filter.pipe';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -61,7 +62,8 @@ registerLocaleData(localeFr, 'fr');
     FinalisationComponent,
     BravoComponent,
     ChangePasswordComponent,
-    TokenComponent
+    TokenComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
