@@ -17,6 +17,8 @@ import { ArticleComponent } from './components/bibliotheque/article/article.comp
 import { LeconComponent } from './components/cours/lecon/lecon.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { ChangePasswordComponent } from './components/changePassword/changePassword.component';
+import { TokenComponent } from './components/changePassword/token/token.component';
 import { StatsComponent } from './components/profil/stats/stats.component';
 import { ProgrammeComponent } from './components/profil/programme/programme.component';
 import { EditComponent } from './components/profil/edit/edit.component';
@@ -59,6 +61,8 @@ registerLocaleData(localeFr, 'fr');
     VerifMailComponent,
     FinalisationComponent,
     BravoComponent,
+    ChangePasswordComponent,
+    TokenComponent,
     FilterPipe
   ],
   imports: [

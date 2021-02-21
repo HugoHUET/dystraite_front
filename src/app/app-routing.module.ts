@@ -11,6 +11,8 @@ import { OrthophonisteComponent } from 'src/app/components/orthophoniste/orthoph
 import { ArticleComponent } from './components/bibliotheque/article/article.component';
 import { StatsComponent } from './components/profil/stats/stats.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { ChangePasswordComponent } from './components/changePassword/changePassword.component';
+import { TokenComponent } from './components/changePassword/token/token.component';
 import { TypeComponent } from './components/inscription/type/type.component';
 import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
 import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
@@ -37,6 +39,8 @@ const routes: Routes = [
   { path: 'inscription/:type/bravo', component: BravoComponent },
   { path: 'ortophoniste', component: OrthophonisteComponent },
   { path: 'profil/stats', component: StatsComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'change-password/:token', component: TokenComponent }
 ];
 
 @NgModule({
