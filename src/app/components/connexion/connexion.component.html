@@ -23,7 +23,13 @@
         <span>Se souvenir de moi</span>
       </label>
     </div>
-    <button class="button bg-rose large" type="submit">
+    <button class="button bg-rose large" type="submit" [disabled]="isLoading">
+      <div class="lds-ellipsis" style="display: none;">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <span>Se connecter</span>
       <i class="material-icons">arrow_right_alt</i>
     </button>

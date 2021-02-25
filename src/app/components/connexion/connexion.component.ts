@@ -15,6 +15,7 @@ export class ConnexionComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
   });
+  isLoading = false;
 
   constructor(private titreService: TitreService, private userService: UserService) { }
 
@@ -22,6 +23,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   connect() {
+    this.isLoading = true;
     this.userService.login(this.loginForm.get('email').value, this.loginForm.get('password').value, ['/accueil']);
   }
 

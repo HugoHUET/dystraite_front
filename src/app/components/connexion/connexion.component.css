@@ -60,3 +60,15 @@
 a {
     -webkit-appearance: unset;
 }
+
+button:disabled > span {
+    display: none;
+}
+button:disabled > i {
+    display: none;
+}
+button:disabled {
+    display: block;
+}
+/* Login animation */ 
+  
