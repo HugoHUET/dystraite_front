@@ -4,6 +4,11 @@
 .photo-profil{
     text-align: center;
 }
+#photo-profil{
+    border-radius: 50%;
+    width: 143px;
+    height: 143px;
+}
 .bold{
     font-weight: bold;
 }
