@@ -13,11 +13,8 @@ export class ProfilComponent implements OnInit {
   nom = 'ALYSSA BERTRAND';
   score = 3476;
 
-  isConnected = false;
-
   constructor(private titreService: TitreService, public userService: UserService, private router: Router) {
 
-    this.isConnected = this.userService.isConnected();
   }
 
   ngOnInit() {

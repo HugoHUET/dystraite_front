@@ -1,5 +1,5 @@
-<app-connexion *ngIf="!isConnected"></app-connexion>
-<div *ngIf="isConnected">
+<app-connexion *ngIf="!userService.isConnected()"></app-connexion>
+<div *ngIf="userService.isConnected()">
     <div class="photo-profil">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="143" height="143"
             viewBox="0 0 143 143">
@@ -25,36 +25,42 @@
     <div class="block infos">
         <p class="rose bold" style="text-align: center; padding-bottom: 15px;">{{userService.loggedUser.firstname}}
             {{userService.loggedUser.lastname}}</p>
-        <div class="item">
+        <!-- BETA : Fonctionnalité non implémenté
+            <div class="item">
             <div class="rose" style="display: inline-block;">
                 <span class="material-icons bleu"
                     style="display: inline-block; margin-right: 10px;">show_chart</span>{{score}} points
             </div>
+        </div>-->
+        <div class="item">
+            <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
+                    style="display: inline-block; margin-right: 10px;">cake</span>{{userService.loggedUser.birthdate}}
+            </p>
         </div>
         <div class="item">
             <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
-                    style="display: inline-block; margin-right: 10px;">cake</span>34 ans</p>
+                    style="display: inline-block; margin-right: 10px;">mail</span>{{userService.loggedUser.email}}</p>
         </div>
-        <div class="item">
+        <!-- BETA : Fonctionnalité non implementé
+            <div class="item">
             <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
-                    style="display: inline-block; margin-right: 10px;">mail</span>toto.titi@gmail.com</p>
-        </div>
-        <div class="item">
-            <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
-                    style="display: inline-block; margin-right: 10px;">phone</span>06 45 37 85 47</p>
-        </div>
-        <!-- <div class="item">
+                    style="display: inline-block; margin-right: 10px;">phone</span>{{userService.loggedUser.phone}}</p>
+        </div>-->
+        <!-- BETA : Récupération de l'adresse avec les coordonées non implémenté
+            <div class="item">
             <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
                     style="display: inline-block; margin-right: 10px;">home</span>11 Rue des Potiers</p>
         </div> -->
         <div class="item">
             <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
-                    style="display: inline-block; margin-right: 10px;">place</span>NANTES</p>
+                    style="display: inline-block; margin-right: 10px;">place</span>{{userService.loggedUser.city}}</p>
         </div>
+        <!-- BETA : Fonctionnalité non implémenté
         <div class="item">
             <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
                     style="display: inline-block; margin-right: 10px;">filter_tilt_shift</span>Dyslexique</p>
         </div>
+        -->
         <!--<div>
             <input placeholder="Votre adresse email..." id="email" type="email" class="validate">
         </div> -->
