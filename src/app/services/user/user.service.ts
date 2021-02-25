@@ -54,7 +54,7 @@ export class UserService {
     });
   }
   logout() {
-    localStorage.setItem(tokenKey, null);
+    localStorage.removeItem(tokenKey);
     this.loggedUser = null;
   }
   loadLoggedUser() {
