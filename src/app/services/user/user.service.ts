@@ -12,7 +12,7 @@ import { environment, loggedUserKey, tokenKey } from 'src/environments/environme
 })
 export class UserService {
 
-  private REST_API_SERVER = environment.apiUrl + "/users/";
+  private REST_API_SERVER = environment.apiUrl + "/user/";
 
   public loggedUser: User;
 
@@ -58,8 +58,9 @@ export class UserService {
     this.loggedUser = null;
   }
   loadLoggedUser() {
-    return this.httpService.get(this.REST_API_SERVER + "loggedUser").pipe(
-      map((res: User) => res));
+    this.httpService.get(this.REST_API_SERVER + "loggedUser").subscribe((user: User) => {
+      this.loggedUser = user;
+    });
   }
 
   // Need backup implementation
