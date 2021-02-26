@@ -181,3 +181,8 @@ button:disabled .lds-ellipsis {
       transform: translate(24px, 0);
     }
   }
+
+  [type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #FF647C;
+    background-color: #FF647C;
+  }
