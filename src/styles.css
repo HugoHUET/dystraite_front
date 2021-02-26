@@ -102,6 +102,7 @@ img{
 
 input {
 	border-bottom: none !important;
+  box-shadow: 0px 0px 20px transparent !important;
 }
 p {
     text-align: justify;
@@ -112,6 +113,16 @@ p {
     color: grey;
     background-color: lightgray;
     border-color: lightgray;
+}
+
+button:disabled > span {
+  display: none;
+}
+button:disabled > i {
+  display: none;
+}
+button:disabled {
+  display: block !important;
 }
 
 /* Loading for buttons */ 

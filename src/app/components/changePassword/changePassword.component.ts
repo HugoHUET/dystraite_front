@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
 import { PasswordResetTokenService } from "src/app/services/passwordResetToken/passwordResetToken.service"
 
 @Component({
@@ -8,16 +9,18 @@ import { PasswordResetTokenService } from "src/app/services/passwordResetToken/p
   styleUrls: ["./changePassword.component.css"],
 })
 export class ChangePasswordComponent implements OnInit {
-  constructor(private passwordResetTokenService: PasswordResetTokenService) { }
+  isLoading = false;
+  constructor(private passwordResetTokenService: PasswordResetTokenService, private route: Router) { }
 
   ngOnInit() { }
 
   onSubmit(form: NgForm) {
+    this.isLoading = true;
     const email = form.value.email;
     this.passwordResetTokenService.requestToken(email).subscribe(res => {
-      if (res) { window.alert('Nous vous avons envoyé un lien de modification de votre mot de passe par email.'); }
+      if (res) { window.alert('Nous vous avons envoyé un lien de modification de votre mot de passe par email.'); this.route.navigate(['/accueil']); }
     }, err => {
-      if (err) { window.alert(`Aucun utilisateur n'a été trouvé`); }
+      if (err) { window.alert(`Aucun utilisateur n'a été trouvé`); this.isLoading = false; }
     });
   }
 }
