@@ -9,8 +9,9 @@
     width: 143px;
     height: 143px;
 }
-.bold{
+.name{
     font-weight: bold;
+    font-size: 20px;
 }
 .block.infos{
     padding: 25px;

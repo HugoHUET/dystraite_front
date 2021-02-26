@@ -25,4 +25,11 @@ export class ProfilComponent implements OnInit {
     this.router.navigate([''],);
 
   }
+  public calculateAge() {
+    if (this.userService.loggedUser.birthdate) {
+      var timeDiff = Math.abs(Date.now() - new Date(this.userService.loggedUser.birthdate).getTime());
+      return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+    }
+    return '';
+  }
 }
