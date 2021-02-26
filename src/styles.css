@@ -107,6 +107,13 @@ p {
     text-align: justify;
 }
 
+.disabled-beta {
+    pointer-events: none;
+    color: grey;
+    background-color: lightgray;
+    border-color: lightgray;
+}
+
 /* Loading for buttons */ 
 button:disabled .lds-ellipsis {
     display: inline-block !important;
