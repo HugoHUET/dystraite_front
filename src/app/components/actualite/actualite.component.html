@@ -1,6 +1,6 @@
 <h5>LE JEU DU MOMENT</h5>
 <div class="block disabled-beta">
-	<img src="../../assets/whist.jpg" alt="test">
+	<img src="../../assets/whist.jpg" alt="illustration jeu du moment">
 	<div class="information-block">
 		<h6>Maximots</h6>
 		<p class="description"> Description du jeu</p>
@@ -12,7 +12,7 @@
 <h5>LE COURS DU MOMENT</h5>
 <div class="block">
 	<img *ngIf="lastLesson?.thumbnail" src="data:image/jpeg;base64,{{lastLesson?.thumbnail}}"
-		alt="Image d'illustration">
+		alt="illustration cours du moment">
 	<div class="information-block">
 		<h6>{{lastLesson?.title}}</h6>
 		<p class="description">
@@ -27,7 +27,8 @@
 <hr>
 <h5>LE LIVRE DU MOMENT</h5>
 <div class="block">
-	<img *ngIf="lastBook?.thumbnail" src="data:image/jpeg;base64,{{lastBook?.thumbnail}}" alt="Image d'illustration">
+	<img *ngIf="lastBook?.thumbnail" src="data:image/jpeg;base64,{{lastBook?.thumbnail}}"
+		alt="illustration livre du moment">
 	<div class="information-block">
 		<h6>{{lastBook?.title}}</h6>
 		<p class="description">

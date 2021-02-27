@@ -41,10 +41,10 @@ export class UserService {
   }
 
   isConnected() {
-    if (this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter()) && this.loggedUser) {
-      return true;
-    }
-    return false;
+    return this.isTokenAvailable() && this.loggedUser;
+  }
+  isTokenAvailable() {
+    return this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter());
   }
   login(email: string, password: string, redirectUrl: any[]) {
     this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).subscribe(response => {
@@ -58,9 +58,11 @@ export class UserService {
     this.loggedUser = null;
   }
   loadLoggedUser() {
-    this.httpService.get(this.REST_API_SERVER + "loggedUser").subscribe((user: User) => {
-      this.loggedUser = user;
-    });
+    if (this.isTokenAvailable()) {
+      this.httpService.get(this.REST_API_SERVER + "loggedUser").subscribe((user: User) => {
+        this.loggedUser = user;
+      });
+    }
   }
 
   // Need backup implementation

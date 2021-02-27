@@ -90,7 +90,7 @@ registerLocaleData(localeFr, 'fr');
   ],
   providers: [
     //JwtHelperService,
-    //{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: LOCALE_ID, useValue: 'fr' }
   ],
   bootstrap: [AppComponent]
