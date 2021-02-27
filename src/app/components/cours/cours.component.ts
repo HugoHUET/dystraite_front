@@ -23,12 +23,9 @@ export class CoursComponent implements OnInit {
   ngOnInit() {
     this.titreService.updateTitle('Cours');
 
-    this.lessonService.getLast(1).subscribe(lessons => {
-      this.currentLesson = lessons[0];
-    })
     this.lessonService.getAllLessons().subscribe(lessons => {
+      this.currentLesson = lessons.shift();
       this.lessons = lessons;
-      this.lessons = this.lessons.filter(lesson => lesson.id !== this.currentLesson.id);
     });
   }
 

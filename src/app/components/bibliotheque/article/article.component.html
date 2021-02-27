@@ -1,6 +1,5 @@
 <div class="row">
-    <h4 class="col s6">L'article</h4>
-    <a class="button rose col s6" [href]="book?.link" target="_blank">Découvrir</a>
+    <h4 class="col s8">L'article</h4>
 </div>
 <div>
     <img *ngIf="book?.thumbnail" [src]="thumbnail" alt="Image d'illustration">
@@ -8,6 +7,8 @@
     <div>{{book?.createdAt | date}}</div>
     <p>{{book?.description}}</p>
 </div>
+<a class="button bg-rose large" [href]="book?.link" target="_blank">Découvrir</a>
+
 <!--<ng-template #default>
     <div class="article-block">
         <img src="../../assets/grand-livre-ortho.jpeg" alt="test">

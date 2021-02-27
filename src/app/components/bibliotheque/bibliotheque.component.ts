@@ -24,13 +24,9 @@ export class BibliothequeComponent implements OnInit {
   ngOnInit() {
     this.titreService.updateTitle("Bibliotheque");
 
-
-    this.bookService.getLast(1).subscribe(books => {
-      this.currentBook = books[0];
-    })
-
     this.bookService.getAllBooks().subscribe(books => {
-      this.books = books;
+      this.currentBook = books.shift();
+      this.books = books
     });
   }
 
