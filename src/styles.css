@@ -127,6 +127,8 @@ h1, h2, h3, h4, h5, h6, h7 {
     color: grey;
     background-color: lightgray;
     border-color: lightgray;
+    background: lightgray;
+    font-weight: 300;
 }
 
 button:disabled > span {
