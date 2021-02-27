@@ -30,7 +30,7 @@
         <a class="button bg-rose" [routerLink]="['/cours/lecon/', currentLesson?.id]">Lire</a>
     </div>
 </div>
-<hr>
+<hr class="solid">
 <div class="ligne" *ngFor="let lesson of lessons | filter: filter">
     <img src="data:image/bmp;base64,{{lesson.thumbnail}}" alt="thumbnail">
     <b>{{lesson.title}}</b>

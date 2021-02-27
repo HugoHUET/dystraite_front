@@ -8,7 +8,7 @@
 	</div>
 </div>
 <a class="button bg-rose large" href="#" [routerLink]="['/jeux']">Accéder aux jeux</a>
-<hr>
+<hr class="solid">
 <h5>LE COURS DU MOMENT</h5>
 <div class="block">
 	<img *ngIf="lastLesson?.thumbnail" src="data:image/jpeg;base64,{{lastLesson?.thumbnail}}"
@@ -24,7 +24,7 @@
 <a class="button bg-rose large" href="#" [routerLink]="['/cours']">
 	Accéder aux cours
 </a>
-<hr>
+<hr class="solid">
 <h5>LE LIVRE DU MOMENT</h5>
 <div class="block">
 	<img *ngIf="lastBook?.thumbnail" src="data:image/jpeg;base64,{{lastBook?.thumbnail}}"

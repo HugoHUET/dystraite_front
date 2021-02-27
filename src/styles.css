@@ -23,7 +23,7 @@ html{
 }
 .button{
     height: 30px;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 1px solid;
     /* border-color: #92a3d1;
     background-color: white;
@@ -32,7 +32,13 @@ html{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
 }
+hr.solid {
+  opacity: 15%;
+  border-top: 1px solid #000;
+}
+
 .large {
     height: 40px;
     width: 100%;
@@ -71,9 +77,10 @@ img{
     margin-top: 0;
 }
 .bg-rose{
-    background-color: #FF647C;
-    border-color: #FF647C;
+    /*background-color: #FF647C;
+    border-color: #FF647C; */
     color: white;
+    background: linear-gradient(to right bottom, #fb6d83, #da3e5b);
 }
 .rose{
   color: #FF647C;
@@ -99,7 +106,6 @@ img{
 .bleu{
     color: #92a3d0;
 }
-
 input {
 	border-bottom: none !important;
   box-shadow: 0px 0px 20px transparent !important;
