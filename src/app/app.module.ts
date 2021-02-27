@@ -36,6 +36,7 @@ import { IonicModule } from '@ionic/angular';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { FilterPipe } from './filter.pipe';
+import { BetaComponent } from './components/beta/beta.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -63,7 +64,8 @@ registerLocaleData(localeFr, 'fr');
     BravoComponent,
     ChangePasswordComponent,
     TokenComponent,
-    FilterPipe
+    FilterPipe,
+    BetaComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ import { TypeComponent } from './components/inscription/type/type.component';
 import { VerifMailComponent } from './components/inscription/type/verif-mail/verif-mail.component';
 import { FinalisationComponent } from './components/inscription/type/finalisation/finalisation.component';
 import { BravoComponent } from './components/inscription/type/bravo/bravo.component';
+import { BetaComponent } from './components/beta/beta.component';
 
 
 const routes: Routes = [
@@ -40,7 +41,10 @@ const routes: Routes = [
   { path: 'ortophoniste', component: OrthophonisteComponent },
   { path: 'profil/stats', component: StatsComponent },
   { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'change-password/:token', component: TokenComponent }
+  { path: 'change-password/:token', component: TokenComponent },
+
+  { path: 'beta', component: BetaComponent }
+
 ];
 
 @NgModule({
