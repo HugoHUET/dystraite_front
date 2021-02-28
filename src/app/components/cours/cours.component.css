@@ -7,3 +7,61 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+/* Filtre */ 
+.filter {
+    fill: rgba(255,255,255,1);
+    color: rgba(86,86,86,1);
+    box-shadow: 0px 0px 20px rgb(0 0 0 / 5%) !important;
+}
+
+#input_container {
+    position:relative;
+    height: 48px;
+}
+#filter {
+    margin:0;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    width: -webkit-fill-available;
+}
+#filter::placeholder {
+    color: #565656;
+    font-size: 15px;
+}
+#search-icon {
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    color: #565656
+}
+#filter-icon {
+    position: absolute;
+    top: 11px;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+#filter-tags {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgb(0 0 0 / 5%) !important;
+    padding: 1px 25px 25px 25px;
+}
+.tags {
+
+}
+.tag {
+    display: inline-flex;
+    margin-right: 10px;
+    padding: 13px;
+    border-radius: 12px;
+    margin-top: 15px;
+    background-color: #F5F5F5;
+    color: #707070;
+    border: 0px;
+}

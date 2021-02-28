@@ -7,11 +7,30 @@
 img{
     border-radius: 10px 10px 0px 0px;
     width: 100%;
-    height: auto;
 }
 .description{
     display: -webkit-box;
     -webkit-line-clamp: 9;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+.beta-container {
+    background-color: #FFF3CD;
+    color: #7D6520;
+    display: inline-flex;
+    width: 100%;
+    border-radius: 6px;
+    padding: 5px;
+    padding-left: 15px;
+}
+.beta-btn {
+    background-color: #FFF3CD;
+    color: #7D6520;
+    border-radius: 5px;
+    margin-left: auto;
+    font-size: 18px;
+}
+.beta-btn > ion-icon {
+    margin-left: 5px;
+    vertical-align: middle;
 }

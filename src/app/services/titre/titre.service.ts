@@ -18,14 +18,4 @@ export class TitreService {
   updateTitle(titre: string) {
     this.titreSource.next(titre);
   }
-
-  connect() {
-    this.connected = true;
-  }
-  disconnect() {
-    this.connected = false;
-  }
-  isConnected() {
-    return this.connected;
-  }
 }

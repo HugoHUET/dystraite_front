@@ -26,7 +26,6 @@ export class ArticleComponent implements OnInit {
     this.bookService.getBookById(this.id).subscribe(book => {
       this.thumbnail = 'data:image/jpeg;base64,' + book.thumbnail;
       this.book = book;
-      console.log(this.book);
     });
   }
 

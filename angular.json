@@ -56,7 +56,8 @@
               },
               {
                 "input": "src/theme/variables.css"
-              }
+              },
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },

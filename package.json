@@ -28,7 +28,10 @@
     "ng-click-outside": "^6.0.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@auth0/angular-jwt": "^4.2.0",
+    "url-polyfill": "^1.1.12",
+    "ngx-toastr": "^11.3.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1100.3",

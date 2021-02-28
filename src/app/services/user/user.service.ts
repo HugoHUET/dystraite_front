@@ -1,37 +1,40 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Tips } from 'src/app/models/tips/tips';
 import { User } from 'src/app/models/user/user.model';
-import { environment } from 'src/environments/environment';
-import { ContextService } from '../context/context.service';
+import { environment, loggedUserKey, tokenKey } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private REST_API_SERVER = environment.apiUrl + "/users/";
+  private REST_API_SERVER = environment.apiUrl + "/user/";
 
-  constructor(private httpService: HttpClient, private context: ContextService) { }
+  public loggedUser: User;
 
-  getAllUsers(): Observable<User[]> {
+  constructor(private httpService: HttpClient, private route: Router, private jwtHelper: JwtHelperService) { }
+
+  /*getAllUsers(): Observable<User[]> {
     return this.httpService.get(this.REST_API_SERVER).pipe(
       map((res: User[]) => res));
-  }
+  }*/
 
-  createUser(user: User): Observable<User> {
+  /*createUser(user: User): Observable<User> {
     return this.httpService.post<User>(this.REST_API_SERVER, user);
-  }
+  }*/
 
   updateUser(id: number, value: User) {
     return this.httpService.put(this.REST_API_SERVER + id, value);
   }
 
-  deleteUser(id: number): Observable<User> {
+  /*deleteUser(id: number): Observable<User> {
     return this.httpService.delete<User>(this.REST_API_SERVER + id);
-  }
+  }*/
 
   getUserByEmail(email: string): Observable<User> {
     return this.httpService.get(this.REST_API_SERVER + "?email=" + email).pipe(
@@ -42,6 +45,30 @@ export class UserService {
     //return this.httpService.post<Tips>(this.REST_API_SERVER, tip);
   }
 
+  isConnected() {
+    return this.isTokenAvailable() && this.loggedUser;
+  }
+  isTokenAvailable() {
+    return this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter());
+  }
+  login(email: string, password: string, redirectUrl: any[]) {
+    this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).subscribe(response => {
+      localStorage.setItem(tokenKey, response.token);
+      this.loggedUser = response.user;
+      this.route.navigate(redirectUrl);
+    });
+  }
+  logout() {
+    localStorage.removeItem(tokenKey);
+    this.loggedUser = null;
+  }
+  loadLoggedUser() {
+    if (this.isTokenAvailable()) {
+      this.httpService.get(this.REST_API_SERVER + "loggedUser").subscribe((user: User) => {
+        this.loggedUser = user;
+      });
+    }
+  }
 
   // Need backup implementation
 

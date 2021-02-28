@@ -31,11 +31,11 @@ export class BookService {
   }
 
   getBookById(id: number): Observable<Book> {
-    return this.httpService.get(this.REST_API_SERVER + "/" + id).pipe(
+    return this.httpService.get(this.REST_API_SERVER + id).pipe(
       map((res: Book) => res));
   }
   getLast(limit: number): Observable<Book[]> {
-    return this.httpService.get(this.REST_API_SERVER + "/getLast/" + limit).pipe(
+    return this.httpService.get(this.REST_API_SERVER + "getLast/" + limit).pipe(
       map((res: Book[]) => res));
   }
 

@@ -23,7 +23,7 @@ html{
 }
 .button{
     height: 30px;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 1px solid;
     /* border-color: #92a3d1;
     background-color: white;
@@ -32,7 +32,13 @@ html{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
 }
+hr.solid {
+  opacity: 15%;
+  border-top: 1px solid #000;
+}
+
 .large {
     height: 40px;
     width: 100%;
@@ -48,6 +54,9 @@ img{
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     background-color: white;
+}
+#toast-container {
+    min-width: 0px;
 }
 .ligne{
     display: grid;
@@ -68,9 +77,10 @@ img{
     margin-top: 0;
 }
 .bg-rose{
-    background-color: #FF647C;
-    border-color: #FF647C;
+    /*background-color: #FF647C;
+    border-color: #FF647C; */
     color: white;
+    background: linear-gradient(to right bottom, #fb6d83, #da3e5b);
 }
 .rose{
   color: #FF647C;
@@ -96,10 +106,99 @@ img{
 .bleu{
     color: #92a3d0;
 }
-
 input {
 	border-bottom: none !important;
+  box-shadow: 0px 0px 20px transparent !important;
 }
 p {
     text-align: justify;
 }
+h6 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 27px;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  font-weight: 700;
+}
+.disabled-beta {
+    pointer-events: none;
+    color: grey;
+    background-color: lightgray;
+    border-color: lightgray;
+    background: lightgray;
+    font-weight: 300;
+}
+
+button:disabled > span {
+  display: none;
+}
+button:disabled > i {
+  display: none;
+}
+button:disabled {
+  display: block !important;
+}
+
+/* Loading for buttons */ 
+button:disabled .lds-ellipsis {
+    display: inline-block !important;
+    position: relative;
+    width: 80px;
+    height: 100%;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 35%;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+  [type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #FF647C;
+    background-color: #FF647C;
+  }

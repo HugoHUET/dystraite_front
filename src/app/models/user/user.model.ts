@@ -11,7 +11,7 @@ export class User {
     city: string
     zipcode: number
     role: string
-    photo: any
+    profilePicture: string
     speechtherapist: User
     tips: Tips[]
     likedTips: Tips[]

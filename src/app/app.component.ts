@@ -2,8 +2,9 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { TitreService } from './services/titre/titre.service';
 import { Router } from '@angular/router';
 import { Key } from 'protractor';
-import { ContextService } from './services/context/context.service';
-import { User } from './models/user/user.model';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
+import { UserService } from './services/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -31,14 +32,15 @@ export class AppComponent {
     '/inscription/user/finalisation',
     '/inscription/ortho/finalisation',
     '/inscription/user/bravo',
-    '/inscription/ortho/bravo'
+    '/inscription/ortho/bravo',
+    'changePassword'
   ];
   isPlusSelected = false;
   currentPlusClass = 'plus-initial';
   appareil = null;
   isKeyboardUp = false;
 
-  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, private context: ContextService) {
+  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, public userService: UserService) {
     /*if (Capacitor.platform !== "web") {
       const { Keyboard } = Plugins;
       Keyboard.setAccessoryBarVisible({ isVisible: true });
@@ -71,9 +73,13 @@ export class AppComponent {
       zipcode: null
     };
 
+    this.userService.loadLoggedUser();
+
     this.titreService.titre$.subscribe(titre => {
       this.titre_page = titre;
     });
+
+
   }
   togglePlus() {
     this.isPlusSelected = !this.isPlusSelected;

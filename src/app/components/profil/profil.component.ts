@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TitreService } from 'src/app/services/titre/titre.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-profil',
@@ -11,18 +13,23 @@ export class ProfilComponent implements OnInit {
   nom = 'ALYSSA BERTRAND';
   score = 3476;
 
-  isConnected = false;
+  constructor(private titreService: TitreService, public userService: UserService, private router: Router) {
 
-  constructor(private titreService: TitreService) {
-    /*this.titreService.connect$.subscribe(c => {
-      console.log(c);
-      this.isConnected = c;
-    });*/
-    this.isConnected = titreService.isConnected();
   }
 
   ngOnInit() {
     this.titreService.updateTitle('Profil');
   }
+  logout() {
+    this.userService.logout();
+    this.router.navigate([''],);
 
+  }
+  public calculateAge() {
+    if (this.userService.loggedUser.birthdate) {
+      var timeDiff = Math.abs(Date.now() - new Date(this.userService.loggedUser.birthdate).getTime());
+      return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+    }
+    return '';
+  }
 }
