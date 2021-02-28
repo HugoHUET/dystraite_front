@@ -11,7 +11,8 @@
         </a>
     </div>
     <div class="tip" *ngFor="let tip of tipsList">
-        <img id="profil_img" src="../assets/mobile/tabbar-profil-image.jpg">
+        <img id="profil_img"
+            src="{{tip.owner.profilePicture ? 'data:image/jpeg;base64,' + tip.owner.profilePicture : '../assets/heidy/heidy_head_1.png'}}">
 
         <div class="content">
             <div style="margin-bottom: 10px;">
