@@ -41,8 +41,7 @@ export class UserService {
       map((res: User) => res));
   }
   like(tip: Tips): Observable<Tips> {
-    return null;
-    //return this.httpService.post<Tips>(this.REST_API_SERVER, tip);
+    return this.httpService.post<Tips>(this.REST_API_SERVER + 'like', tip);
   }
 
   isConnected() {

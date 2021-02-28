@@ -1,17 +1,20 @@
 .tip{
-    width: 120%;
-    background-color: antiquewhite;
-    margin-right: -30px;
-    margin-left: -30px;
+    background-color: #BE3F56;
     display: flex;
     padding: 5px;
     margin-bottom: 5px;
+    border-radius: 20px;
+    margin-top: 35px;
+    color: white;
 }
 #profil_img{
     border-radius: 50%;
     width: 51px;
     height: 51px;
     border: 2px solid;
+    margin-top: auto;
+    margin-bottom: -20px;
+    margin-left: -20px;
     color: transparent;
 }
 .profile{
@@ -20,19 +23,25 @@
     padding-top: 7px;
 }
 .content{
-    height: 130px;
     width: 80%;
     padding: 7px;
     text-align: justify;
 }
 .like{
     width: 40px;
-    margin-left: auto;
-    margin-right: 10px;
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
 }
 .like-icon{
     font-size: 30px;
+}
+.button {
+    width: 30%;
+    border-radius: 25px;
+    margin: auto;
+}
+.username{
+    margin-top: auto;
+    margin-bottom: -10px;
 }
