@@ -1,12 +1,12 @@
 <div *ngIf="userService.isConnected()">
     <div class="tabs">
-        <a class="button bg-rose">
+        <a class="button bg-rose" (click)="switchTab('all')" id="all">
             <span>Tips</span>
         </a>
-        <a class="button rose">
+        <a class="button rose" (click)="switchTab('liked')" id="liked">
             <span>Favoris</span>
         </a>
-        <a class="button rose">
+        <a class="button rose" (click)="switchTab('mine')" id="mine">
             <span>Mes tips</span>
         </a>
     </div>
