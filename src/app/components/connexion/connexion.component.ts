@@ -17,14 +17,22 @@ export class ConnexionComponent implements OnInit {
   });
   isLoading = false;
 
-  constructor(private titreService: TitreService, private userService: UserService) { }
+  constructor(private titreService: TitreService, private userService: UserService, private route: Router) { }
 
   ngOnInit() {
   }
 
   connect() {
     this.isLoading = true;
-    this.userService.login(this.loginForm.get('email').value, this.loginForm.get('password').value, ['/accueil']);
+    this.userService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).subscribe(response => {
+      this.route.navigate(['/accueil']);
+    },
+      error => {
+        this.isLoading = false;
+        this.loginForm.get('password').setErrors({
+          incorrect: true,
+        })
+      });
   }
 
 }

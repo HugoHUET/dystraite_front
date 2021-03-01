@@ -16,7 +16,7 @@ export class UserService {
 
   public loggedUser: User;
 
-  constructor(private httpService: HttpClient, private route: Router, private jwtHelper: JwtHelperService) { }
+  constructor(private httpService: HttpClient, private jwtHelper: JwtHelperService) { }
 
   /*getAllUsers(): Observable<User[]> {
     return this.httpService.get(this.REST_API_SERVER).pipe(
@@ -46,12 +46,12 @@ export class UserService {
   isTokenAvailable() {
     return this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter());
   }
-  login(email: string, password: string, redirectUrl: any[]) {
-    this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).subscribe(response => {
-      localStorage.setItem(tokenKey, response.token);
-      this.loggedUser = response.user;
-      this.route.navigate(redirectUrl);
-    });
+  login(email: string, password: string) {
+    return this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).pipe(
+      map(response => {
+        localStorage.setItem(tokenKey, response.token);
+        this.loggedUser = response.user;
+      }));
   }
   logout() {
     localStorage.removeItem(tokenKey);
