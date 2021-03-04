@@ -134,18 +134,21 @@ h1, h2, h3, h4, h5, h6, h7 {
     font-weight: 300;
 }
 
-button:disabled > span {
+.loading > span {
   display: none;
 }
-button:disabled > i {
+.loading > i {
   display: none;
 }
-button:disabled {
+.loading {
   display: block !important;
+}
+button:disabled{
+  opacity: 50%;
 }
 
 /* Loading for buttons */ 
-button:disabled .lds-ellipsis {
+.loading .lds-ellipsis {
     display: inline-block !important;
     position: relative;
     width: 80px;

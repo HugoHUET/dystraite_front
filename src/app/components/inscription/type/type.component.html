@@ -30,10 +30,11 @@
                 formControlName="password">
         </div>
         <div class="block">
-            <label for="ville">Ville*</label>
+            <label for="ville">Ville</label>
             <input placeholder="Entrez votre ville..." id="ville" type="text" class="validate" formControlName="city">
         </div>
-        <button class="button bg-rose large" type="submit" [disabled]="isLoading">
+        <button class="button bg-rose large" [ngClass]="{'loading' : isLoading}" type="submit"
+            [disabled]="!registerForm.valid">
             <div class="lds-ellipsis" style="display: none;">
                 <div></div>
                 <div></div>

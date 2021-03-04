@@ -26,7 +26,8 @@
         <span>Se souvenir de moi</span>
       </label>
     </div>
-    <button class="button bg-rose large" type="submit" [disabled]="isLoading">
+    <button class="button bg-rose large" type="submit" [ngClass]="{'loading' : isLoading}"
+      [disabled]="!loginForm.valid">
       <div class="lds-ellipsis" style="display: none;">
         <div></div>
         <div></div>
