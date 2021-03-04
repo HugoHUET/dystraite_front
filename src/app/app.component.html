@@ -14,7 +14,7 @@
 
 				<a routerLink="profil" class="profil" routerLinkActive="selected">
 					<img *ngIf="userService.loggedUser" id="profil_img"
-						src="{{userService.loggedUser.profilePicture ? 'data:image/jpeg;base64,' + userService.loggedUser.profilePicture : '../assets/heidy/heidy_head_1.png'}}"
+						src="{{userService.loggedUser.profilePicture ? userService.loggedUser.profilePicture : '../assets/heidy/heidy_head_1.png'}}"
 						alt="Photo de profil" routerLinkActive="selected">
 					<ion-icon *ngIf="!userService.loggedUser" name="log-in-outline" id="profil_icon"></ion-icon>
 				</a>

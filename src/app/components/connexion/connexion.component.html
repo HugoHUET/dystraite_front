@@ -15,6 +15,9 @@
       <label for="password">Mot de passe*</label>
       <input placeholder="Votre mot de passe..." id="password" type="password" class="validate"
         formControlName="password">
+      <div class="form-error" *ngIf="loginForm.get('password').errors?.incorrect">
+        Mot de passe incorrect
+      </div>
     </div>
     <div class="option">
       <p><a routerLink="/change-password" onclick="return false;">Mot de passe oublié ?</a></p>
@@ -23,7 +26,8 @@
         <span>Se souvenir de moi</span>
       </label>
     </div>
-    <button class="button bg-rose large" type="submit" [disabled]="isLoading">
+    <button class="button bg-rose large" type="submit" [ngClass]="{'loading' : isLoading}"
+      [disabled]="!loginForm.valid">
       <div class="lds-ellipsis" style="display: none;">
         <div></div>
         <div></div>
