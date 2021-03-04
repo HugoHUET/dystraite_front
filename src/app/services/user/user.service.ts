@@ -64,6 +64,13 @@ export class UserService {
       });
     }
   }
+  register(user: User) {
+    return this.httpService.post<any>(this.REST_API_SERVER + 'sign-up', user).pipe(
+      map(response => {
+        localStorage.setItem(tokenKey, response.token);
+        this.loggedUser = response.user;
+      }));
+  }
 
   // Need backup implementation
 
