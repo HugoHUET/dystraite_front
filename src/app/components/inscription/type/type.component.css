@@ -1,0 +1,62 @@
+.background{
+    background-color: #FF647C;
+    margin: -30px;
+    height: 25vh;
+    z-index: 5;
+}
+.main-container{
+    z-index: 10;
+    position: relative;
+}
+.background > .text{
+    color: white;
+    width: 80%;
+    margin: auto;
+    padding-top: 10%;
+}
+.background > .text > h4{
+    font-weight: bold;
+}
+.main-container > .input{
+    color: black;
+    margin-top: -50px;
+}
+.main-container > .input > .block{
+    padding: 5%;
+    z-index: 10;
+    margin-top: 5%;
+}
+.main-container > .input > .block > label{
+    color: black;
+}
+.main-container > .input > .option {
+    text-align: center;
+}
+.main-container > .input > .option > p > a{
+    text-decoration: underline;
+    color: black;
+}
+.button{
+    padding: 0 10px 0 10px;
+    display: grid;
+    grid-template-columns: 68% 28%;
+    grid-column-gap: 10px;
+    margin-top: 5%;
+}
+.button > span{
+    justify-self: start;
+}
+.button > i{
+    justify-self: end;
+}
+.bottom-container{
+    font-size: 10px;
+    text-align: center;
+    width: 100%;
+}
+.cgu{
+    margin-bottom: 5%;
+}
+a {
+    -webkit-appearance: unset;
+}
