@@ -27,8 +27,9 @@ export class UserService {
     return this.httpService.post<User>(this.REST_API_SERVER, user);
   }*/
 
-  updateUser(id: number, value: User) {
-    return this.httpService.put(this.REST_API_SERVER + id, value);
+  updateUser(user: User): Observable<User> {
+    return this.httpService.put(this.REST_API_SERVER, user).pipe(
+      map((res: User) => res));
   }
 
   /*deleteUser(id: number): Observable<User> {

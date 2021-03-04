@@ -17,7 +17,7 @@ export class TypeComponent implements OnInit {
     lastname: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
-    city: new FormControl(),
+    city: new FormControl('', Validators.required),
     birthdate: new FormControl(null, Validators.required)
   });
 

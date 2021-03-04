@@ -2,7 +2,7 @@
 <div *ngIf="userService.isConnected()">
     <div class="photo-profil">
         <img id="photo-profil"
-            src="{{userService.loggedUser.profilePicture ? 'data:image/jpeg;base64,' + userService.loggedUser.profilePicture : '../assets/heidy/heidy_head_1.png'}}"
+            src="{{userService.loggedUser.profilePicture ? userService.loggedUser.profilePicture : '../assets/heidy/heidy_head_1.png'}}"
             alt="Photo de profil">
     </div>
     <div class="block infos">
@@ -54,5 +54,8 @@
     <a class="button bg-rose large disabled-beta" routerLink="stats">Voir mes statistiques (à venir...)</a>
     <a class="button rose large disabled-beta">Programme personnalisé (à venir...)</a>
     <a class="button rose large disabled-beta">Modifier mon profil (à venir...)</a>
+    <a class="button rose large" (click)="uploader.click()">Modifier ma photo de profil</a>
     <a class="button rose large" (click)="logout()">Déconnexion</a>
 </div>
+
+<input hidden type="file" #uploader (change)="editProfilePicture($event)" accept="image/*" />
