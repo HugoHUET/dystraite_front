@@ -6,3 +6,6 @@
 .main-container > .block > p > a {
     text-decoration: underline;
 }
+.main-container{
+    text-align: left;
+}

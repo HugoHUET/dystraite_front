@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-bravo',
@@ -10,7 +11,7 @@ export class BravoComponent implements OnInit {
 
   type: string;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, public userService: UserService) {
     this.route.paramMap.subscribe(params => {
       this.type = params.get('type');
     });

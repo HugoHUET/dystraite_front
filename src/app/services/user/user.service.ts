@@ -29,7 +29,7 @@ export class UserService {
   }*/
 
   updateUser(user: User): Observable<User> {
-    return this.httpService.put(this.REST_API_SERVER, user).pipe(
+    return this.httpService.patch(this.REST_API_SERVER, user).pipe(
       map((res: User) => res));
   }
 
