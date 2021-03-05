@@ -12,7 +12,7 @@
     </div>
     <div class="tip" *ngFor="let tip of tipsList">
         <img id="profil_img"
-            src="{{tip.owner.profilePicture ? 'data:image/jpeg;base64,' + tip.owner.profilePicture : '../assets/heidy/heidy_head_1.png'}}">
+            src="{{tip.owner.profilePicture ? tip.owner.profilePicture : '../assets/heidy/heidy_head_1.png'}}">
 
         <div class="content">
             <div style="margin-bottom: 10px;">
@@ -22,9 +22,13 @@
                 <b>{{tip.owner.firstname}}</b>
             </div>
         </div>
-        <div class="like">
+        <div class="like" *ngIf="!isMyTip(tip)">
             <i class="material-icons like-icon" (click)="like(tip)">{{isLiked(tip) ? 'favorite' :
                 'favorite_border'}}</i>
+            {{tip.nbLikes}}
+        </div>
+        <div class="like" *ngIf="isMyTip(tip)">
+            <ion-icon name="close-outline" class="like-icon" (click)="delete(tip)"></ion-icon>
             {{tip.nbLikes}}
         </div>
     </div>

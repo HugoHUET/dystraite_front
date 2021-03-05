@@ -32,7 +32,7 @@ export class TipsService {
   }
 
   getById(id: number): Observable<Tips> {
-    return this.httpService.get(this.REST_API_SERVER + "/" + id).pipe(
+    return this.httpService.get(this.REST_API_SERVER + id).pipe(
       map((res: Tips) => res));
   }
   getLast(limit: number): Observable<Tips[]> {

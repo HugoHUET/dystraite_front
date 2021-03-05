@@ -33,6 +33,9 @@ export class ConseilComponent implements OnInit {
     this.userService.like(tip).subscribe(newtip => {
     });
   }
+  isMyTip(tip) {
+    return this.userService.loggedUser?.tips.filter(t => t.id === tip.id).length > 0;
+  }
   isLiked(tip) {
     return this.userService.loggedUser?.likedTips.filter(t => t.id === tip.id).length > 0;
   }
@@ -66,5 +69,10 @@ export class ConseilComponent implements OnInit {
       default:
         break;
     }
+  }
+  delete(tip) {
+    this.tipsService.delete(tip.id).subscribe(tip => {
+      this.tipsList = this.tipsList.filter(t => t.id != tip.id);
+    });
   }
 }
