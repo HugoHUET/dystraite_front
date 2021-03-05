@@ -82,8 +82,17 @@ img{
     color: white;
     background: linear-gradient(to right bottom, #fb6d83, #da3e5b);
 }
+a.bg-rose:active, button.bg-rose:active{
+  color: #FF647C;
+  background: white;
+}
 .rose{
   color: #FF647C;
+}
+
+a.rose:active, button.rose:active{
+  color: white;
+  background: linear-gradient(to right bottom, #fb6d83, #da3e5b);
 }
 .bg-vert{
   background-color: #79cb7f;
