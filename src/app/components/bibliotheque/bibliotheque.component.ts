@@ -12,20 +12,21 @@ export class BibliothequeComponent implements OnInit {
 
   books: Book[];
   currentBook: Book;
-
+  filter_tags_selected = false;
+  filter = '';
+  filter_tags = {
+    categorie: ["Grammaire", "Conjugaison", "Orthographe"],
+    age: ["8-10", "11-13", "14-16", "+17"]
+  };
 
   constructor(private titreService: TitreService, private bookService: BookService) { }
 
   ngOnInit() {
     this.titreService.updateTitle("Bibliotheque");
 
-
-    this.bookService.getLast(1).subscribe(books => {
-      this.currentBook = books[0];
-    })
-
     this.bookService.getAllBooks().subscribe(books => {
-      this.books = books;
+      this.currentBook = books.shift();
+      this.books = books
     });
   }
 

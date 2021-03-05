@@ -11,18 +11,21 @@ import { TitreService } from 'src/app/services/titre/titre.service';
 export class CoursComponent implements OnInit {
   lessons: Lesson[];
   currentLesson: Lesson;
+  filter_tags_selected = false;
+  filter = '';
+  filter_tags = {
+    categorie: ["Grammaire", "Conjugaison", "Orthographe"],
+    age: ["8-10", "11-13", "14-16", "+17"]
+  };
 
   constructor(private titreService: TitreService, private lessonService: LessonService) { }
 
   ngOnInit() {
     this.titreService.updateTitle('Cours');
 
-    this.lessonService.getLast(1).subscribe(lessons => {
-      this.currentLesson = lessons[0];
-    })
     this.lessonService.getAllLessons().subscribe(lessons => {
+      this.currentLesson = lessons.shift();
       this.lessons = lessons;
-      this.lessons = this.lessons.filter(lesson => lesson.id !== this.currentLesson.id);
     });
   }
 

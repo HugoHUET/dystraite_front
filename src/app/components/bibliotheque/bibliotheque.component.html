@@ -1,5 +1,25 @@
-<h5>L'article du moment</h5>
-<div class="block">
+<div id="input_container">
+	<input type="text" id="filter" name="filter" class="filter" placeholder="Filtre..." [(ngModel)]=filter>
+	<ion-icon name="search-outline" id="search-icon"></ion-icon>
+	<ion-icon name="options-outline" id="filter-icon" class="rose"
+		(click)="filter_tags_selected = !filter_tags_selected" [hidden]="true"></ion-icon>
+</div>
+
+<div id="filter-tags" [hidden]="!filter_tags_selected">
+	<div style="display: flex; font-size: 22px !important; font-weight: bold;">
+		<h5 style="font-size: inherit; font-weight: inherit;">Filtre</h5>
+		<ion-icon style="margin: 1.0933333333rem 0 .656rem auto;" name="close-outline"
+			(click)="filter_tags_selected = !filter_tags_selected"></ion-icon>
+	</div>
+	<div class="tags" *ngFor="let tag_list of filter_tags | keyvalue">
+		<h6>{{tag_list.key}}</h6>
+		<div *ngFor="let tag of tag_list.value" class="tag button">
+			{{tag}}
+		</div>
+	</div>
+</div>
+<h5 [hidden]="!currentBook">Recommandé</h5>
+<div class="block" [hidden]="!currentBook">
 	<img *ngIf="currentBook?.thumbnail" src="data:image/jpeg;base64,{{currentBook?.thumbnail}}"
 		alt="Image d'illustration">
 	<div class="information">
@@ -10,7 +30,7 @@
 		<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
 	</div>
 </div>
-<hr>
+<hr class="solid">
 <div class="ligne" *ngFor="let book of books">
 	<img src="data:image/bmp;base64,{{book.thumbnail}}" alt="test">
 	<b>{{book.title}}</b>

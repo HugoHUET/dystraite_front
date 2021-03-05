@@ -1,22 +1,25 @@
+<div class="beta-container">
+	<h6>Version BETA</h6>
+	<button class="beta-btn" [routerLink]="['/beta']">
+		<span style="vertical-align: middle;">Plus d'infos</span>
+		<ion-icon name="information-circle-outline"></ion-icon>
+	</button>
+</div>
 <h5>LE JEU DU MOMENT</h5>
-<div class="block">
-	<img src="../../assets/whist.jpg" alt="test">
+<div class="block disabled-beta">
+	<img src="../../assets/whist.jpg" alt="illustration jeu du moment">
 	<div class="information-block">
-		<h6>Le whist</h6>
-		<p class="description"> Un des plus anciens jeux de cartes et l’on en fait mention en Angleterre dès 1529. En
-			1742, Edmond Hoyle
-			publia Petit traité sur le jeu de whist (A Short Treatise on the Game of Whist) et établit par la suite les
-			règles qui devaient régir ce jeu pendant plus d’un siècle. Le whist a encore évolué jusqu’à finalement
-			donner naissance au bridge, dans la seconde moitié du XIXe siècle.</p>
-		<a class="button rose" href="#" [routerLink]="['/jeux']">Jouer</a>
+		<h6>Maximots</h6>
+		<p class="description"> Description du jeu</p>
+		<a class="button rose disabled-beta" href="#" [routerLink]="['/jeux']" style="border-color: gray;">A venir</a>
 	</div>
 </div>
 <a class="button bg-rose large" href="#" [routerLink]="['/jeux']">Accéder aux jeux</a>
-<hr>
+<hr class="solid">
 <h5>LE COURS DU MOMENT</h5>
-<div class="block">
+<div class="block" [hidden]="!lastLesson">
 	<img *ngIf="lastLesson?.thumbnail" src="data:image/jpeg;base64,{{lastLesson?.thumbnail}}"
-		alt="Image d'illustration">
+		alt="illustration cours du moment">
 	<div class="information-block">
 		<h6>{{lastLesson?.title}}</h6>
 		<p class="description">
@@ -27,4 +30,20 @@
 </div>
 <a class="button bg-rose large" href="#" [routerLink]="['/cours']">
 	Accéder aux cours
+</a>
+<hr class="solid">
+<h5>LE LIVRE DU MOMENT</h5>
+<div class="block" [hidden]="!lastBook">
+	<img *ngIf="lastBook?.thumbnail" src="data:image/jpeg;base64,{{lastBook?.thumbnail}}"
+		alt="illustration livre du moment">
+	<div class="information-block">
+		<h6>{{lastBook?.title}}</h6>
+		<p class="description">
+			{{lastBook?.description}}
+		</p>
+		<a class="button rose" href="#" [routerLink]="['/bibliotheque/article/'+lastBook?.id]">Lire</a>
+	</div>
+</div>
+<a class="button bg-rose large" href="#" [routerLink]="['/bibliotheque']">
+	Accéder aux livres
 </a>

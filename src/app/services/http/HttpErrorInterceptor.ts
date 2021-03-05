@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http';
+import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
@@ -11,9 +11,15 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(
             catchError((error) => {
-                this.toastr.error(error.message, 'Une erreur est survenue', {
-                    closeButton: true,
-                });
+                if (error instanceof HttpErrorResponse && error.status != 403) {
+                    this.toastr.error('', 'Une erreur est survenue', {
+                        closeButton: true,
+                    });
+                } else if (error instanceof HttpErrorResponse && error.status == 403 && new URL(request.url).pathname != '/login') {
+                    this.toastr.error('Veuillez vous connecter', 'Vous n\'êtes pas autorisé à accéder à cette page', {
+                        closeButton: true,
+                    });
+                }
                 return throwError(error.message);
             })
         )

@@ -17,6 +17,8 @@ import { ArticleComponent } from './components/bibliotheque/article/article.comp
 import { LeconComponent } from './components/cours/lecon/lecon.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { ChangePasswordComponent } from './components/changePassword/changePassword.component';
+import { TokenComponent } from './components/changePassword/token/token.component';
 import { StatsComponent } from './components/profil/stats/stats.component';
 import { ProgrammeComponent } from './components/profil/programme/programme.component';
 import { EditComponent } from './components/profil/edit/edit.component';
@@ -34,6 +36,8 @@ import { IonicModule } from '@ionic/angular';
 import { WordblitzComponent } from './components/jeux/wordblitz/wordblitz.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { FilterPipe } from './filter.pipe';
+import { BetaComponent } from './components/beta/beta.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -59,6 +63,10 @@ registerLocaleData(localeFr, 'fr');
     VerifMailComponent,
     FinalisationComponent,
     BravoComponent,
+    ChangePasswordComponent,
+    TokenComponent,
+    FilterPipe,
+    BetaComponent
     WordblitzComponent
   ],
   imports: [
@@ -86,7 +94,7 @@ registerLocaleData(localeFr, 'fr');
   ],
   providers: [
     //JwtHelperService,
-    //{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: LOCALE_ID, useValue: 'fr' }
   ],
   bootstrap: [AppComponent]

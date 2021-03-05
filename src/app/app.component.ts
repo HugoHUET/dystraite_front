@@ -32,14 +32,15 @@ export class AppComponent {
     '/inscription/user/finalisation',
     '/inscription/ortho/finalisation',
     '/inscription/user/bravo',
-    '/inscription/ortho/bravo'
+    '/inscription/ortho/bravo',
+    'changePassword'
   ];
   isPlusSelected = false;
   currentPlusClass = 'plus-initial';
   appareil = null;
   isKeyboardUp = false;
 
-  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, private userService: UserService) {
+  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, public userService: UserService) {
     /*if (Capacitor.platform !== "web") {
       const { Keyboard } = Plugins;
       Keyboard.setAccessoryBarVisible({ isVisible: true });

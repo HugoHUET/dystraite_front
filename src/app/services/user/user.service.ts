@@ -12,28 +12,29 @@ import { environment, loggedUserKey, tokenKey } from 'src/environments/environme
 })
 export class UserService {
 
-  private REST_API_SERVER = environment.apiUrl + "/users/";
+  private REST_API_SERVER = environment.apiUrl + "/user/";
 
   public loggedUser: User;
 
-  constructor(private httpService: HttpClient, private route: Router, private jwtHelper: JwtHelperService) { }
+  constructor(private httpService: HttpClient, private jwtHelper: JwtHelperService) { }
 
-  getAllUsers(): Observable<User[]> {
+  /*getAllUsers(): Observable<User[]> {
     return this.httpService.get(this.REST_API_SERVER).pipe(
       map((res: User[]) => res));
-  }
+  }*/
 
-  createUser(user: User): Observable<User> {
+  /*createUser(user: User): Observable<User> {
     return this.httpService.post<User>(this.REST_API_SERVER, user);
+  }*/
+
+  updateUser(user: User): Observable<User> {
+    return this.httpService.put(this.REST_API_SERVER, user).pipe(
+      map((res: User) => res));
   }
 
-  updateUser(id: number, value: User) {
-    return this.httpService.put(this.REST_API_SERVER + id, value);
-  }
-
-  deleteUser(id: number): Observable<User> {
+  /*deleteUser(id: number): Observable<User> {
     return this.httpService.delete<User>(this.REST_API_SERVER + id);
-  }
+  }*/
 
   getUserByEmail(email: string): Observable<User> {
     return this.httpService.get(this.REST_API_SERVER + "?email=" + email).pipe(
@@ -41,28 +42,35 @@ export class UserService {
   }
 
   isConnected() {
-    if (this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter()) && localStorage.getItem(loggedUserKey) != null) {
-      return true;
-    }
-    return false;
+    return this.isTokenAvailable() && this.loggedUser;
   }
-  connect(email: string, password: string, redirectUrl: any[]) {
-    this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).subscribe(response => {
-      localStorage.setItem(tokenKey, response.token);
-      localStorage.setItem(loggedUserKey, JSON.stringify(response.user));
-      this.loggedUser = response.user;
-      this.route.navigate(redirectUrl);
-    });
+  isTokenAvailable() {
+    return this.jwtHelper.tokenGetter() && !this.jwtHelper.isTokenExpired(this.jwtHelper.tokenGetter());
   }
-  disconnect() {
-    localStorage.setItem(tokenKey, null);
-    localStorage.setItem(loggedUserKey, null);
+  login(email: string, password: string) {
+    return this.httpService.post<any>(environment.apiUrl + '/login', { email: email, password: password }).pipe(
+      map(response => {
+        localStorage.setItem(tokenKey, response.token);
+        this.loggedUser = response.user;
+      }));
+  }
+  logout() {
+    localStorage.removeItem(tokenKey);
     this.loggedUser = null;
   }
   loadLoggedUser() {
-    if (this.isConnected()) {
-      this.loggedUser = JSON.parse(localStorage.getItem(loggedUserKey));
+    if (this.isTokenAvailable()) {
+      this.httpService.get(this.REST_API_SERVER + "loggedUser").subscribe((user: User) => {
+        this.loggedUser = user;
+      });
     }
+  }
+  register(user: User) {
+    return this.httpService.post<any>(this.REST_API_SERVER + 'sign-up', user).pipe(
+      map(response => {
+        localStorage.setItem(tokenKey, response.token);
+        this.loggedUser = response.user;
+      }));
   }
 
   // Need backup implementation
