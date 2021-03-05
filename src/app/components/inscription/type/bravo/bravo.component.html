@@ -1,16 +1,15 @@
 <div class="background"></div>
 <div class="main-container">
     <div class="text">
-        <h4>Bravo {{userService.loggedUser.firstname}} !</h4>
-        <p *ngIf="type != 'ortho'">Vous êtes maintenant inscrit sur notre application Dystraite en tant qu'utilisateur.
+        <h4>Bienvenue {{userService.loggedUser.firstname}} !</h4>
+        <p *ngIf="type != 'ortho'">Vous êtes maintenant inscrit en tant qu'utilisateur.
         </p>
-        <p *ngIf="type == 'ortho'">Vous êtes maintenant inscrit sur notre application Dystraite en tant
-            qu'orthophoniste.</p>
+        <p *ngIf="type == 'ortho'">Vous êtes maintenant inscrit en tant qu'orthophoniste.</p>
     </div>
     <div class="block full-page">
         <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
         <p class="cgu" *ngIf="type != 'ortho'">
-            Vous pouvez accèder à des cours, à des articles ou à des jeux et bien plus encore pour vous améliorer !
+            Vous pouvez accéder à des cours, des articles ou des jeux et bien plus encore pour vous améliorer !
             <br><br>
         </p>
         <!-- Accédez à un orthophoniste spécialisé avec notre <a href="#" class="rose">forfait PREMIUM</a>.-->
