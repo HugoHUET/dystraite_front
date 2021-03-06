@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { ClickOutsideModule } from 'ng-click-outside';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -71,7 +70,6 @@ registerLocaleData(localeFr, 'fr');
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ClickOutsideModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

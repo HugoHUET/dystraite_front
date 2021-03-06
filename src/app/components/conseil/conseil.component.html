@@ -32,4 +32,14 @@
             {{tip.nbLikes}}
         </div>
     </div>
+    <button id="add-tip" (click)="toggleTipTab()">
+        <ion-icon class="rose" name="add-circle-outline"></ion-icon>
+    </button>
+    <div *ngIf="addTipTab" id="greyFilter" (click)="toggleTipTab()"></div>
+
+    <div id="add-tip-tab">
+        <button id="close" (click)="toggleTipTab()">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+    </div>
 </div>

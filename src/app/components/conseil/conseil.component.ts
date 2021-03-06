@@ -13,6 +13,7 @@ export class ConseilComponent implements OnInit {
 
   allTips: Tips[];
   tipsList: Tips[];
+  addTipTab = false;
 
   constructor(private titreService: TitreService, private tipsService: TipsService, public userService: UserService) { }
 
@@ -74,5 +75,11 @@ export class ConseilComponent implements OnInit {
     this.tipsService.delete(tip.id).subscribe(tip => {
       this.tipsList = this.tipsList.filter(t => t.id != tip.id);
     });
+  }
+  toggleTipTab() {
+    this.addTipTab = !this.addTipTab;
+    document.getElementById('add-tip-tab').classList.toggle("open");
+
+    document.getElementById('footer').hidden = !document.getElementById('footer').hidden
   }
 }
