@@ -19,8 +19,9 @@ export class TipsService {
       map((res: Tips[]) => res));
   }
 
-  create(tips: Tips): Observable<Tips> {
-    return this.httpService.post<Tips>(this.REST_API_SERVER, tips);
+  create(tip): Observable<Tips> {
+    return this.httpService.post<any>(this.REST_API_SERVER, tip).pipe(
+      map((res: Tips) => res));;
   }
 
   update(value: Tips) {

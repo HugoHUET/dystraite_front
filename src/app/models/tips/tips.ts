@@ -6,4 +6,5 @@ export class Tips {
     createdAt: Date
     nbLikes: number
     owner: User
+    tags: string[]
 }
