@@ -43,10 +43,10 @@ export class ConseilComponent implements OnInit {
     });
   }
   isMyTip(tip) {
-    return this.userService.loggedUser?.tips.filter(t => t.id === tip.id).length > 0;
+    return this.userService.loggedUser?.tips?.filter(t => t.id === tip.id).length > 0;
   }
   isLiked(tip) {
-    return this.userService.loggedUser?.likedTips.filter(t => t.id === tip.id).length > 0;
+    return this.userService.loggedUser?.likedTips?.filter(t => t.id === tip.id).length > 0;
   }
   switchTab(tab: string) {
     this.tipsList = null;
