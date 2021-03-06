@@ -18,11 +18,15 @@
 						alt="Photo de profil" routerLinkActive="selected">
 					<ion-icon *ngIf="!userService.loggedUser" name="log-in-outline" id="profil_icon"></ion-icon>
 				</a>
-				<a routerLink="bibliotheque" routerLinkActive="selected"><i
-						class="material-icons">menu_book</i>Bibliothèque</a>
+				<a routerLink="conseil" routerLinkActive="selected"><i
+						class="material-icons">supervisor_account</i>Conseils</a>
 				<a class="btn-plus" (click)="togglePlus()"><i class="material-icons plus"
 						[class.plus-active]="isPlusSelected">more_horiz</i>Plus</a>
 				<div [className]="currentPlusClass">
+					<div class="item-plus" style="bottom: 200px" (click)="untogglePlus()">
+						<a routerLink="bibliotheque" routerLinkActive="selected" class="button-plus"><i
+								class="material-icons icon-plus">menu_book</i>Bibliothèque</a>
+					</div>
 					<div class="item-plus" style="bottom: 60px">
 						<a routerLink="jeux" routerLinkActive="selected" class="button-plus"
 							style="pointer-events: none;"><i class="material-icons icon-plus">videogame_asset</i>A
@@ -31,11 +35,6 @@
 					<div class="item-plus" style="bottom: 130px">
 						<a routerLink="ortophoniste" routerLinkActive="selected" class="button-plus"
 							style="pointer-events: none;"><i class="material-icons icon-plus">work_outline</i>A
-							venir</a>
-					</div>
-					<div class="item-plus" style="bottom: 200px">
-						<a routerLink="conseil" routerLinkActive="selected" class="button-plus"
-							style="pointer-events: none;"><i class="material-icons icon-plus">supervisor_account</i>A
 							venir</a>
 					</div>
 				</div>
