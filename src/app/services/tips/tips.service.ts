@@ -16,7 +16,7 @@ export class TipsService {
 
   getAll(): Observable<Tips[]> {
     return this.httpService.get(this.REST_API_SERVER).pipe(
-      map((res: Tips[]) => res));
+      map((res: Tips[]) => res.reverse()));
   }
 
   create(tip): Observable<Tips> {

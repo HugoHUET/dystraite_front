@@ -121,15 +121,14 @@ export class ConseilComponent implements OnInit {
     this.isLoading = true;
     this.tipForm.value.tags = this.tags;
     this.tipsService.create(this.tipForm.value).subscribe(tip => {
-      this.userService.loggedUser.tips.push(tip);
-      if (this.tipsList != this.userService.loggedUser.likedTips) {
-        this.tipsList.push(tip);
+      if (this.tipsList != this.userService.loggedUser.likedTips && this.tipsList != this.userService.loggedUser.tips) {
+        this.tipsList.unshift(tip);
       } else {
-        this.allTips.push(tip);
+        this.allTips.unshift(tip);
       }
+      this.userService.loggedUser.tips.unshift(tip);
       this.resetForm();
       this.toggleTipTab();
-      this.switchTab('all');
       this.isLoading = false;
     },
       error => {
