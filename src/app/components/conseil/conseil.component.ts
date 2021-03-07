@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Tips } from 'src/app/models/tips/tips';
 import { TipsService } from 'src/app/services/tips/tips.service';
 import { TitreService } from 'src/app/services/titre/titre.service';
@@ -22,7 +24,7 @@ export class ConseilComponent implements OnInit {
     tags: new FormControl([]),
   });
 
-  constructor(private titreService: TitreService, private tipsService: TipsService, public userService: UserService) { }
+  constructor(private titreService: TitreService, private tipsService: TipsService, public userService: UserService, private route: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.tipsService.getAll().subscribe(tips => {
@@ -32,6 +34,10 @@ export class ConseilComponent implements OnInit {
     this.titreService.updateTitle("Conseil");
   }
   like(tip: Tips) {
+    if (!this.userService.isConnected()) {
+      this.route.navigate(['/profil']);
+      return;
+    }
     if (this.isLiked(tip)) {
       tip.nbLikes--;
       this.userService.loggedUser?.likedTips.splice(this.userService.loggedUser.likedTips.indexOf(tip), 1);
@@ -88,6 +94,13 @@ export class ConseilComponent implements OnInit {
     });
   }
   toggleTipTab() {
+    if (!this.userService.isConnected()) {
+      this.toastr.error('Vous devez être connecté pour ajouter un conseil', 'Veuillez vous connecter', {
+        closeButton: true,
+      });
+      this.route.navigate(['/profil']);
+      return;
+    }
     this.addTipTab = !this.addTipTab;
     document.getElementById('add-tip-tab').classList.toggle("open");
 

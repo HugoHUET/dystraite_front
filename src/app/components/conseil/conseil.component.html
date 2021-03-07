@@ -1,14 +1,14 @@
-<div *ngIf="userService.isConnected()">
+<div>
     <div class="tabs">
-        <a class="button bg-rose" (click)="switchTab('all')" id="all">
+        <button class="button bg-rose" (click)="switchTab('all')" id="all">
             <span>Tips</span>
-        </a>
-        <a class="button rose" (click)="switchTab('liked')" id="liked">
+        </button>
+        <button class="button rose" (click)="switchTab('liked')" id="liked" [disabled]="!userService.isConnected()">
             <span>Favoris</span>
-        </a>
-        <a class="button rose" (click)="switchTab('mine')" id="mine">
+        </button>
+        <button class="button rose" (click)="switchTab('mine')" id="mine" [disabled]="!userService.isConnected()">
             <span>Mes tips</span>
-        </a>
+        </button>
     </div>
     <div class="tip" *ngFor="let tip of tipsList" [ngClass]="getBackgroundColor(tip)">
         <img id="profil_img"
