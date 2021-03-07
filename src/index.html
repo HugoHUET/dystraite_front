@@ -13,28 +13,110 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <!-- JavaScript for: angular-materialize. All of which are needed. -->
-  <script src="https://www.youtube.com/iframe_api"></script>
 
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <style>
+    body {
+      display: block !important;
+    }
 
-  <script>
-    var mini = true;
+    #splash {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
 
-    function toggleSidebar() {
-      if (mini) {
-        document.getElementsByClassName("sidenav-fixed")[0].style.width = "220px";
-        this.mini = false;
-      } else {
-        document.getElementsByClassName("sidenav-fixed")[0].style.width = "85px";
-        this.mini = true;
+    #logo {
+      width: 35%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      -webkit-animation: spin 2.3s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+      -moz-animation: spin 2.3s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+      animation: spin 2.3s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+    }
+
+    @-moz-keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
       }
     }
-  </script>
+
+    @-webkit-keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    #text {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-  <app-root (setTitle)="changeTitle($event)"></app-root>
+  <app-root>
+    <div id="splash">
+      <div id="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="105" height="105.001" viewBox="0 0 105 105.001">
+          <g id="Embleme" transform="translate(-266.263 -142.955)">
+            <g id="Groupe_166" data-name="Groupe 166" transform="translate(271.586 142.955)">
+              <path id="Tracé_58" data-name="Tracé 58"
+                d="M376.3,168.33a2.089,2.089,0,0,1-1.123,1.867l-45.135,23.261a1.953,1.953,0,0,1-1.838,0L283.069,170.2a2.113,2.113,0,0,1,0-3.733L328.2,143.188a1.874,1.874,0,0,1,.919-.233,1.915,1.915,0,0,1,.919.233l45.135,23.275A2.075,2.075,0,0,1,376.3,168.33Z"
+                transform="translate(-281.946 -142.955)" fill="#ff647c" />
+            </g>
+            <g id="Groupe_167" data-name="Groupe 167" transform="translate(266.263 173.415)">
+              <path id="Tracé_59" data-name="Tracé 59"
+                d="M316.473,258.589v46.535a2.105,2.105,0,0,1-.948,1.794,1.931,1.931,0,0,1-1.983.088l-46.156-23.8a2.055,2.055,0,0,1-1.123-1.866V234.8a2.079,2.079,0,0,1,.963-1.779,1.936,1.936,0,0,1,1.969-.1l1.385.729,44.77,23.071A2.087,2.087,0,0,1,316.473,258.589Z"
+                transform="translate(-266.263 -232.699)" fill="#ffcf5c" />
+            </g>
+            <g id="Groupe_168" data-name="Groupe 168" transform="translate(321.053 173.419)">
+              <path id="Tracé_60" data-name="Tracé 60"
+                d="M477.9,234.813v46.536a2.055,2.055,0,0,1-1.123,1.866l-46.156,23.8a1.931,1.931,0,0,1-1.983-.088,2.105,2.105,0,0,1-.948-1.794V258.6a2.088,2.088,0,0,1,1.123-1.867l44.771-23.071,1.385-.729a2.149,2.149,0,0,1,.89-.219,2.053,2.053,0,0,1,1.079.321A2.079,2.079,0,0,1,477.9,234.813Z"
+                transform="translate(-427.691 -232.713)" fill="#92a3d0" />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div id="text">
+        <svg xmlns="http://www.w3.org/2000/svg" width="142" height="22" viewBox="0 0 142 22">
+          <text id="_Label" data-name="↳ Label" transform="translate(71 16)" fill="#565656" font-size="16"
+            font-family="Nunito-Regular, Nunito" letter-spacing="-0.024em">
+            <tspan x="-70.973" y="0">Application </tspan>
+            <tspan y="0" fill="#92a3d0">D</tspan>
+            <tspan y="0" x="21" fill="#ff647c">y</tspan>
+            <tspan y="0" x="29" fill="#92a3d0">straiteee</tspan>
+          </text>
+        </svg>
+      </div>
+    </div>
+  </app-root>
 </body>
+<script>
+  var mini = true;
+
+  function toggleSidebar() {
+    if (mini) {
+      document.getElementsByClassName("sidenav-fixed")[0].style.width = "220px";
+      this.mini = false;
+    } else {
+      document.getElementsByClassName("sidenav-fixed")[0].style.width = "85px";
+      this.mini = true;
+    }
+  }
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 </html>
