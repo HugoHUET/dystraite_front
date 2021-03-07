@@ -12,18 +12,18 @@
 .filter {
     fill: rgba(255,255,255,1);
     color: rgba(86,86,86,1);
-    box-shadow: 0px 0px 20px rgb(0 0 0 / 5%) !important;
 }
 
 #input_container {
     position:relative;
     height: 48px;
+    box-shadow: 0px 0px 20px rgb(0 0 0 / 5%) !important;
+    border-radius: 10px;
 }
 #filter {
     margin:0;
     padding-left: 50px;
     padding-right: 50px;
-    border-radius: 10px;
     width: -webkit-fill-available;
 }
 #filter::placeholder {
