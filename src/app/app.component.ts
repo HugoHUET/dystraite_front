@@ -57,7 +57,6 @@ export class AppComponent {
   }
 
   ngOnInit() {
-
     this.userService.loadLoggedUser();
 
     this.titreService.titre$.subscribe(titre => {

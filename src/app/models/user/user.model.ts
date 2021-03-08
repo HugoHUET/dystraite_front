@@ -1,3 +1,5 @@
+import { Tips } from "../tips/tips"
+
 export class User {
     id: number
     email: string
@@ -8,8 +10,9 @@ export class User {
     longitude: number
     city: string
     zipcode: number
-    password: string
     role: string
     profilePicture: string
     speechtherapist: User
+    tips: Tips[]
+    likedTips: Tips[]
 }

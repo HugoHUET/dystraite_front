@@ -1,6 +1,6 @@
 <!-- Version Mobile -->
 <div *ngIf="responsiveService.isMobile">
-	<div class="row container-master" *ngIf="isConnected || isRouteAllowed(router.url)">
+	<div class="row container-master" *ngIf="isConnected || isRouteAllowed(router.url)" (click)="untogglePlus()">
 		<router-outlet></router-outlet>
 	</div>
 	<div class="navbar">
@@ -14,8 +14,8 @@
 				alt="Photo de profil" routerLinkActive="selected">
 			<ion-icon *ngIf="!userService.loggedUser" name="log-in-outline" id="profil_icon"></ion-icon>
 		</a>
-		<a routerLink="bibliotheque" routerLinkActive="selected"><i class="material-icons">menu_book</i>Bibliothèque</a>
-		<a class="btn-plus" (click)="togglePlus()" (clickOutside)="untogglePlus()"><i class="material-icons plus"
+		<a routerLink="conseil" routerLinkActive="selected"><i class="material-icons">supervisor_account</i>Conseils</a>
+		<a class="btn-plus" (click)="togglePlus()"><i class="material-icons plus"
 				[class.plus-active]="isPlusSelected">more_horiz</i>Plus</a>
 		<div [className]="currentPlusClass">
 			<div class="item-plus" style="bottom: 60px">
@@ -29,9 +29,8 @@
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 200px">
-				<a routerLink="conseil" routerLinkActive="selected" class="button-plus" style="pointer-events: none;"><i
-						class="material-icons icon-plus">supervisor_account</i>A
-					venir</a>
+				<a routerLink="bibliotheque" routerLinkActive="selected" class="button-plus"><i
+						class="material-icons icon-plus">menu_book</i>Bibliothèque</a>
 			</div>
 		</div>
 	</div>
