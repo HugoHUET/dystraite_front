@@ -81,7 +81,7 @@ registerLocaleData(localeFr, 'fr');
           return localStorage.getItem(tokenKey);
         },
         authScheme: "", // Le bearer est déjà retourné par le back. A enlever si ce n'est plus le cas.
-        whitelistedDomains: [new URL(environment.apiUrl).hostname + ":" + new URL(environment.apiUrl).port],
+        whitelistedDomains: ['dystraite-back.serveurspaul.duckdns.org', 'localhost:7050', '192.168.0.36:7050'],
         blacklistedRoutes: [environment.apiUrl + '/login', environment.apiUrl + '/register'],
       },
     }),
