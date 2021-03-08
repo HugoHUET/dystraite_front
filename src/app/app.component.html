@@ -3,7 +3,7 @@
 	<div class="row container-master" *ngIf="isConnected || isRouteAllowed(router.url)" (click)="untogglePlus()">
 		<router-outlet></router-outlet>
 	</div>
-	<div class="navbar">
+	<div class="navbar" id="footer">
 		<a routerLink="accueil" routerLinkActive="selected"><i class="material-icons">home</i>Accueil</a>
 		<a routerLink="cours" routerLinkActive="selected" style="margin-right: 10%"><i
 				class="material-icons">school</i>Cours</a>
