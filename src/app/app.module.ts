@@ -35,6 +35,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { FilterPipe } from './filter.pipe';
 import { BetaComponent } from './components/beta/beta.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -63,7 +64,8 @@ registerLocaleData(localeFr, 'fr');
     ChangePasswordComponent,
     TokenComponent,
     FilterPipe,
-    BetaComponent
+    BetaComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,

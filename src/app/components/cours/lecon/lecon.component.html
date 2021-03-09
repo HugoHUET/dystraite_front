@@ -10,7 +10,7 @@
     <div class="video-container" *ngIf="lesson?.video">
         <iframe width="560" height="315" [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
     </div>
-    <p>{{lesson?.content}}</p>
+    <p [innerHTML]="lesson?.content | safeHtml"></p>
 </div>
 <!--<ng-template #default>
     <img src="../../assets/ponctuation.png" alt="test">

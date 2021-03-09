@@ -5,7 +5,7 @@
     <img *ngIf="book?.thumbnail" [src]="thumbnail" alt="Image d'illustration">
     <h5>{{book?.title}}</h5>
     <div>{{book?.createdAt | date}}</div>
-    <p>{{book?.description}}</p>
+    <p [innerHTML]="book?.description | safeHtml"></p>
 </div>
 <a class="button bg-rose large" [href]="book?.link" target="_blank">Découvrir</a>
 

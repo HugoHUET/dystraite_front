@@ -23,6 +23,7 @@
     "@angular/router": "~10.2.3",
     "@auth0/angular-jwt": "^4.2.0",
     "@babel/compat-data": "^7.8.0",
+    "dompurify": "^2.2.6",
     "ionicons": "^5.5.0",
     "material-icons": "^0.5.4",
     "ngx-toastr": "^11.3.3",
