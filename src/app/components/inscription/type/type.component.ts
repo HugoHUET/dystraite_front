@@ -34,7 +34,7 @@ export class TypeComponent implements OnInit {
   register() {
     this.isLoading = true;
     this.userService.register(this.registerForm.value).subscribe(response => {
-      this.router.navigate(['/accueil']);
+      this.router.navigate(['/inscription/user/bravo']);
     },
       error => {
         this.isLoading = false;

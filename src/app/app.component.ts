@@ -5,6 +5,7 @@ import { Key } from 'protractor';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 import { UserService } from './services/user/user.service';
+import { ResponsiveService } from './services/responsive/responsive.service';
 
 @Component({
   selector: 'app-root',
@@ -40,7 +41,7 @@ export class AppComponent {
   appareil = null;
   isKeyboardUp = false;
 
-  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, public userService: UserService) {
+  constructor(private titreService: TitreService, private cd: ChangeDetectorRef, public router: Router, public userService: UserService, public responsiveService: ResponsiveService) {
     /*if (Capacitor.platform !== "web") {
       const { Keyboard } = Plugins;
       Keyboard.setAccessoryBarVisible({ isVisible: true });

@@ -14,7 +14,7 @@
 		<a class="button rose disabled-beta" href="#" [routerLink]="['/jeux']" style="border-color: gray;">A venir</a>
 	</div>
 </div>
-<a class="button bg-rose large" href="#" [routerLink]="['/jeux']">Accéder aux jeux</a>
+<button class="button bg-rose large" href="#" [routerLink]="['/jeux']" [disabled]="true">Accéder aux jeux</button>
 <hr class="solid">
 <h5>LE COURS DU MOMENT</h5>
 <div class="block" [hidden]="!lastLesson">
