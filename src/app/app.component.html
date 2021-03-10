@@ -43,19 +43,19 @@
 	</div>
 </ion-app>
 <!-- Version PC -->
-<div *ngIf="!isMobile">
+<div *ngIf="!responsiveService.isMobile">
 	<header>
 		<div class="navbar-fixed">
 			<nav class="noBoxShadow">
 				<div class="nav-wrapper">
-					<span class="brand-logo center">{{titre_page}}</span>
+					<span class="brand-logo center">Dystraite</span>
 				</div>
 			</nav>
 		</div>
 	</header>
 
 	<main>
-		<ul class="sidenav sidenav-fixed" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+		<!--<ul class="sidenav sidenav-fixed" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
 			<li><a href="/"><i class="material-icons">home</i>Accueil</a></li>
 			<li><a href="/jeux"><i class="material-icons">videogame_asset</i>Jeux</a></li>
 			<li><a href="/cours"><i class="material-icons">school</i>Cours</a></li>
@@ -63,9 +63,16 @@
 			<li><a href="/conseil"><i class="material-icons">supervisor_account</i>Conseils</a></li>
 			<li><a href="/profil"><i class="material-icons">account_circle</i>Profil</a></li>
 			<li><a href="/ortophoniste"><i class="material-icons">work_outline</i>Orthophoniste</a></li>
-		</ul>
-		<div class="row container-master">
-			<router-outlet></router-outlet>
+		</ul> -->
+		<div class="row container-master" style="text-align: center;">
+			<h5>La version pour ordinateur arrivera très prochainement. <br>Vous pouvez dès à présent utiliser la
+				version
+				BETA en
+				vous connectant sur cette page avec votre smartphone.</h5>
+			<br>
+			<img src="../assets/mobile_image_beta.png"
+				style="width: 503px; height: 553px; margin: auto; display: flex;">
+			<!--<router-outlet></router-outlet> -->
 		</div>
 	</main>
 </div>
