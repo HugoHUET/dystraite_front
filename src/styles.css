@@ -82,38 +82,42 @@ img{
     color: white;
     background: linear-gradient(to right bottom, #fb6d83, #da3e5b);
 }
-a.bg-rose:active, button.bg-rose:active{
+a.bg-rose:active, button.bg-rose:active:not(:disabled){
   color: #FF647C;
   background: white;
 }
 .rose{
   color: #FF647C;
+  background: white;
 }
 
-a.rose:active, button.rose:active{
+a.rose:active, button.rose:active:not(:disabled){
   color: white;
   background: linear-gradient(to right bottom, #fb6d83, #da3e5b);
 }
 .bg-vert{
   background-color: #79cb7f;
-  border-color: #79cb7f;
+  color: white;
 }
 .vert{
     color: #79cb7f;
+    background: white;
 }
 .bg-jaune{
   background-color: #ffcf5c;
-  border-color: #ffcf5c;
+  color: white;
 }
 .jaune{
     color: #ffcf5c;
+    background: white;
 }
 .bg-bleu{
   background-color: #92a3d0;
-  border-color: #92a3d0;
+  color: white;
 }
 .bleu{
     color: #92a3d0;
+    background: white;
 }
 input {
 	border-bottom: none !important;
