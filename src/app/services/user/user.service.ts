@@ -64,12 +64,8 @@ export class UserService {
   }
   loadLoggedUser() {
     if (this.isTokenAvailable()) {
-      this.httpService.get(this.REST_API_SERVER + 'loggedUser').subscribe((user: User) => {
+      this.httpService.get(this.REST_API_SERVER + "loggedUser").subscribe((user: User) => {
         this.loggedUser = user;
-      }, (error: any) => {
-        if (error) {
-          localStorage.removeItem(tokenKey);
-        }
       });
     }
   }
