@@ -31,7 +31,7 @@ export class ProfilComponent implements OnInit {
       var timeDiff = Math.abs(Date.now() - new Date(this.userService.loggedUser.birthdate).getTime());
       return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
     }
-    return '';
+    return null;
   }
   editProfilePicture(event) {
     const file = event.target.files[0];
