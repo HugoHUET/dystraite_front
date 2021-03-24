@@ -56,6 +56,12 @@ export class AppComponent {
     }*/
   }
 
+  onClickedOutside(e: Event) {
+    document.getElementById("side-nav").style.width = "85px";
+    document.getElementById("menuIcon").style.display = "block";
+    document.getElementById("closeIcon").style.display = "none";
+  }
+  
   ngOnInit() {
     this.userService.loadLoggedUser();
 

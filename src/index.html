@@ -122,6 +122,30 @@
       this.mini = true;
     }
   }
+
+  let previousClick = false;
+
+  function expandedSidenav() {
+    if (document.getElementById("menuIcon").style.display === "") {
+      document.getElementById("menuIcon").style.display = "block";
+    }
+    if (document.getElementById("menuIcon").style.display === "block") {
+      previousClick = false;
+    } else {
+      previousClick = true
+    }
+    if (previousClick) {
+      document.getElementsByClassName("sidenav-fixed")[0].style.width = "85px";
+      document.getElementById("menuIcon").style.display = "block";
+      document.getElementById("closeIcon").style.display = "none";
+      previousClick = false;
+    } else {
+      document.getElementsByClassName("sidenav-fixed")[0].style.width = "220px";
+      document.getElementById("menuIcon").style.display = "none";
+      document.getElementById("closeIcon").style.display = "block";
+      previousClick = true;
+    }
+  }
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 
