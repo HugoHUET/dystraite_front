@@ -12,7 +12,6 @@
 .filter {
     fill: rgba(255,255,255,1);
     color: rgba(86,86,86,1);
-
 }
 
 #input_container {
@@ -65,4 +64,8 @@
     background-color: #F5F5F5;
     color: #707070;
     border: 0px;
+}
+
+.lesson-title {
+  width: 100%;
 }

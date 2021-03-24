@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://192.168.0.36:7050'
+  apiUrl: 'http://localhost:7050'
 };
 export const tokenKey = 'access_token';
 export const loggedUserKey = 'logged_user';
