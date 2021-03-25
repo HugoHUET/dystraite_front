@@ -35,6 +35,6 @@
 </div>
 <div class="ligne" *ngFor="let lesson of lessons | filter: filter">
     <img src="data:image/bmp;base64,{{lesson.thumbnail}}" alt="thumbnail">
-    <b>{{lesson.title}}</b>
+    <b class="lesson-title">{{lesson.title}}</b>
     <a class="button bg-rose" [routerLink]="['/cours/lecon/', lesson.id]">Lire</a>
 </div>

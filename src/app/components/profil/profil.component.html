@@ -16,7 +16,7 @@
                     style="display: inline-block; margin-right: 10px;">show_chart</span>{{score}} points
             </div>
         </div>-->
-        <div class="item">
+        <div class="item" *ngIf="calculateAge()">
             <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
                     style="display: inline-block; margin-right: 10px;">cake</span>{{calculateAge() + ' ans' |
                 uppercase}}
@@ -36,7 +36,7 @@
             <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
                     style="display: inline-block; margin-right: 10px;">home</span>11 Rue des Potiers</p>
         </div> -->
-        <div class="item">
+        <div class="item" *ngIf="userService.loggedUser.city">
             <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
                     style="display: inline-block; margin-right: 10px;">place</span>{{userService.loggedUser.city |
                 uppercase}}</p>
