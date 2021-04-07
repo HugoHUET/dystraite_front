@@ -4,10 +4,11 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { tokenKey } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService, private router: Router) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
@@ -22,7 +23,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             closeButton: true,
           });
           localStorage.removeItem(tokenKey);
-          location.reload();
+          this.router.navigate(['profil']);
         }
         return throwError(error.message);
       })
