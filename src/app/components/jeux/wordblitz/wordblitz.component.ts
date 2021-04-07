@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SortieGameplay } from 'src/app/models/maximots/SortieGameplay/SortieGameplay';
+import { MaximotsService } from 'src/app/services/maximots/maximots.service';
 
 @Component({
   selector: 'app-wordblitz',
@@ -12,11 +14,21 @@ export class WordblitzComponent implements OnInit {
   saisie: HTMLElement;
   win = false;
 
-  constructor() { }
+  constructor(private maximotsService: MaximotsService) { }
 
   ngOnInit() {
     let grille = document.getElementsByClassName('grille')[0];
-    this.grilleElements = document.getElementsByClassName('grille')[0].getElementsByTagName('div');
+    this.maximotsService.getGameData( { categoryIds: [ 1, 2 ] } ).subscribe( (sortieGameplay: SortieGameplay) => {
+      grille.setAttribute("style", "grid-template-columns: repeat(10, 1fr);")
+      sortieGameplay.grid.forEach( c => {
+        let div: HTMLDivElement = document.createElement("div");
+        let span: HTMLSpanElement = document.createElement("span");
+        span.innerHTML = c.toUpperCase();
+        div.appendChild(span);
+        grille.appendChild(div);
+      })
+    })
+    this.grilleElements = grille.getElementsByTagName('div');
     this.saisie = document.getElementById('saisie');
 
     document.addEventListener('pointerup', (e) => {
