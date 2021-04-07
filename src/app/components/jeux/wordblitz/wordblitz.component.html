@@ -1,5 +1,20 @@
 <div class="main">
-    <h3>Word Blitz</h3>
+    <h6 id="title">Trouve le maximum de mots</h6>
+    <svg xmlns="http://www.w3.org/2000/svg" width="25.833" height="33.004" viewBox="0 0 25.833 33.004">
+        <path id="Tracé_23" data-name="Tracé 23"
+            d="M3617.457,125.518l4.92,8,1.959,4.253h.621s1.984-3.884,1.984-4.126,5.375-8.128,5.375-8.128Z"
+            transform="translate(-3611.973 -117.019)" fill="#ff647c" />
+        <path id="Tracé_24" data-name="Tracé 24" d="M3618.184,143.764l5.908-6.382h.516l5.953,6.382Z"
+            transform="translate(-3611.647 -111.686)" fill="#ff647c" />
+        <path id="Tracé_22" data-name="Tracé 22"
+            d="M3609.094,67.267l-8.9-16.048h24.118l-9.17,16.048,9.17,15.956H3600.2Z"
+            transform="translate(-3599.348 -50.719)" fill="none" stroke="#707070" stroke-width="1" />
+        <path id="Tracé_25" data-name="Tracé 25" d="M3622.453,133.094v6.315" transform="translate(-3609.728 -113.613)"
+            fill="none" stroke="#ff647c" stroke-width="0.5" />
+    </svg>
+
+    <h3 id="saisie"></h3>
+
     <div class="grille">
         <div><span>A</span></div>
         <div><span>B</span></div>
@@ -18,5 +33,27 @@
         <div><span>O</span></div>
         <div><span>E</span></div>
     </div>
-    <h3 id="saisie"></h3>
+
+    <div id="reload-btn"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+            <g id="Groupe_19" data-name="Groupe 19" transform="translate(-172 -616)">
+                <circle id="Ellipse_49" data-name="Ellipse 49" cx="26" cy="26" r="26" transform="translate(172 616)"
+                    fill="#c4c4c4" />
+                <path id="Tracé_26" data-name="Tracé 26"
+                    d="M3483.869,634.731s-10.737-1.757-10.737-11.127c0-9.761,7.9-11.029,10.737-11.029s12.005,3.807,6.832,12.494"
+                    transform="translate(-3285.644 17.728)" fill="none" stroke="#fff" stroke-linecap="round"
+                    stroke-width="3" />
+                <path id="Tracé_27" data-name="Tracé 27" d="M0,0,3.9,2.831,7.32,0"
+                    transform="matrix(0.875, 0.485, -0.485, 0.875, 202.177, 640.25)" fill="none" stroke="#fff"
+                    stroke-linecap="round" stroke-width="2" />
+            </g>
+        </svg>
+    </div>
+</div>
+<div id="win" [hidden]="!win">
+    <div id="content">
+        <h3>Félicitations !</h3>
+        <h6>Vous avez trouvé</h6>
+        <h1>12</h1>
+        <h6>Mots</h6>
+    </div>
 </div>

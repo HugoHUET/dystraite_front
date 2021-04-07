@@ -10,6 +10,7 @@ export class WordblitzComponent implements OnInit {
   isDown: boolean = false;
   grilleElements: HTMLCollectionOf<HTMLDivElement>;
   saisie: HTMLElement;
+  win = false;
 
   constructor() { }
 
@@ -21,13 +22,13 @@ export class WordblitzComponent implements OnInit {
     document.addEventListener('pointerup', (e) => {
 
       this.clearSelection()
-      
+
     })
 
     grille.addEventListener('pointerleave', (e) => {
 
       this.clearSelection()
-      
+
     })
 
     for (let i = 0; i < this.grilleElements.length; i++) {
@@ -46,19 +47,19 @@ export class WordblitzComponent implements OnInit {
         //vérifie si la séléction est activée et la lettre n'est pas déjà sélectionnée
         if (this.isDown && div.style.opacity !== "0.5") {
           this.select(div);
-          
+
           this.saisie.innerHTML = this.saisie.innerHTML + e["path"][0].innerText;
-          
+
         }
       })
     }
   }
 
-  select(div: HTMLDivElement){
+  select(div: HTMLDivElement) {
     div.style.opacity = "0.5";
   }
 
-  clearSelection(){
+  clearSelection() {
 
     this.isDown = false;
 
