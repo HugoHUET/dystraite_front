@@ -41,10 +41,6 @@ export class UserService {
     return this.httpService.get(this.REST_API_SERVER + "?email=" + email).pipe(
       map((res: User) => res));
   }
-  like(tip: Tips): Observable<Tips> {
-    return this.httpService.post<Tips>(this.REST_API_SERVER + 'like', tip);
-  }
-
   isConnected() {
     return this.isTokenAvailable() && this.loggedUser;
   }
