@@ -13,12 +13,12 @@ export class TypeComponent implements OnInit {
   ortho: boolean = false;
   isLoading = false;
   registerForm = new FormGroup({
-    firstname: new FormControl('', Validators.required),
-    lastname: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-    city: new FormControl('', Validators.required),
-    birthdate: new FormControl(null, Validators.required)
+    firstname: new FormControl(null, Validators.required),
+    lastname: new FormControl(null, Validators.required),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, Validators.required),
+    city: new FormControl(null),
+    birthdate: new FormControl(null)
   });
 
   constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) {

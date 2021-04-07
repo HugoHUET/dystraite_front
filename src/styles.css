@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  font-family: Nunito, sans-serif; 
 
+}
 .sidenav.sidenav-fixed {
     margin-top: 64px;
     white-space: nowrap;
@@ -20,6 +23,9 @@ html{
 .filled{
     /* background-color: #92a3d1 !important;
     color: white !important; */
+}
+button{
+  border: none;
 }
 .button{
     height: 30px;
@@ -138,6 +144,12 @@ h1, h2, h3, h4, h5, h6, h7 {
 .form-error {
   color: red;
 }
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
+
 .disabled-beta {
     pointer-events: none;
     color: grey;

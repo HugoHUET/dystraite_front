@@ -21,10 +21,10 @@
     </div>
     <div class="option">
       <p><a routerLink="/change-password" onclick="return false;">Mot de passe oublié ?</a></p>
-      <label>
+      <!--<label>
         <input type="checkbox" class="filled-in" />
         <span>Se souvenir de moi</span>
-      </label>
+      </label>-->
     </div>
     <button class="button bg-rose large" type="submit" [ngClass]="{'loading' : isLoading}"
       [disabled]="!loginForm.valid">

@@ -18,19 +18,19 @@
 		</div>
 	</div>
 </div>
-<h5 [hidden]="!currentBook">Recommandé</h5>
-<div class="block" [hidden]="!currentBook">
-	<img *ngIf="currentBook?.thumbnail" src="data:image/jpeg;base64,{{currentBook?.thumbnail}}"
-		alt="Image d'illustration">
-	<div class="information">
-		<h6>{{currentBook?.title}}</h6>
-		<p class="description">
-			{{currentBook?.description}}
-		</p>
-		<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
+<div [hidden]="filter || !currentBook">
+	<h5>Recommandé</h5>
+	<div class="block">
+		<img *ngIf="currentBook?.thumbnail" src="data:image/jpeg;base64,{{currentBook?.thumbnail}}"
+			alt="Image d'illustration">
+		<div class="information">
+			<h6>{{currentBook?.title}}</h6>
+			<p class="description" [innerHTML]="currentBook?.description | safeHtml"></p>
+			<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
+		</div>
 	</div>
+	<hr class="solid">
 </div>
-<hr class="solid">
 <div class="ligne" *ngFor="let book of books">
 	<img src="data:image/bmp;base64,{{book.thumbnail}}" alt="test">
 	<b>{{book.title}}</b>

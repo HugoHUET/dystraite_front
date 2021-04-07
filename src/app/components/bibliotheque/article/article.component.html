@@ -1,13 +1,10 @@
-<div class="row">
-    <h4 class="col s8">L'article</h4>
-</div>
 <div>
     <img *ngIf="book?.thumbnail" [src]="thumbnail" alt="Image d'illustration">
     <h5>{{book?.title}}</h5>
     <div>{{book?.createdAt | date}}</div>
-    <p>{{book?.description}}</p>
+    <p [innerHTML]="book?.description | safeHtml"></p>
 </div>
-<a class="button bg-rose large" [href]="book?.link" target="_blank">Découvrir</a>
+<a class="button bg-rose large" *ngIf="book?.link" [href]="book?.link" target="_blank">Découvrir</a>
 
 <!--<ng-template #default>
     <div class="article-block">

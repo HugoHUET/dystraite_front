@@ -8,8 +8,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ionic-build": "ionic build --project=dystraite",
-    "ionic-serve": "ionic serve --project=dystraite",
     "docker-build": "docker build --tag dystraite-back",
     "docker-run": "docker run --publish 80:80 --detach --name dystraite-back dystraite-back"
   },
@@ -25,7 +23,9 @@
     "@angular/router": "~10.2.3",
     "@auth0/angular-jwt": "^4.2.0",
     "@babel/compat-data": "^7.8.0",
-    "@ionic/angular": "latest",
+    "dompurify": "^2.2.6",
+    "ionicons": "^5.5.0",
+    "material-icons": "^0.5.4",
     "ngx-toastr": "^11.3.3",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
@@ -37,19 +37,11 @@
     "@angular/cli": "^10.2.0",
     "@angular/compiler-cli": "~10.2.3",
     "@angular/language-service": "~10.2.3",
-    "@ionic/angular-toolkit": "^3.0.0",
     "@babel/compat-data": "~7.8.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "latest",
-    "cordova-ios": "^6.1.1",
-    "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-ionic-keyboard": "^2.2.0",
-    "cordova-plugin-ionic-webview": "^4.2.1",
-    "cordova-plugin-splashscreen": "^5.0.2",
-    "cordova-plugin-statusbar": "^2.4.2",
-    "cordova-plugin-whitelist": "^1.3.3",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
@@ -61,19 +53,5 @@
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.5"
-  },
-  "cordova": {
-    "plugins": {
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-statusbar": {},
-      "cordova-plugin-device": {},
-      "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
-    },
-    "platforms": [
-      "ios",
-      "android"
-    ]
   }
 }

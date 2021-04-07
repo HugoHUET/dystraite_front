@@ -40,4 +40,8 @@ export class TipsService {
     return this.httpService.get(this.REST_API_SERVER + "/getLast/" + limit).pipe(
       map((res: Tips[]) => res));
   }
+  like(tip: Tips): Observable<Tips> {
+    return this.httpService.post<Tips>(this.REST_API_SERVER + 'like', tip);
+  }
+
 }

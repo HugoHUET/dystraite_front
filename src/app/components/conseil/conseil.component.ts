@@ -45,7 +45,7 @@ export class ConseilComponent implements OnInit {
       tip.nbLikes++;
       this.userService.loggedUser?.likedTips.push(tip);
     }
-    this.userService.like(tip).subscribe(newtip => {
+    this.tipsService.like(tip).subscribe(newtip => {
     });
   }
   isMyTip(tip) {
