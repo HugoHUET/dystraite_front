@@ -1,21 +1,36 @@
-<h5>Le jeu du moment !</h5>
-<div class="block">
-    <img src="../../assets/maximots.jpeg" alt="test">
-    <div class="information">
-        <h6>Maximots</h6>
-        <p>Trouvez le plus de mots possibles en reliant les lettres sur la grille. Complétez le plus
-            de grilles possible pour débloquer les niveaux supérieurs</p>
-        <a class="button rose" href="#" [routerLink]="['maximots']">Jouer</a>
+
+<!-- Version Mobile -->
+<div *ngIf="responsiveService.isMobile">
+	<h5>Le jeu du moment !</h5>
+    <div class="block">
+        <img src="../../assets/maximots.jpeg" alt="test">
+        <div class="information">
+            <h6>Maximots</h6>
+            <p>Trouvez le plus de mots possibles en reliant les lettres sur la grille. Complétez le plus
+                de grilles possible pour débloquer les niveaux supérieurs</p>
+            <a class="button rose" href="#" [routerLink]="['maximots']">Jouer</a>
+        </div>
+    </div>
+    <hr>
+    <!--<div class="ligne">
+        <img src="../../assets/wordblitz.jpeg" alt="test">
+        <b>Maximots</b>
+        <a class="button bg-rose" [routerLink]="['maximots']">Jouer</a>
+    </div> -->
+    <!-- <div class="ligne" *ngFor="let lecon of cours">
+        <img src="data:image/bmp;base64,{{lecon.vignette}}" alt="test">
+        <b>{{lecon.titre}}</b>
+        <a class="button bg-rose" [routerLink]="['/cours/lecon', lecon.id]">Lire</a>
+    </div> -->
+</div>
+
+<!-- Version PC -->
+<div *ngIf="!responsiveService.isMobile">
+	<h5>LES JEU DU MOMENT</h5>
+    <div class="container-maintenance">
+        <img src="../../../assets/mobile/undraw_Maintenance_re_59vn.svg" alt='Maintenance' />
+        <Button style="margin-top: '50px';" type='primary'></Button>
+        <p>Cette page est en cours de développement.</p>
+        <button class="button bg-rose large" href="/actualite" [routerLink]="['/actualite']">Retourner à l'accueil</button>
     </div>
 </div>
-<hr>
-<!--<div class="ligne">
-    <img src="../../assets/wordblitz.jpeg" alt="test">
-    <b>Maximots</b>
-    <a class="button bg-rose" [routerLink]="['maximots']">Jouer</a>
-</div> -->
-<!-- <div class="ligne" *ngFor="let lecon of cours">
-    <img src="data:image/bmp;base64,{{lecon.vignette}}" alt="test">
-    <b>{{lecon.titre}}</b>
-    <a class="button bg-rose" [routerLink]="['/cours/lecon', lecon.id]">Lire</a>
-</div> -->
