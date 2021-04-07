@@ -69,6 +69,8 @@ export class UserService {
     return this.httpService.post<any>(this.REST_API_SERVER + 'sign-up', user).pipe(
       map(response => {
         localStorage.setItem(tokenKey, response.token);
+        response.user.tips = [];
+        response.user.likedTips = [];
         this.loggedUser = response.user;
       }));
   }
