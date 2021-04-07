@@ -55,62 +55,60 @@
 
 <!-- Version PC -->
 <div *ngIf="!responsiveService.isMobile">
-	<div class="container-actualite">
-		<h5>LE JEU DU MOMENT</h5>
-		<div class="container-grid">
-			<div class="grid">
-				<div class="block disabled-beta">
-					<img src="../../assets/maximots.jpeg" alt="illustration jeu du moment">
-					<div class="information-block">
-						<h6>Maximots</h6>
-						<p class="description">L'objectif du jeu est de trouver le plus de mots possible. Reliez les différentes lettres
-							de la grille pour former un maximum de mots. Plus le nombre de mots trouvés est élevé, plus vous gagnez des
-							points !</p>
-						<a class="button rose disabled-beta" href="#" [routerLink]="['/jeux']" style="border-color: gray;">A venir</a>
-					</div>
+	<h5>LE JEU DU MOMENT</h5>
+	<div class="container-grid">
+		<div class="grid">
+			<div class="block disabled-beta">
+				<img src="../../assets/maximots.jpeg" alt="illustration jeu du moment">
+				<div class="information-block">
+					<h6>Maximots</h6>
+					<p class="description">L'objectif du jeu est de trouver le plus de mots possible. Reliez les différentes lettres
+						de la grille pour former un maximum de mots. Plus le nombre de mots trouvés est élevé, plus vous gagnez des
+						points !</p>
+					<a class="button rose disabled-beta" href="#" [routerLink]="['/jeux']" style="border-color: gray;">A venir</a>
 				</div>
-				<button class="button bg-rose large" href="#" [routerLink]="['/jeux']" [disabled]="true">Accéder aux jeux</button>
 			</div>
+			<button class="button bg-rose large" href="#" [routerLink]="['/jeux']" [disabled]="true">Accéder aux jeux</button>
 		</div>
-		<hr class="solid">
-		<h5>LE COURS DU MOMENT</h5>
-		<div class="container-grid">
-			<div class="grid">
-				<div class="block" [hidden]="!lastLesson">
-					<img *ngIf="lastLesson?.thumbnail" src="data:image/jpeg;base64,{{lastLesson?.thumbnail}}"
-						alt="illustration cours du moment">
-					<div class="information-block">
-						<h6>{{lastLesson?.title}}</h6>
-						<p class="description">
+	</div>
+	<hr class="solid">
+	<h5>LE COURS DU MOMENT</h5>
+	<div class="container-grid">
+		<div class="grid">
+			<div class="block" [hidden]="!lastLesson">
+				<img *ngIf="lastLesson?.thumbnail" src="data:image/jpeg;base64,{{lastLesson?.thumbnail}}"
+					alt="illustration cours du moment">
+				<div class="information-block">
+					<h6>{{lastLesson?.title}}</h6>
+					<p class="description">
 							{{lastLesson?.description}}
-						</p>
-						<a class="button rose" href="#" [routerLink]="['/cours/lecon/'+lastLesson?.id]">Lire</a>
-					</div>
+					</p>
+					<a class="button rose" href="#" [routerLink]="['/cours/lecon/'+lastLesson?.id]">Lire</a>
 				</div>
-				<a class="button bg-rose large" href="#" [routerLink]="['/cours']">
-					Accéder aux cours
-				</a>				
 			</div>
+			<a class="button bg-rose large" href="#" [routerLink]="['/cours']">
+				Accéder aux cours
+			</a>				
 		</div>
-		<hr class="solid">
-		<h5>LE LIVRE DU MOMENT</h5>
-		<div class="container-grid">
-			<div class="grid">
-				<div class="block" [hidden]="!lastBook">
-					<img *ngIf="lastBook?.thumbnail" src="data:image/jpeg;base64,{{lastBook?.thumbnail}}"
-						alt="illustration livre du moment">
-					<div class="information-block">
-						<h6>{{lastBook?.title}}</h6>
-						<p class="description">
-							{{lastBook?.description}}
-						</p>
-						<a class="button rose" href="#" [routerLink]="['/bibliotheque/article/'+lastBook?.id]">Lire</a>
-					</div>
+	</div>
+	<hr class="solid">
+	<h5>LE LIVRE DU MOMENT</h5>
+	<div class="container-grid">
+		<div class="grid">
+			<div class="block" [hidden]="!lastBook">
+				<img *ngIf="lastBook?.thumbnail" src="data:image/jpeg;base64,{{lastBook?.thumbnail}}"
+					alt="illustration livre du moment">
+				<div class="information-block">
+					<h6>{{lastBook?.title}}</h6>
+					<p class="description">
+						{{lastBook?.description}}
+					</p>
+					<a class="button rose" href="#" [routerLink]="['/bibliotheque/article/'+lastBook?.id]">Lire</a>
 				</div>
-				<a class="button bg-rose large" href="#" [routerLink]="['/bibliotheque']">
-					Accéder aux livres
-				</a>
 			</div>
+			<a class="button bg-rose large" href="#" [routerLink]="['/bibliotheque']">
+				Accéder aux livres
+			</a>
 		</div>
 	</div>
 </div>

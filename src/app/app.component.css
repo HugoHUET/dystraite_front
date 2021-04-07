@@ -272,6 +272,7 @@ body.keyboard-open .has-footer {
 #container-router-outlet {
   transition: 0.5s;
   margin-left: 85px;
+  padding: 2rem;
 }
 
 button {
