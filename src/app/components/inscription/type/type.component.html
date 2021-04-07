@@ -35,8 +35,12 @@
         </div>
         <div class="block">
             <label for="ville">Date de naissance</label>
-            <input placeholder="Entrez votre date de naissance" id="date" type="date" class="validate"
+            <input placeholder="Entrez votre date de naissance..." id="date" type="date" class="validate"
                 formControlName="birthdate">
+        </div>
+        <div class="block">
+            <label for="username">Pseudonyme</label>
+            <input placeholder="Entrez votre pseudonyme" id="username" type="text" class="validate" formControlName="username">
         </div>
         <button class="button bg-rose large" [ngClass]="{'loading' : isLoading}" type="submit"
             [disabled]="!registerForm.valid">

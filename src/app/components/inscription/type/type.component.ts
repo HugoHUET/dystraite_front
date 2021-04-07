@@ -18,7 +18,8 @@ export class TypeComponent implements OnInit {
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, Validators.required),
     city: new FormControl(null),
-    birthdate: new FormControl(null)
+    birthdate: new FormControl(null),
+    username: new FormControl(null)
   });
 
   constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) {
