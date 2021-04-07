@@ -17,7 +17,7 @@ export class ConnexionComponent implements OnInit {
   });
   isLoading = false;
 
-  constructor(private titreService: TitreService, private userService: UserService, private route: Router) { }
+  constructor(private userService: UserService, private route: Router) { }
 
   ngOnInit() {
   }
@@ -29,6 +29,7 @@ export class ConnexionComponent implements OnInit {
     },
       error => {
         this.isLoading = false;
+        this.loginForm.get('password').setValue('');
         this.loginForm.get('password').setErrors({
           incorrect: true,
         })

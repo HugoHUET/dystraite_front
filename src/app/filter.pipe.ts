@@ -7,7 +7,10 @@ export class FilterPipe implements PipeTransform {
 
   transform(value: any, input: any): any {
     if (input) {
-      return value.filter(val => val.title?.indexOf(input) >= 0 || val.description?.indexOf(input) >= 0 || val.tags?.indexOf(input) >= 0);
+      return value.filter(
+        val => val.title?.toLowerCase()?.indexOf(input.toLowerCase()) >= 0 ||
+          val.description?.toLowerCase()?.indexOf(input.toLowerCase()) >= 0 ||
+          val.tags?.indexOf(input) >= 0);
     } else {
       return value;
     }

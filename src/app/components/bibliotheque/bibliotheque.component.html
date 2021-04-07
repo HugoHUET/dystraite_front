@@ -25,9 +25,7 @@
 			alt="Image d'illustration">
 		<div class="information">
 			<h6>{{currentBook?.title}}</h6>
-			<p class="description">
-				{{currentBook?.description}}
-			</p>
+			<p class="description" [innerHTML]="currentBook?.description | safeHtml"></p>
 			<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
 		</div>
 	</div>
