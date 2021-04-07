@@ -22,6 +22,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             closeButton: true,
           });
           localStorage.removeItem(tokenKey);
+          location.reload();
         }
         return throwError(error.message);
       })
