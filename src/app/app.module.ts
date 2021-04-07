@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { LOCALE_ID, NgModule } from '@angular/core';
-import { ClickOutsideModule } from 'ng-click-outside';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -38,6 +37,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { FilterPipe } from './filter.pipe';
 import { BetaComponent } from './components/beta/beta.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -66,14 +66,14 @@ registerLocaleData(localeFr, 'fr');
     ChangePasswordComponent,
     TokenComponent,
     FilterPipe,
-    BetaComponent
     WordblitzComponent
+    BetaComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ClickOutsideModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -86,17 +86,17 @@ registerLocaleData(localeFr, 'fr');
           return localStorage.getItem(tokenKey);
         },
         authScheme: "", // Le bearer est déjà retourné par le back. A enlever si ce n'est plus le cas.
-        whitelistedDomains: [new URL(environment.apiUrl).hostname + ":" + new URL(environment.apiUrl).port],
+        whitelistedDomains: ['dystraite-back.serveurspaul.duckdns.org', 'localhost:7050', '192.168.0.36:7050'],
         blacklistedRoutes: [environment.apiUrl + '/login', environment.apiUrl + '/register'],
       },
     }),
-    IonicModule.forRoot()
   ],
   providers: [
     //JwtHelperService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: LOCALE_ID, useValue: 'fr' }
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

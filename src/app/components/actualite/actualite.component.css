@@ -8,6 +8,9 @@ img{
     border-radius: 10px 10px 0px 0px;
     width: 100%;
 }
+h6{
+    font-size: 22px;
+}
 .description{
     display: -webkit-box;
     -webkit-line-clamp: 9;
@@ -29,6 +32,7 @@ img{
     border-radius: 5px;
     margin-left: auto;
     font-size: 18px;
+    border: none;
 }
 .beta-btn > ion-icon {
     margin-left: 5px;

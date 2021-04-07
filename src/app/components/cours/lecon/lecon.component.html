@@ -1,5 +1,4 @@
 <div class="row">
-    <h4 class="col s8">Le cours</h4>
     <!-- Il n'y a pas de système d'exercice pour le moment. Donc on n'affiche pas le bouton
         <a class="button rose col s4" href="#" onclick="return false">Exercice</a>-->
 </div>
@@ -10,7 +9,7 @@
     <div class="video-container" *ngIf="lesson?.video">
         <iframe width="560" height="315" [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
     </div>
-    <p>{{lesson?.content}}</p>
+    <p [innerHTML]="lesson?.content | safeHtml"></p>
 </div>
 <!--<ng-template #default>
     <img src="../../assets/ponctuation.png" alt="test">

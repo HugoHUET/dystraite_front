@@ -1,5 +1,5 @@
 .container-master {
-    padding: 0 30px 30px 30px;
+    padding: 0 30px 95px 30px;
     margin-top: 5%;
     background-color: white;
 }
@@ -79,6 +79,11 @@ a{
     text-align: center;
 	background-color: white;
 	z-index: 15;
+        padding:
+        env(safe-area-inset-top, 20px)
+        env(safe-area-inset-right, 20px)
+        env(safe-area-inset-bottom, 20px)
+        env(safe-area-inset-left, 20px);
 }
 a {
     display: inline-grid;
