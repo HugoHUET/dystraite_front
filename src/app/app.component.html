@@ -45,8 +45,15 @@
 					<i class="material-icons icon-plus" id="menuIcon">menu</i>
 					<i class="material-icons icon-plus" id="closeIcon">close</i>
 				</button>
-				<div class="nav-wrapper">
-					<span class="brand-logo center">Dystraite</span>
+				<div class="nav-wrapper nav">
+					<span class="brand-logo center" [routerLink]="['/accueil']">Dystraite</span>
+				</div>
+				<div class="beta-container">
+					<h6>Version BETA</h6>
+					<button class="beta-btn" [routerLink]="['/beta']">
+						<span style="vertical-align: middle;">Plus d'infos</span>
+						<ion-icon name="information-circle-outline"></ion-icon>
+					</button>
 				</div>
 			</nav>
 		</div>
@@ -62,7 +69,7 @@
 			<li class="hoverLi"><a routerLink="profil" routerLinkActive="selected" class="hoverA"><i class="material-icons">account_circle</i>Profil</a></li>
 			<li class="hoverLi"><a routerLink="ortophoniste" routerLinkActive="selected" class="hoverA"><i class="material-icons">work_outline</i>Orthophoniste</a></li>
 		</ul>
-		<div class="row container-main">
+		<div id="container-router-outlet" class="row container-main">
 			<router-outlet></router-outlet>
 		</div>
 	</main>

@@ -116,9 +116,11 @@
   function toggleSidebar() {
     if (mini) {
       document.getElementsByClassName("sidenav-fixed")[0].style.width = "220px";
+      document.getElementById("container-router-outlet").style.marginLeft = "220px";
       this.mini = false;
     } else {
       document.getElementsByClassName("sidenav-fixed")[0].style.width = "85px";
+      document.getElementById("container-router-outlet").style.marginLeft = "85px";
       this.mini = true;
     }
   }
@@ -136,11 +138,13 @@
     }
     if (previousClick) {
       document.getElementsByClassName("sidenav-fixed")[0].style.width = "85px";
+      document.getElementById("container-router-outlet").style.marginLeft = "85px";
       document.getElementById("menuIcon").style.display = "block";
       document.getElementById("closeIcon").style.display = "none";
       previousClick = false;
     } else {
       document.getElementsByClassName("sidenav-fixed")[0].style.width = "220px";
+      document.getElementById("container-router-outlet").style.marginLeft = "220px";
       document.getElementById("menuIcon").style.display = "none";
       document.getElementById("closeIcon").style.display = "block";
       previousClick = true;
