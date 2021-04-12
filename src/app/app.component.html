@@ -41,10 +41,12 @@
 	<header>
 		<div class="navbar-fixed">
 			<nav class="noBoxShadow">
-				<button id="toggleButton" onclick="expandedSidenav()" (clickOutside)="onClickedOutside($event)">
-					<i class="material-icons icon-plus" id="menuIcon">menu</i>
-					<i class="material-icons icon-plus" id="closeIcon">close</i>
-				</button>
+				<div>
+					<button id="toggleButton" onclick="expandedSidenav()" (clickOutside)="onClickedOutside($event)">
+						<i class="material-icons" id="menuIcon">menu</i>
+						<i class="material-icons" id="closeIcon">close</i>
+					</button>
+				</div>
 				<div class="nav-wrapper nav">
 					<span class="brand-logo center" [routerLink]="['/accueil']">DYSTRAITE</span>
 				</div>
