@@ -10,6 +10,10 @@
 }
 
 .container-maintenance img {
-    width: 35rem;
-    height: 22rem;
-  }
+  width: 35rem;
+  height: 22rem;
+}
+
+.button {
+  cursor: pointer;
+}

@@ -292,9 +292,14 @@ button {
   z-index: 100;
 }
 
-.hoverLi:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  z-index: 100;
+.hoverA {
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  width: 220px;
+  align-items: center;
+  padding-left: 32px;
 }
 
 .sidenav li > a:hover {
