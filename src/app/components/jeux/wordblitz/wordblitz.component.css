@@ -6,7 +6,7 @@
     margin-bottom: 20px;
 }
 
-.grille {
+#grille {
     margin-top: 50px !important;
     margin-bottom: 30px !important;
     display: grid;
@@ -16,9 +16,10 @@
     grid-gap: 10px;
     max-width: 400px;
     margin: auto;
+    touch-action: none;
 }
 
-.grille > div {
+::ng-deep .lettre {
     background-color: #ff8093;
     color: white;
     border-radius : 11px;
@@ -38,20 +39,20 @@
     margin-top: auto;
     margin-bottom: 40px;
 }
-.grille > div::before {
+/* #grille > div::before {
     content: "";
     padding-bottom: 100%;
     display: block;
-}
+} */
 
-.grille > div > span {
+#grille > div > span {
     margin: auto;
-    font-size: 200%;
+    font-size: 100%;
 }
 
-.grille > div > *, .grille > div::before {
+/* #grille > div > *, #grille > div::before {
     grid-area: 1 / 1 / 2 / 2;
-}
+} */
 #win {
     position: absolute;
     color: white;

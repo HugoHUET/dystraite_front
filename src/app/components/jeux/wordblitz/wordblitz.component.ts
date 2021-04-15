@@ -1,84 +1,122 @@
-import { Component, OnInit } from '@angular/core';
-import { SortieGameplay } from 'src/app/models/maximots/SortieGameplay/SortieGameplay';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { SortieGameplay } from 'src/app/models/maximots/sortie-gameplay';
 import { MaximotsService } from 'src/app/services/maximots/maximots.service';
+import { sha256 } from 'js-sha256';
+import { MatchWordResult } from 'src/app/models/maximots/match-word-result';
 
 @Component({
-  selector: 'app-wordblitz',
-  templateUrl: './wordblitz.component.html',
-  styleUrls: ['./wordblitz.component.css']
+	selector: 'app-wordblitz',
+	templateUrl: './wordblitz.component.html',
+	styleUrls: ['./wordblitz.component.css']
 })
 export class WordblitzComponent implements OnInit {
 
-  isDown: boolean = false;
-  grilleElements: HTMLCollectionOf<HTMLDivElement>;
-  saisie: HTMLElement;
-  win = false;
+	isDown: boolean = false;
+	grille: HTMLElement;
+	saisie: HTMLElement;
+	wordHashArr: string[] = [];
+	wordsFindArr: string[] = [];
+	win = false;
 
-  constructor(private maximotsService: MaximotsService) { }
+	constructor(private maximotsService: MaximotsService, private renderer: Renderer2) { }
 
-  ngOnInit() {
-    let grille = document.getElementsByClassName('grille')[0];
-    this.maximotsService.getGameData( { categoryIds: [ 1, 2 ] } ).subscribe( (sortieGameplay: SortieGameplay) => {
-      grille.setAttribute("style", "grid-template-columns: repeat(10, 1fr);")
-      sortieGameplay.grid.forEach( c => {
-        let div: HTMLDivElement = document.createElement("div");
-        let span: HTMLSpanElement = document.createElement("span");
-        span.innerHTML = c.toUpperCase();
-        div.appendChild(span);
-        grille.appendChild(div);
-      })
-    })
-    this.grilleElements = grille.getElementsByTagName('div');
-    this.saisie = document.getElementById('saisie');
+	ngOnInit() {
+		this.saisie = document.getElementById('saisie');
+		this.grille = document.getElementById('grille');
+		this.grille.setAttribute("style", "grid-template-columns: repeat(10, 1fr);")
+		
+		this.maximotsService.getGameData({ difficulty: 10 }).subscribe((sortieGameplay: SortieGameplay[]) => {
+			
+			
+			sortieGameplay.forEach(sGameplay => {
+				console.log(sGameplay.wordsHash);
+				
+				this.wordHashArr = sGameplay.wordsHash;
+				
+				sGameplay.grid.forEach(c => {
 
-    document.addEventListener('pointerup', (e) => {
+					let div: HTMLDivElement = document.createElement("div");
+					div.classList.add("lettre");
 
-      this.clearSelection()
+					div.addEventListener('pointerdown', (e) => {
+						this.isDown = true;
+						this.select(div);
+						this.saisie.innerHTML = e["path"][0].innerText;
+						if (e.target instanceof HTMLElement) {
+							e.target.releasePointerCapture(e.pointerId)
+						}
+					})
 
-    })
+					div.addEventListener('pointerenter', (e: PointerEvent) => {
+						//vérifie si la séléction est activée et la lettre n'est pas déjà sélectionnée
+						if (this.isDown && div.style.opacity !== "0.5") {
+							this.select(div);
+		
+							this.saisie.innerHTML = this.saisie.innerHTML + e["path"][0].innerText;
+		
+						}
+					})
 
-    grille.addEventListener('pointerleave', (e) => {
+					let span: HTMLSpanElement = document.createElement("span");
+					span.innerHTML = c.toUpperCase();
 
-      this.clearSelection()
+					div.appendChild(span);
+					this.grille.appendChild(div);
+				})
+			});
+		});
 
-    })
+		['pointerup', 'pointerleave'].forEach(event => {
+			document.addEventListener(event, (e) => {
+				let mwr = this.checkMatchWord();
+				if (mwr == MatchWordResult.FOUND) {
+					//word found
+					this.isWin();
+				}else if (mwr == MatchWordResult.ALREADY_EXIST) {
+					//word already exist
+				}else{
+					//not a match
+				}
+				
+				this.clearSelection()
+			})
+		});
+	}
 
-    for (let i = 0; i < this.grilleElements.length; i++) {
-      const div = this.grilleElements[i];
+	select(div: HTMLDivElement): void {
+		div.style.opacity = "0.5";
+	}
 
-      div.addEventListener('pointerdown', (e) => {
-        this.isDown = true;
-        this.select(div);
-        this.saisie.innerHTML = e["path"][0].innerText;
-        if (e.target instanceof HTMLElement) {
-          e.target.releasePointerCapture(e.pointerId)
-        }
-      })
+	clearSelection(): void {
 
-      div.addEventListener('pointerenter', (e: PointerEvent) => {
-        //vérifie si la séléction est activée et la lettre n'est pas déjà sélectionnée
-        if (this.isDown && div.style.opacity !== "0.5") {
-          this.select(div);
+		this.isDown = false;
 
-          this.saisie.innerHTML = this.saisie.innerHTML + e["path"][0].innerText;
+		for (let i = 0; i < this.grille.children.length; i++) {
+			let div = this.grille.children[i] as HTMLElement;
+			div.style.opacity = "1";
+		}
+	}
 
-        }
-      })
-    }
-  }
+	checkMatchWord(): MatchWordResult {
+		let saisieHash = sha256.hex(this.saisie.innerHTML)
+		
+		if (this.wordHashArr.includes(saisieHash)) {
+			if (!this.wordsFindArr.includes(this.saisie.innerHTML)) {
+				this.wordsFindArr.push(this.saisie.innerHTML)
+				return MatchWordResult.FOUND
+			}else{
+				return MatchWordResult.ALREADY_EXIST
+			}
+		}else{
+			return MatchWordResult.NOT_FOUND
+		}
+	}
 
-  select(div: HTMLDivElement) {
-    div.style.opacity = "0.5";
-  }
-
-  clearSelection() {
-
-    this.isDown = false;
-
-    for (let i = 0; i < this.grilleElements.length; i++) {
-      const div = this.grilleElements[i];
-      div.style.opacity = "1";
-    }
-  }
+	isWin(): void {
+		if (this.wordsFindArr.length == this.wordHashArr.length) {
+			
+			this.win = true;
+		}
+	}
 
 }

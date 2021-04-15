@@ -1,4 +1,4 @@
-export class SortieGameplay {
+export interface SortieGameplay {
     grid: string[];
     wordsHash: string[];
 }
