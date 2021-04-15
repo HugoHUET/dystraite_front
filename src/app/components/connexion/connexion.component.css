@@ -1,62 +1,117 @@
-.background{
-    background-color: #FF647C;
-    margin: -30px;
-    height: 25vh;
-    z-index: 5;
+/* Version Mobile */
+
+.background {
+  background-color: #ff647c;
+  margin: -30px;
+  height: 25vh;
+  z-index: 5;
 }
-.main-container{
-    z-index: 10;
-    position: relative;
+.main-container {
+  z-index: 10;
+  position: relative;
 }
-.background > .text{
-    color: white;
-    width: 80%;
-    margin: auto;
-    padding-top: 10%;
+.background > .text {
+  color: white;
+  width: 80%;
+  margin: auto;
+  padding-top: 10%;
 }
-.background > .text > h4{
-    font-weight: bold;
+.background > .text > h4 {
+  font-weight: bold;
 }
-.main-container > .input{
-    color: black;
-    margin-top: -50px;
+.main-container > .input {
+  color: black;
+  margin-top: -50px;
 }
-.main-container > .input > .block{
-    padding: 5%;
-    z-index: 10;
-    margin-top: 10%;
+.main-container > .input > .block {
+  padding: 5%;
+  z-index: 10;
+  margin-top: 10%;
 }
-.main-container > .input > .block > label{
-    color: black;
+.main-container > .input > .block > label {
+  color: black;
 }
 .main-container > .input > .option {
-    text-align: center;
+  text-align: center;
 }
-.main-container > .input > .option > p > a{
-    text-decoration: underline;
-    color: black;
+.main-container > .input > .option > p > a {
+  text-decoration: underline;
+  color: black;
 }
-.button{
-    padding: 0 10px 0 10px;
-    display: grid;
-    grid-template-columns: 68% 28%;
-    grid-column-gap: 10px;
-    margin-top: 5%;
+.button {
+  padding: 0 10px 0 10px;
+  display: grid;
+  grid-template-columns: 68% 28%;
+  grid-column-gap: 10px;
+  margin-top: 5%;
 }
-.button > span{
-    justify-self: start;
+.button > span {
+  justify-self: start;
 }
-.button > i{
-    justify-self: end;
+.button > i {
+  justify-self: end;
 }
-.bottom-container{
-    font-size: 10px;
-    text-align: center;
-    width: 100%;
+.bottom-container {
+  font-size: 10px;
+  text-align: center;
+  width: 100%;
 }
-.cgu{
-    margin-bottom: 5%;
+.cgu {
+  margin-bottom: 5%;
 }
 a {
-    -webkit-appearance: unset;
+  -webkit-appearance: unset;
+}
+
+/* Version PC */
+
+.background-mobile {
+  background-color: #ff647c;
+  margin: -30px -29px 0 -30px;
+  height: 180px;
+  z-index: 5;
+}
+
+.main-container-mobile {
+  z-index: 10;
+  position: relative;
+}
+
+.background-mobile > .text {
+  color: white;
+  width: 45%;
+  margin: auto;
+  padding-top: 28px;
+}
+
+.background-mobile > .text > h4 {
+  font-weight: bold;
+}
+
+.main-container-mobile > .input {
+  color: black;
+  margin: -75px auto 0 auto;
+  max-width: 50rem;
+}
+.main-container-mobile > .input > .block {
+  padding: 5%;
+  z-index: 10;
+  margin-top: 5%;
+}
+.main-container-mobile > .input > .block > label {
+  color: black;
+}
+.main-container-mobile > .input > .option {
+  text-align: center;
+}
+.main-container-mobile > .input > .option > p > a {
+  text-decoration: underline;
+  color: black;
+}
+
+.bottom-container-mobile {
+  font-size: 10px;
+  text-align: center;
+  max-width: 50rem;
+  margin: auto;
 }

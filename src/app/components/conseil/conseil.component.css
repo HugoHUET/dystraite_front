@@ -53,6 +53,7 @@
     position: fixed;
     bottom: 60px;
     right: 20px;
+    cursor: pointer;
 }
 #add-tip > ion-icon{
     width: 80px;

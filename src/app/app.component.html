@@ -42,7 +42,7 @@
 		<div class="navbar-fixed">
 			<nav class="noBoxShadow">
 				<div>
-					<button id="toggleButton" onclick="expandedSidenav()" (clickOutside)="onClickedOutside($event)">
+					<button id="toggleButton" (click)="expandedSidenav()" (clickOutside)="onClickedOutside($event)">
 						<i class="material-icons" id="menuIcon">menu</i>
 						<i class="material-icons" id="closeIcon">close</i>
 					</button>
@@ -62,7 +62,7 @@
 	</header>
 
 	<main>
-		<ul class="sidenav sidenav-fixed" id="side-nav" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+		<ul class="sidenav sidenav-fixed" id="side-nav" (mouseover)="toggleSidebar()" (mouseout)="toggleSidebar()">
 			<li class="hoverLi"><a routerLink="accueil" routerLinkActive="selected" class="hoverA"><i class="material-icons">home</i>Accueil</a></li>
 			<li class="hoverLi"><a routerLink="jeux" routerLinkActive="selected" class="hoverA"><i class="material-icons">videogame_asset</i>Jeux</a></li>
 			<li class="hoverLi"><a routerLink="cours" routerLinkActive="selected" class="hoverA"><i class="material-icons">school</i>Cours</a></li>
