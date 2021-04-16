@@ -1,5 +1,5 @@
 <div class="main">
-    <h6 id="title">Trouve le maximum de mots</h6>
+    <!--<h6 id="title">Trouve le maximum de mots</h6>
     <svg xmlns="http://www.w3.org/2000/svg" width="25.833" height="33.004" viewBox="0 0 25.833 33.004">
         <path id="Tracé_23" data-name="Tracé 23"
             d="M3617.457,125.518l4.92,8,1.959,4.253h.621s1.984-3.884,1.984-4.126,5.375-8.128,5.375-8.128Z"
@@ -11,13 +11,21 @@
             transform="translate(-3599.348 -50.719)" fill="none" stroke="#707070" stroke-width="1" />
         <path id="Tracé_25" data-name="Tracé 25" d="M3622.453,133.094v6.315" transform="translate(-3609.728 -113.613)"
             fill="none" stroke="#ff647c" stroke-width="0.5" />
-    </svg>
+    </svg> -->
 
-    <h3 id="saisie"></h3>
+    <div class="progress-bar-outer">
+        <h4 id="theme">{{theme}}</h4>
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" style="width:90%;"></div>
+        </div>
+    </div>
+
+    <h3 id="saisie">Trouve un maximum de mots</h3>
 
     <div id="grille"></div>
 
-    <div id="reload-btn"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+    <div id="reload-btn" (click)="loadGrid()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
             <g id="Groupe_19" data-name="Groupe 19" transform="translate(-172 -616)">
                 <circle id="Ellipse_49" data-name="Ellipse 49" cx="26" cy="26" r="26" transform="translate(172 616)"
                     fill="#c4c4c4" />

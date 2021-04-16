@@ -7,16 +7,18 @@
 }
 
 #grille {
-    margin-top: 50px !important;
+    margin-top: 40px !important;
     margin-bottom: 30px !important;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
     justify-items: stretch;
-    grid-gap: 10px;
-    max-width: 400px;
+    grid-gap: 5px;
     margin: auto;
     touch-action: none;
+    aspect-ratio: 1;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 ::ng-deep .lettre {
@@ -24,12 +26,16 @@
     color: white;
     border-radius : 11px;
     display: grid;
-    max-width: 100px;
     -webkit-user-select: none;  
     -moz-user-select: none;    
     -ms-user-select: none;      
     user-select: none;
     touch-action: none;
+    font-size: 5vw;    
+}
+::ng-deep .lettre > span {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 #saisie {
     word-break: break-all;
@@ -37,7 +43,7 @@
 }
 #reload-btn {
     margin-top: auto;
-    margin-bottom: 40px;
+    margin-bottom: auto;
 }
 /* #grille > div::before {
     content: "";
@@ -65,4 +71,49 @@
 }
 #content{
     margin-top: 60%;
+}
+#theme{
+    margin: 0;
+    margin-bottom: 20px;
+}
+/* progress bar */ 
+
+.progress-bar-outer{
+    background: #fff;
+    border-radius: 50px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 0  10px rgba(209,219,231,0.7);
+}
+.progress{
+    height: 20px;
+    margin: 0;
+    overflow: visible;
+    border-radius: 50px;
+    background: #eaedf3;
+    box-shadow: inset 0 1px  10px rgba(0,0,0,0.1);
+}
+.progress .progress-bar{
+    border-radius: 50px;
+    position: relative;
+    background: #FF647C;
+    height: 20px;
+    animation: animate-positive 30s;
+}
+.progress .progress-bar:after{
+    content: "⭑";
+    font-size: 65px;
+    color: #5376d4;
+    position: absolute;
+    top: -35px;
+    right: -20px;
+    transform: rotate(130deg);
+}
+@-webkit-keyframes animate-positive{
+    0%    { width: 0%;}
+    100%  { width: 100%;}
+}
+@keyframes animate-positive{
+    0%    { width: 0%;}
+    100%  { width: 100%;}
 }

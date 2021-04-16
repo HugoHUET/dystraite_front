@@ -17,22 +17,44 @@ export class WordblitzComponent implements OnInit {
 	wordHashArr: string[] = [];
 	wordsFindArr: string[] = [];
 	win = false;
+	theme = "PLAGE";
 
 	constructor(private maximotsService: MaximotsService, private renderer: Renderer2) { }
 
 	ngOnInit() {
+		this.loadGrid();
+	}
+
+	select(div: HTMLDivElement): void {
+		div.style.opacity = "0.5";
+	}
+
+	clearSelection(): void {
+
+		this.isDown = false;
+
+		for (let i = 0; i < this.grille.children.length; i++) {
+			let div = this.grille.children[i] as HTMLElement;
+			div.style.opacity = "1";
+		}
+	}
+
+	loadGrid() {
 		this.saisie = document.getElementById('saisie');
 		this.grille = document.getElementById('grille');
-		this.grille.setAttribute("style", "grid-template-columns: repeat(10, 1fr);")
-		
-		this.maximotsService.getGameData({ difficulty: 10 }).subscribe((sortieGameplay: SortieGameplay[]) => {
-			
-			
+		this.saisie.innerHTML = "";
+		this.grille.innerHTML = "";
+		this.saisie.setAttribute("style", "font-size: 1.6rem; line-height: 200%;")
+		this.grille.setAttribute("style", "grid-template-columns: repeat(8, 1fr);")
+
+		this.maximotsService.getGameData({ difficulty: 5 }).subscribe((sortieGameplay: SortieGameplay[]) => {
+
+
 			sortieGameplay.forEach(sGameplay => {
 				console.log(sGameplay.wordsHash);
-				
+
 				this.wordHashArr = sGameplay.wordsHash;
-				
+
 				sGameplay.grid.forEach(c => {
 
 					let div: HTMLDivElement = document.createElement("div");
@@ -41,6 +63,7 @@ export class WordblitzComponent implements OnInit {
 					div.addEventListener('pointerdown', (e) => {
 						this.isDown = true;
 						this.select(div);
+						this.saisie.setAttribute("style", "font-size: 3rem; line-height: 110%;")
 						this.saisie.innerHTML = e["path"][0].innerText;
 						if (e.target instanceof HTMLElement) {
 							e.target.releasePointerCapture(e.pointerId)
@@ -51,9 +74,9 @@ export class WordblitzComponent implements OnInit {
 						//vérifie si la séléction est activée et la lettre n'est pas déjà sélectionnée
 						if (this.isDown && div.style.opacity !== "0.5") {
 							this.select(div);
-		
+
 							this.saisie.innerHTML = this.saisie.innerHTML + e["path"][0].innerText;
-		
+
 						}
 					})
 
@@ -72,49 +95,34 @@ export class WordblitzComponent implements OnInit {
 				if (mwr == MatchWordResult.FOUND) {
 					//word found
 					this.isWin();
-				}else if (mwr == MatchWordResult.ALREADY_EXIST) {
+				} else if (mwr == MatchWordResult.ALREADY_EXIST) {
 					//word already exist
-				}else{
+				} else {
 					//not a match
 				}
-				
+
 				this.clearSelection()
 			})
 		});
 	}
-
-	select(div: HTMLDivElement): void {
-		div.style.opacity = "0.5";
-	}
-
-	clearSelection(): void {
-
-		this.isDown = false;
-
-		for (let i = 0; i < this.grille.children.length; i++) {
-			let div = this.grille.children[i] as HTMLElement;
-			div.style.opacity = "1";
-		}
-	}
-
 	checkMatchWord(): MatchWordResult {
 		let saisieHash = sha256.hex(this.saisie.innerHTML)
-		
+
 		if (this.wordHashArr.includes(saisieHash)) {
 			if (!this.wordsFindArr.includes(this.saisie.innerHTML)) {
 				this.wordsFindArr.push(this.saisie.innerHTML)
 				return MatchWordResult.FOUND
-			}else{
+			} else {
 				return MatchWordResult.ALREADY_EXIST
 			}
-		}else{
+		} else {
 			return MatchWordResult.NOT_FOUND
 		}
 	}
 
 	isWin(): void {
 		if (this.wordsFindArr.length == this.wordHashArr.length) {
-			
+
 			this.win = true;
 		}
 	}
