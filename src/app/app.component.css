@@ -6,6 +6,8 @@
 a{
     color: rgba(0,0,0,0.54);
     font-weight: bold;
+    margin-top: 3px;
+    font-size: 14px;
 }
 .topbar{
     position: fixed;
@@ -84,6 +86,10 @@ a{
         env(safe-area-inset-right, 20px)
         env(safe-area-inset-bottom, 20px)
         env(safe-area-inset-left, 20px);
+
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 60px;
 }
 a {
     display: inline-grid;
@@ -112,23 +118,23 @@ a {
     left: 50%;
     transform: translate(-50%, -150%);
     display: flex;
-    width: 51px;
-    height: 51px;
+    width: 55px;
+    height: 55px;
 }
 .label {
     display: flex;
 }
 #profil_img{
         border-radius: 50%;
-        width: 51px;
-        height: 51px;
+        width: 55px;
+        height: 55px;
         border: 2px solid;
         color: transparent;
 }
 #profil_icon{
         border-radius: 50%;
-        width: 51px;
-        height: 51px;
+        width: 55px;
+        height: 55px;
         border: 2px solid;
         background-color: #e7e7e7;
         padding-right: 5%;
@@ -139,6 +145,7 @@ a {
 }
 .material-icons {
     margin-top: 6%;
+    font-size: 28px;
 }
 .whiteblock {
     box-shadow: 0 0 10px #dcdde0;

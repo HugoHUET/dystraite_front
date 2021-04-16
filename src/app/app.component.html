@@ -17,7 +17,7 @@
 		<a routerLink="conseil" routerLinkActive="selected"><i class="material-icons">supervisor_account</i>Conseils</a>
 		<a class="btn-plus" (click)="togglePlus()"><i class="material-icons plus"
 				[class.plus-active]="isPlusSelected">more_horiz</i>Plus</a>
-		<div [className]="currentPlusClass" (click)="untogglePlus()">
+		<div [className]="currentPlusClass" (clickOutside)="untogglePlus()" (click)="untogglePlus()">
 			<div class="item-plus" style="bottom: 60px">
 				<a routerLink="jeux" routerLinkActive="selected" class="button-plus" style="pointer-events: none;"><i
 						class="material-icons icon-plus">videogame_asset</i>A
