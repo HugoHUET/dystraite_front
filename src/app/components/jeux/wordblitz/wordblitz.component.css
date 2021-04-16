@@ -22,8 +22,8 @@
 }
 
 ::ng-deep .lettre {
-    background-color: #ff8093;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius : 11px;
     display: grid;
     -webkit-user-select: none;  
@@ -32,6 +32,7 @@
     user-select: none;
     touch-action: none;
     font-size: 5vw;    
+    box-shadow: 0 0 10px rgb(209 219 231 / 70%);;
 }
 ::ng-deep .lettre > span {
     margin-top: auto;

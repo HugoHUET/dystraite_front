@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { SortieGameplay } from 'src/app/models/maximots/sortie-gameplay';
 import { MaximotsService } from 'src/app/services/maximots/maximots.service';
 import { sha256 } from 'js-sha256';
@@ -19,7 +19,7 @@ export class WordblitzComponent implements OnInit {
 	win = false;
 	theme = "PLAGE";
 
-	constructor(private maximotsService: MaximotsService, private renderer: Renderer2) { }
+	constructor(private maximotsService: MaximotsService, private renderer: Renderer2, private elementRef: ElementRef) { }
 
 	ngOnInit() {
 		this.loadGrid();
@@ -40,6 +40,8 @@ export class WordblitzComponent implements OnInit {
 	}
 
 	loadGrid() {
+		this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(199 199 199 / 12%)';
+
 		this.saisie = document.getElementById('saisie');
 		this.grille = document.getElementById('grille');
 		this.saisie.innerHTML = "";
