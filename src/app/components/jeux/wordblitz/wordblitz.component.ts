@@ -52,7 +52,9 @@ export class WordblitzComponent implements OnInit {
 			div.style.opacity = "1";
 		}
 	}
-
+	getWordsLeft() {
+		return this.wordHashArr.length - this.wordsFindArr.length;
+	}
 	loadGrid() {
 		//A rendre dynamique
 		this.gridSize = 8;
@@ -62,7 +64,7 @@ export class WordblitzComponent implements OnInit {
 
 		this.saisie = document.getElementById('saisie');
 		this.grille = document.getElementById('grille');
-		this.saisie.innerHTML = "";
+		this.saisie.innerHTML = this.getWordsLeft() + " mots à trouver !";
 		this.grille.innerHTML = "";
 		this.saisie.setAttribute("style", "font-size: 1.6rem; line-height: 200%;")
 		this.grille.setAttribute("style", "grid-template-columns: repeat(" + this.gridSize + ", 1fr);")
@@ -74,6 +76,7 @@ export class WordblitzComponent implements OnInit {
 				console.log(sGameplay.wordsHash);
 
 				this.wordHashArr = sGameplay.wordsHash;
+				this.saisie.innerHTML = this.getWordsLeft() + " mots à trouver !";
 
 				sGameplay.grid.forEach((c, index) => {
 
