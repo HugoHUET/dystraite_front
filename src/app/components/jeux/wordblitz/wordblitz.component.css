@@ -10,8 +10,7 @@
 }
 
 #grille {
-    margin-top: 40px !important;
-    margin-bottom: 30px !important;
+    margin-bottom: 20px !important;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
@@ -71,11 +70,26 @@
     position: absolute;
     color: white;
     text-align: center !important;
-    background-color: rgba(255, 128, 147, 0.8);
+    background-color: rgba(255, 128, 147, 0.9);
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+}
+.final-actions {
+    display: inline-block;
+    width: 40vw;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    background: transparent;
+    height: 5vh;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 5vh;
+    color: white;
+    border: 2px solid;
+    margin-top: 5vh;
 }
 #content{
     margin-top: 60%;
