@@ -142,7 +142,7 @@ a {
 .selected {
     color: #FF647C !important;
 }
-.material-icons {
+.material-icons-round {
     margin-top: 6%;
     font-size: 28px;
 }
@@ -184,8 +184,6 @@ body.keyboard-open .has-footer{
               transform: translateY(0) scaleY(1) scaleX(1);
       -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
-      -webkit-filter: blur(0);
-              filter: blur(0);
       opacity: 1;
     }
   }
@@ -204,8 +202,6 @@ body.keyboard-open .has-footer{
               transform: translateY(0) scaleY(1) scaleX(1);
       -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
-      -webkit-filter: blur(0);
-              filter: blur(0);
       opacity: 1;
     }
   }
