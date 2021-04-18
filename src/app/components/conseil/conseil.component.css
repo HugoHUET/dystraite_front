@@ -43,6 +43,7 @@
     width: 30%;
     border-radius: 25px;
     margin: auto;
+    cursor: pointer;
 }
 .username{
     margin-top: auto;
@@ -164,11 +165,15 @@ form > .submit {
         transition: height, 0.3s linear;
     }
     #add-tip-tab.open {
-        height: 70%;
+        height: 75%;
         -webkit-transition:height, 0.3s linear;
         -moz-transition: height, 0.3s linear;
         -ms-transition: height, 0.3s linear;
         -o-transition: height, 0.3s linear;
         transition: height, 0.3s linear;
+    }
+
+    .content {
+        width: 91%;
     }
 }
