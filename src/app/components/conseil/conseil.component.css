@@ -143,3 +143,32 @@ form > .submit {
 .nav-tabs {
     display: flex;
 }
+
+@media only screen and (min-width: 992px) {
+    #add-tip-tab {
+        height: 0px;
+        width: 94.5%;
+        background: white;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        margin-left: 85px;
+        padding-bottom: env(safe-area-inset-bottom, 30px);
+        box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+        -webkit-transition:height, 0.3s linear;
+        -moz-transition: height, 0.3s linear;
+        -ms-transition: height, 0.3s linear;
+        -o-transition: height, 0.3s linear;
+        transition: height, 0.3s linear;
+    }
+    #add-tip-tab.open {
+        height: 70%;
+        -webkit-transition:height, 0.3s linear;
+        -moz-transition: height, 0.3s linear;
+        -ms-transition: height, 0.3s linear;
+        -o-transition: height, 0.3s linear;
+        transition: height, 0.3s linear;
+    }
+}
