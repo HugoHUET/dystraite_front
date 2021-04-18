@@ -1,6 +1,12 @@
 <!-- Version Mobile -->
 <div *ngIf="responsiveService.isMobile">
 	<h5>ORTHOPHONISTE</h5>
+    <div class="container-maintenance-mobile">
+        <img src="../../../assets/mobile/undraw_Maintenance_re_59vn.svg" alt='Maintenance' />
+        <Button style="margin-top: '50px';" type='primary'></Button>
+        <p>Cette page est en cours de développement.</p>
+        <button class="button bg-rose large" [routerLink]="['/accueil']">Retourner à l'accueil</button>
+    </div>
 </div>
 
 <!-- Version PC -->
