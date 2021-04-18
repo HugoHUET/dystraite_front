@@ -65,51 +65,51 @@ a {
 
 /* Version PC */
 
-.background-mobile {
+.background-pc {
   background-color: #ff647c;
   margin: -30px -29px 0 -30px;
   height: 180px;
   z-index: 5;
 }
 
-.main-container-mobile {
+.main-container-pc {
   z-index: 10;
   position: relative;
 }
 
-.background-mobile > .text {
+.background-pc > .text {
   color: white;
   width: 45%;
   margin: auto;
   padding-top: 28px;
 }
 
-.background-mobile > .text > h4 {
+.background-pc > .text > h4 {
   font-weight: bold;
 }
 
-.main-container-mobile > .input {
+.main-container-pc > .input {
   color: black;
   margin: -75px auto 0 auto;
   max-width: 50rem;
 }
-.main-container-mobile > .input > .block {
+.main-container-pc > .input > .block {
   padding: 5%;
   z-index: 10;
   margin-top: 5%;
 }
-.main-container-mobile > .input > .block > label {
+.main-container-pc > .input > .block > label {
   color: black;
 }
-.main-container-mobile > .input > .option {
+.main-container-pc > .input > .option {
   text-align: center;
 }
-.main-container-mobile > .input > .option > p > a {
+.main-container-pc > .input > .option > p > a {
   text-decoration: underline;
   color: black;
 }
 
-.bottom-container-mobile {
+.bottom-container-pc {
   font-size: 10px;
   text-align: center;
   max-width: 50rem;

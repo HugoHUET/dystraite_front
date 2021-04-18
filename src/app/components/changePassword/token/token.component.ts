@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PasswordResetTokenService } from "src/app/services/passwordResetToken/passwordResetToken.service"
+import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-type',
@@ -12,7 +13,7 @@ export class TokenComponent implements OnInit {
 
   token: string;
 
-  constructor(private route: ActivatedRoute, private passwordResetTokenService: PasswordResetTokenService) {
+  constructor(private route: ActivatedRoute, private passwordResetTokenService: PasswordResetTokenService, public responsiveService: ResponsiveService) {
     this.route.paramMap.subscribe(params => {
       if (params.get('token')) {
         this.token = params.get('token');
