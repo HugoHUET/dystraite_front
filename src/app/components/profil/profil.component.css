@@ -1,5 +1,8 @@
+/* Version Mobile */
+
 .button{
     margin-top: 15px;
+    cursor: pointer;
 }
 .photo-profil{
     text-align: center;
@@ -23,4 +26,11 @@ p {
 }
 .item > .rose{
     font-size: 16px;
+}
+
+/* Version PC */
+
+.container-profil {
+    max-width: 50rem;
+    margin: auto;
 }
