@@ -55,6 +55,9 @@ export class WordblitzComponent implements OnInit {
 	getWordsLeft() {
 		return this.wordHashArr.length - this.wordsFindArr.length;
 	}
+	updateProgressBar() {
+		document.getElementById('progress-bar').setAttribute("style", "width:" + Math.round(100 - (this.getWordsLeft() / this.wordHashArr.length) * 100) + "%;");
+	}
 	loadGrid() {
 		//A rendre dynamique
 		this.gridSize = 8;
@@ -88,6 +91,7 @@ export class WordblitzComponent implements OnInit {
 						this.isDown = true;
 						this.currentDirection = null;
 						this.select(div);
+						//this.clearAnimations();
 						this.saisie.setAttribute("style", "font-size: 3rem; line-height: 110%;");
 						this.saisie.innerHTML = (e.currentTarget as HTMLElement).innerText;
 						if (e.target instanceof HTMLElement) {
@@ -107,7 +111,6 @@ export class WordblitzComponent implements OnInit {
 								this.select(div);
 								this.saisie.innerHTML = this.saisie.innerHTML + (e.currentTarget as HTMLElement).innerText;
 							} else {
-								console.log(this.currentDirection);
 								// On vérifie si la direction correspond à la trajectoire prévue
 								if (this.checkDirection(index)) {
 									this.select(div);
@@ -129,6 +132,7 @@ export class WordblitzComponent implements OnInit {
 		['pointerup', 'pointerleave'].forEach(event => {
 			document.addEventListener(event, (e) => {
 				let mwr = this.checkMatchWord();
+				this.applyEffect(mwr);
 				if (mwr == MatchWordResult.FOUND) {
 					//word found
 					this.isWin();
@@ -143,11 +147,15 @@ export class WordblitzComponent implements OnInit {
 		});
 	}
 	checkMatchWord(): MatchWordResult {
+		if (this.saisie.innerHTML.length < 2 || !this.isDown) {
+			return null;
+		}
 		let saisieHash = sha256.hex(this.saisie.innerHTML)
 
 		if (this.wordHashArr.includes(saisieHash)) {
 			if (!this.wordsFindArr.includes(this.saisie.innerHTML)) {
 				this.wordsFindArr.push(this.saisie.innerHTML)
+				this.updateProgressBar();
 				return MatchWordResult.FOUND
 			} else {
 				return MatchWordResult.ALREADY_EXIST
@@ -164,6 +172,27 @@ export class WordblitzComponent implements OnInit {
 		}
 	}
 
+	applyEffect(matchWordResult: MatchWordResult) {
+		if (matchWordResult == MatchWordResult.FOUND) {
+			this.saisie.classList.add('word-correct');
+		}
+		if (matchWordResult == MatchWordResult.NOT_FOUND) {
+			this.saisie.classList.add('word-incorrect');
+		}
+		this.saisie.addEventListener('animationend', () => {
+			this.saisie.classList.remove("word-correct", "word-incorrect");
+			this.motivatingMessages(matchWordResult, this.saisie);
+		});
+	}
+	motivatingMessages(matchWordResult: MatchWordResult, saisie: HTMLElement) {
+		if (matchWordResult == MatchWordResult.FOUND) {
+			if (this.getWordsLeft() < 2) {
+				saisie.innerHTML = "Courage, plus qu'" + this.getWordsLeft() + " mot à trouver !";
+			} else {
+				saisie.innerHTML = "";
+			}
+		}
+	}
 	// Donne la direction en fonction des deux premières cases sélectionées
 	getDirection(previousCellNumber: number, currentCellNumber: number): Direction {
 
