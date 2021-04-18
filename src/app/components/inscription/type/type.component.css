@@ -90,9 +90,11 @@ a {
   margin-top: -70px;
 }
 .main-container-pc > .input > .block {
-  padding: 5%;
+  padding: 3vh;
   z-index: 10;
-  margin-top: 5%;
+  margin-top: 2vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 .main-container-pc > .input > .block > label {
   color: black;
@@ -103,4 +105,7 @@ a {
 .main-container-pc > .input > .option > p > a {
   text-decoration: underline;
   color: black;
+}
+input{
+  margin: 0 !important;
 }
