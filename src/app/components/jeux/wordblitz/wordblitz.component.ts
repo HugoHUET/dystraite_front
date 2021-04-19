@@ -147,14 +147,15 @@ export class WordblitzComponent implements OnInit {
 		});
 	}
 	checkMatchWord(): MatchWordResult {
-		if (this.saisie.innerHTML.length < 2 || !this.isDown) {
+		let word = this.saisie.innerHTML.replace(/(\r\n|\n|\r)/gm, "");
+		if (word.length < 2 || !this.isDown) {
 			return null;
 		}
-		let saisieHash = sha256.hex(this.saisie.innerHTML)
+		let saisieHash = sha256.hex(word)
 
 		if (this.wordHashArr.includes(saisieHash)) {
-			if (!this.wordsFindArr.includes(this.saisie.innerHTML)) {
-				this.wordsFindArr.push(this.saisie.innerHTML)
+			if (!this.wordsFindArr.includes(word)) {
+				this.wordsFindArr.push(word)
 				this.updateProgressBar();
 				return MatchWordResult.FOUND
 			} else {
