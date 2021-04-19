@@ -6,17 +6,16 @@
 	</button>
 </div>
 <h5>LE JEU DU MOMENT</h5>
-<div class="block disabled-beta">
+<div class="block">
 	<img src="../../assets/maximots.jpeg" alt="illustration jeu du moment">
 	<div class="information-block">
 		<h6>Maximots</h6>
-		<p class="description">L'objectif du jeu est de trouver le plus de mots possible. Reliez les différentes lettres
-			de la grille pour former un maximum de mots. Plus le nombre de mots trouvés est élevé, plus vous gagnez des
-			points !</p>
-		<a class="button rose disabled-beta" href="#" [routerLink]="['/jeux']" style="border-color: gray;">A venir</a>
+		<p class="description">Trouvez le plus de mots possibles en reliant les lettres sur la grille. Complétez le plus
+			de grilles possible pour débloquer les niveaux supérieurs</p>
+		<a class="button rose" href="#" [routerLink]="['/jeux/maximots']">Jouer</a>
 	</div>
 </div>
-<button class="button bg-rose large" href="#" [routerLink]="['/jeux']" [disabled]="true">Accéder aux jeux</button>
+<button class="button bg-rose large" href="#" [routerLink]="['/jeux']">Accéder aux jeux</button>
 <hr class="solid">
 <h5>LE COURS DU MOMENT</h5>
 <div class="block" [hidden]="!lastLesson">
