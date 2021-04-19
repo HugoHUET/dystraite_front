@@ -67,9 +67,7 @@ export class WordblitzComponent implements OnInit {
 
 		this.saisie = document.getElementById('saisie');
 		this.grille = document.getElementById('grille');
-		this.saisie.innerHTML = this.getWordsLeft() + " mots à trouver !";
 		this.grille.innerHTML = "";
-		this.saisie.setAttribute("style", "font-size: 1.6rem; line-height: 200%;")
 		this.grille.setAttribute("style", "grid-template-columns: repeat(" + this.gridSize + ", 1fr);")
 
 		this.maximotsService.getGameData({ difficulty: 5 }).subscribe((sortieGameplay: SortieGameplay[]) => {
@@ -79,7 +77,7 @@ export class WordblitzComponent implements OnInit {
 				console.log(sGameplay.wordsHash);
 
 				this.wordHashArr = sGameplay.wordsHash;
-				this.saisie.innerHTML = this.getWordsLeft() + " mots à trouver !";
+				this.setText(this.getWordsLeft() + " mots à trouver !");
 
 				sGameplay.grid.forEach((c, index) => {
 
@@ -165,7 +163,10 @@ export class WordblitzComponent implements OnInit {
 			return MatchWordResult.NOT_FOUND
 		}
 	}
-
+	setText(content: string) {
+		this.saisie.setAttribute("style", "font-size: 1.6rem; line-height: 200%;")
+		this.saisie.innerHTML = content;
+	}
 	isWin(): void {
 		if (this.wordsFindArr.length == this.wordHashArr.length) {
 
@@ -188,9 +189,9 @@ export class WordblitzComponent implements OnInit {
 	motivatingMessages(matchWordResult: MatchWordResult, saisie: HTMLElement) {
 		if (matchWordResult == MatchWordResult.FOUND) {
 			if (this.getWordsLeft() < 2) {
-				saisie.innerHTML = "Courage, plus qu'" + this.getWordsLeft() + " mot à trouver !";
+				this.setText("Courage, plus qu'" + this.getWordsLeft() + " mot à trouver !");
 			} else {
-				saisie.innerHTML = "";
+				this.setText("");
 			}
 		}
 	}
