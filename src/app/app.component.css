@@ -285,6 +285,7 @@ button {
 
 .hoverLi {
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .hoverLi:hover {
@@ -294,14 +295,21 @@ button {
 
 .hoverA {
   display: flex;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   height: 48px;
   width: 220px;
   align-items: center;
-  padding-left: 32px;
+  padding-left: 27.5px;
+}
+.sidenav li>a>i {
+  font-size: 30px;
+  width: 30px;
 }
 
+.sidenav {
+  box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+}
 .sidenav li > a:hover {
   background-color: transparent;
 }
@@ -330,4 +338,12 @@ button {
 .beta-btn > ion-icon {
   margin-left: 5px;
   vertical-align: middle;
+}
+#profil_img_pc{
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  border: 2px solid;
+  color: transparent;
+  margin-right: 24.5px;
 }

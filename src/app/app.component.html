@@ -25,7 +25,8 @@
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 130px">
-				<a routerLink="ortophoniste" routerLinkActive="selected" class="button-plus"><i class="material-icons icon-plus">work_outline</i>A
+				<a routerLink="ortophoniste" routerLinkActive="selected" class="button-plus"><i
+						class="material-icons icon-plus">work_outline</i>A
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 200px">
@@ -62,13 +63,26 @@
 
 	<main>
 		<ul class="sidenav sidenav-fixed" id="side-nav" (mouseover)="toggleSidebar()" (mouseout)="toggleSidebar()">
-			<li class="hoverLi"><a routerLink="accueil" routerLinkActive="selected" class="hoverA"><i class="material-icons">home</i>Accueil</a></li>
-			<li class="hoverLi"><a routerLink="jeux" routerLinkActive="selected" class="hoverA"><i class="material-icons">videogame_asset</i>Jeux</a></li>
-			<li class="hoverLi"><a routerLink="cours" routerLinkActive="selected" class="hoverA"><i class="material-icons">school</i>Cours</a></li>
-			<li class="hoverLi"><a routerLink="bibliotheque" routerLinkActive="selected" class="hoverA"><i class="material-icons">menu_book</i>Bibliothèque</a></li>
-			<li class="hoverLi"><a routerLink="conseil" routerLinkActive="selected" class="hoverA"><i class="material-icons">supervisor_account</i>Conseils</a></li>
-			<li class="hoverLi"><a routerLink="profil" routerLinkActive="selected" class="hoverA"><i class="material-icons">account_circle</i>Profil</a></li>
-			<li class="hoverLi"><a routerLink="ortophoniste" routerLinkActive="selected" class="hoverA"><i class="material-icons">work_outline</i>Orthophoniste</a></li>
+			<li class="hoverLi"><a routerLink="accueil" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">home</i>Accueil</a></li>
+			<li class="hoverLi"><a routerLink="jeux" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">videogame_asset</i>Jeux</a></li>
+			<li class="hoverLi"><a routerLink="cours" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">school</i>Cours</a></li>
+			<li class="hoverLi"><a routerLink="bibliotheque" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">menu_book</i>Bibliothèque</a></li>
+			<li class="hoverLi"><a routerLink="conseil" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">supervisor_account</i>Conseils</a></li>
+
+			<li class="hoverLi" *ngIf="userService.loggedUser"><a routerLink="profil" routerLinkActive="selected"
+					class="hoverA" style="padding-left: 20px;"><img *ngIf="userService.loggedUser" id="profil_img_pc"
+						src="{{userService.loggedUser.profilePicture ? userService.loggedUser.profilePicture : '../assets/heidy/heidy_head_1.png'}}"
+						alt="Photo de profil" routerLinkActive="selected">
+					Profil</a></li>
+			<li class="hoverLi" *ngIf="!userService.loggedUser"><a routerLink="profil" routerLinkActive="selected"
+					class="hoverA"><i class="material-icons">login</i>Connexion</a></li>
+			<!--<li class="hoverLi"><a routerLink="ortophoniste" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">work_outline</i>Orthophoniste</a></li> -->
 		</ul>
 		<div id="container-router-outlet" class="row container-main">
 			<router-outlet></router-outlet>
