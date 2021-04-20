@@ -165,7 +165,7 @@ form > .submit {
         transition: height, 0.3s linear;
     }
     #add-tip-tab.open {
-        height: 75%;
+        height: 65%;
         -webkit-transition:height, 0.3s linear;
         -moz-transition: height, 0.3s linear;
         -ms-transition: height, 0.3s linear;
@@ -175,5 +175,14 @@ form > .submit {
 
     .content {
         width: 91%;
+    }
+
+    .block {
+        padding: 3rem;
+        z-index: 10;
+        margin-top: 5%;
+        width: 80%;
+        margin: 3rem auto;
+        height: 30%;
     }
 }
