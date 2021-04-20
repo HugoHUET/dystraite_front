@@ -1,8 +1,9 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
-import { SortieGameplay } from 'src/app/models/maximots/sortie-gameplay';
+import { SortieGetGrid } from 'src/app/models/maximots/sortie-get-grid';
 import { MaximotsService } from 'src/app/services/maximots/maximots.service';
 import { sha256 } from 'js-sha256';
 import { MatchWordResult } from 'src/app/models/maximots/match-word-result';
+import { SortieVerifyResponse } from 'src/app/models/maximots/sortie-verify-response';
 
 enum Direction {
 	Up = "Up",
@@ -29,6 +30,7 @@ export class WordblitzComponent implements OnInit {
 	win = false;
 	theme = "PLAGE";
 	gridSize = 0;
+	gridId = undefined;
 
 	previousCellNumber: number;
 	currentDirection: Direction;
@@ -70,61 +72,8 @@ export class WordblitzComponent implements OnInit {
 		this.grille.innerHTML = "";
 		this.grille.setAttribute("style", "grid-template-columns: repeat(" + this.gridSize + ", 1fr);")
 
-		this.maximotsService.getGameData({ difficulty: 5 }).subscribe((sortieGameplay: SortieGameplay[]) => {
-
-
-			sortieGameplay.forEach(sGameplay => {
-				console.log(sGameplay.wordsHash);
-
-				this.wordHashArr = sGameplay.wordsHash;
-				this.setText(this.getWordsLeft() + " mots à trouver !");
-
-				sGameplay.grid.forEach((c, index) => {
-
-					let div: HTMLDivElement = document.createElement("div");
-					div.classList.add("lettre");
-
-					div.addEventListener('pointerdown', (e) => {
-						this.previousCellNumber = index;
-						this.isDown = true;
-						this.currentDirection = null;
-						this.select(div);
-						//this.clearAnimations();
-						this.saisie.setAttribute("style", "font-size: 3rem; line-height: 110%;");
-						this.saisie.innerHTML = (e.currentTarget as HTMLElement).innerText;
-						if (e.target instanceof HTMLElement) {
-							e.target.releasePointerCapture(e.pointerId)
-						}
-					})
-
-					div.addEventListener('pointerenter', (e: PointerEvent) => {
-						//vérifie si la sélection est activée et la lettre n'est pas déjà sélectionnée
-						if (this.isDown && div.style.opacity !== "0.5") {
-							if (this.currentDirection == null) {
-								this.currentDirection = this.getDirection(this.previousCellNumber, index);
-								if (!this.currentDirection) {
-									console.error("Impossible de déterminer la direction");
-								}
-								this.previousCellNumber = index;
-								this.select(div);
-								this.saisie.innerHTML = this.saisie.innerHTML + (e.currentTarget as HTMLElement).innerText;
-							} else {
-								// On vérifie si la direction correspond à la trajectoire prévue
-								if (this.checkDirection(index)) {
-									this.select(div);
-									this.saisie.innerHTML = this.saisie.innerHTML + (e.currentTarget as HTMLElement).innerText;
-								}
-							}
-						}
-					})
-
-					let span: HTMLSpanElement = document.createElement("span");
-					span.innerHTML = c.toUpperCase();
-
-					div.appendChild(span);
-					this.grille.appendChild(div);
-				})
-			});
+		this.maximotsService.getGameData({ difficulty: 5 }).subscribe((sGameplay: SortieGetGrid) => {
+			this.displayNewGrid(sGameplay);
 		});
 
 		['pointerup', 'pointerleave'].forEach(event => {
@@ -143,6 +92,60 @@ export class WordblitzComponent implements OnInit {
 				this.clearSelection()
 			})
 		});
+	}
+	displayNewGrid(sGameplay: SortieGetGrid){
+		this.wordHashArr = sGameplay.wordsHash;
+		this.gridId = sGameplay.gridId;
+		this.setText(this.getWordsLeft() + " mots à trouver !");
+		this.grille.innerHTML = "";
+		this.wordsFindArr = [];
+		this.updateProgressBar();
+
+		sGameplay.grid.forEach((c, index) => {
+
+			let div: HTMLDivElement = document.createElement("div");
+			div.classList.add("lettre");
+
+			div.addEventListener('pointerdown', (e) => {
+				this.previousCellNumber = index;
+				this.isDown = true;
+				this.currentDirection = null;
+				this.select(div);
+				//this.clearAnimations();
+				this.saisie.setAttribute("style", "font-size: 3rem; line-height: 110%;");
+				this.saisie.innerHTML = (e.currentTarget as HTMLElement).innerText;
+				if (e.target instanceof HTMLElement) {
+					e.target.releasePointerCapture(e.pointerId)
+				}
+			})
+
+			div.addEventListener('pointerenter', (e: PointerEvent) => {
+				//vérifie si la sélection est activée et la lettre n'est pas déjà sélectionnée
+				if (this.isDown && div.style.opacity !== "0.5") {
+					if (this.currentDirection == null) {
+						this.currentDirection = this.getDirection(this.previousCellNumber, index);
+						if (!this.currentDirection) {
+							console.error("Impossible de déterminer la direction");
+						}
+						this.previousCellNumber = index;
+						this.select(div);
+						this.saisie.innerHTML = this.saisie.innerHTML + (e.currentTarget as HTMLElement).innerText;
+					} else {
+						// On vérifie si la direction correspond à la trajectoire prévue
+						if (this.checkDirection(index)) {
+							this.select(div);
+							this.saisie.innerHTML = this.saisie.innerHTML + (e.currentTarget as HTMLElement).innerText;
+						}
+					}
+				}
+			})
+
+			let span: HTMLSpanElement = document.createElement("span");
+			span.innerHTML = c.toUpperCase();
+
+			div.appendChild(span);
+			this.grille.appendChild(div);
+		})
 	}
 	checkMatchWord(): MatchWordResult {
 		let word = this.saisie.innerHTML.replace(/(\r\n|\n|\r)/gm, "");
@@ -169,8 +172,13 @@ export class WordblitzComponent implements OnInit {
 	}
 	isWin(): void {
 		if (this.wordsFindArr.length == this.wordHashArr.length) {
-
-			this.win = true;
+			this.maximotsService.verifyResponse({words: this.wordsFindArr, gridId: this.gridId}).subscribe((sortieVerifyResponse: SortieVerifyResponse) => {
+				if (sortieVerifyResponse.finish) {
+					this.win = true;
+				}else{
+					this.displayNewGrid(sortieVerifyResponse.sortieGetGrid);
+				}
+			});
 		}
 	}
 

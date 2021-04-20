@@ -5885,6 +5885,11 @@
   "resolved" "https://registry.npmjs.org/next-tick/-/next-tick-1.0.0.tgz"
   "version" "1.0.0"
 
+"ng-click-outside@^8.0.0":
+  "integrity" "sha512-CVzddAMjaGS2hTVWu313fS/ksaAqg6O90xqVOJoCVhmZ7E7+i0nFeTWEqNsppi0Fe9GntuAAphN/eWBz6+0Low=="
+  "resolved" "https://registry.npmjs.org/ng-click-outside/-/ng-click-outside-8.0.0.tgz"
+  "version" "8.0.0"
+
 "ngx-toastr@^11.3.3":
   "integrity" "sha512-DbLFkSZHsVPuuIIrsY1ziEhdkFUQ0V1yG1N0+1nKXGI5QBVesEDxLUVtntjzxJcWw/uUV+bKApo//tGHHORabQ=="
   "resolved" "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-11.3.3.tgz"

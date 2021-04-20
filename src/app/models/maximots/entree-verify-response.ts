@@ -1,4 +1,4 @@
 export interface EntreeVerifyResponse {
     words: string[];
-    gridId
+    gridId: number;
 }
