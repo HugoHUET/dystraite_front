@@ -28,8 +28,8 @@ export class WordblitzComponent implements OnInit {
 	wordHashArr: string[] = [];
 	wordsFindArr: string[] = [];
 	win = false;
-	theme = "PLAGE";
-	gridSize = 0;
+	theme = "";
+	difficulty = 5;
 	gridId = undefined;
 
 	previousCellNumber: number;
@@ -61,18 +61,15 @@ export class WordblitzComponent implements OnInit {
 		document.getElementById('progress-bar').setAttribute("style", "width:" + Math.round(100 - (this.getWordsLeft() / this.wordHashArr.length) * 100) + "%;");
 	}
 	loadGrid() {
-		//A rendre dynamique
-		this.gridSize = 8;
-
 		//A changer en fonction de l'image
 		this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(199 199 199 / 12%)';
 
 		this.saisie = document.getElementById('saisie');
 		this.grille = document.getElementById('grille');
 		this.grille.innerHTML = "";
-		this.grille.setAttribute("style", "grid-template-columns: repeat(" + this.gridSize + ", 1fr);")
+		this.grille.setAttribute("style", "grid-template-columns: repeat(" + this.difficulty + ", 1fr);")
 
-		this.maximotsService.getGameData({ difficulty: 5 }).subscribe((sGameplay: SortieGetGrid) => {
+		this.maximotsService.getGameData({ difficulty: this.difficulty }).subscribe((sGameplay: SortieGetGrid) => {
 			this.displayNewGrid(sGameplay);
 		});
 
@@ -94,6 +91,7 @@ export class WordblitzComponent implements OnInit {
 		});
 	}
 	displayNewGrid(sGameplay: SortieGetGrid){
+		this.theme = sGameplay.gridLabel;
 		this.wordHashArr = sGameplay.wordsHash;
 		this.gridId = sGameplay.gridId;
 		this.setText(this.getWordsLeft() + " mots à trouver !");
@@ -169,6 +167,10 @@ export class WordblitzComponent implements OnInit {
 	setText(content: string) {
 		this.saisie.setAttribute("style", "font-size: 1.6rem; line-height: 200%;")
 		this.saisie.innerHTML = content;
+	}
+	nextGrid(){
+		this.loadGrid();
+		this.win = false;
 	}
 	isWin(): void {
 		if (this.wordsFindArr.length == this.wordHashArr.length) {
@@ -272,10 +274,10 @@ export class WordblitzComponent implements OnInit {
 	}
 	getPosition(cellNumber: number) {
 		//numéro de ligne
-		let x = Math.floor(cellNumber / this.gridSize);
+		let x = Math.floor(cellNumber / this.difficulty);
 
 		//numéro de colonne
-		let y = cellNumber % this.gridSize;
+		let y = cellNumber % this.difficulty;
 
 		return {
 			x: x,
