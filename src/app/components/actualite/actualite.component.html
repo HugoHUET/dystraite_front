@@ -74,16 +74,16 @@
 	<hr class="solid">
 	<h5>LE COURS DU MOMENT</h5>
 	<div class="container-grid">
-		<div class="grid-cours">
-			<div class="block" [hidden]="!lastLesson">
-				<img *ngIf="lastLesson?.thumbnail" src="data:image/jpeg;base64,{{lastLesson?.thumbnail}}"
+		<div class="grid-cours" *ngFor="let lessons of lessons">
+			<div class="block" [hidden]="!lessons">
+				<img *ngIf="lessons?.thumbnail" src="data:image/jpeg;base64,{{lessons?.thumbnail}}"
 					alt="illustration cours du moment">
 				<div class="information-block">
-					<h6>{{lastLesson?.title}}</h6>
-					<p class="description">
-							{{lastLesson?.description}}
+					<h6 *ngIf="lessons?.title">{{lessons?.title}}</h6>
+					<p class="description" *ngIf="lessons?.description">
+						{{lessons?.description}}
 					</p>
-					<a class="button rose" href="#" [routerLink]="['/cours/lecon/'+lastLesson?.id]">Lire</a>
+					<a class="button rose" href="#" [routerLink]="['/cours/lecon/'+lessons?.id]">Lire</a>
 				</div>
 			</div>
 			<a class="button bg-rose large" href="#" [routerLink]="['/cours']">
@@ -94,16 +94,16 @@
 	<hr class="solid">
 	<h5>LE LIVRE DU MOMENT</h5>
 	<div class="container-grid">
-		<div class="grid-bibliotheque">
-			<div class="block" [hidden]="!lastBook">
-				<img *ngIf="lastBook?.thumbnail" src="data:image/jpeg;base64,{{lastBook?.thumbnail}}"
+		<div class="grid-bibliotheque" *ngFor="let books of books">
+			<div class="block" [hidden]="!books">
+				<img *ngIf="books?.thumbnail" src="data:image/jpeg;base64,{{books?.thumbnail}}"
 					alt="illustration livre du moment">
 				<div class="information-block">
-					<h6>{{lastBook?.title}}</h6>
-					<p class="description">
-						{{lastBook?.description}}
+					<h6 *ngIf="books?.title">{{books?.title}}</h6>
+					<p class="description" *ngIf="books?.description">
+						{{books?.description}}
 					</p>
-					<a class="button rose" href="#" [routerLink]="['/bibliotheque/article/'+lastBook?.id]">Lire</a>
+					<a class="button rose" href="#" [routerLink]="['/bibliotheque/article/'+books?.id]">Lire</a>
 				</div>
 			</div>
 			<a class="button bg-rose large" href="#" [routerLink]="['/bibliotheque']">

@@ -16,6 +16,8 @@ export class ActualiteComponent implements OnInit {
 
   lastLesson: Lesson;
   lastBook: Book;
+  lessons: Lesson[];
+  books: Book[];
 
   constructor(private lessonService: LessonService, private titreService: TitreService, private bookService: BookService, public responsiveService: ResponsiveService) { }
 
@@ -26,7 +28,12 @@ export class ActualiteComponent implements OnInit {
     this.bookService.getLast(1).subscribe(books => {
       this.lastBook = books[0];
     })
+    this.lessonService.getLast(3).subscribe(lessons => {
+      this.lessons = lessons;
+    })
+    this.bookService.getLast(3).subscribe(books => {
+      this.books = books;
+    })
     this.titreService.updateTitle('Accueil');
-
   }
 }
