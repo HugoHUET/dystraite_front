@@ -93,6 +93,7 @@
   margin-right: 20px;
   margin-top: 20px;
   display: flex;
+  cursor: pointer;
 }
 #close > ion-icon {
   width: 35px;
@@ -180,7 +181,7 @@ form > .submit {
 
   #container-add-tp-tab {
     height: 70%;
-    width: 70%;
+    width: 50%;
     margin: auto;
     background: white;
     border-radius: 50px;
