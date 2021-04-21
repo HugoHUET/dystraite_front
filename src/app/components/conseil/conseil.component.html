@@ -120,40 +120,42 @@
         <div *ngIf="addTipTab" id="greyFilter" (click)="toggleTipTab()"></div>
 
         <div id="add-tip-tab">
-            <button id="close" (click)="toggleTipTab()">
-                <ion-icon name="close-outline"></ion-icon>
-            </button>
-            <form style="height: 100%;" action="" mode="ios" [formGroup]="tipForm" (ngSubmit)="sendTip()">
-                <div class="tabs tips-tab">
-                    <a class="button rose" (click)="toggleTag('orthographe', 'rose')" id="orthographe">
-                        <span>Orthographe</span>
-                    </a>
-                    <a class="button jaune" (click)="toggleTag('grammaire', 'jaune')" id="grammaire">
-                        <span>Grammaire</span>
-                    </a>
-                    <a class="button vert" (click)="toggleTag('conjugaison', 'vert')" id="conjugaison">
-                        <span>Conjugaison</span>
-                    </a>
-                    <a class="button bleu" (click)="toggleTag('vocabulaire', 'bleu')" id="vocabulaire">
-                        <span>Vocabulaire</span>
-                    </a>
-                </div>
-                <div class="block">
-                    <textarea placeholder="Entrez votre conseil... (250 carac. max)" class="validate"
-                        formControlName="content" maxlength="250"></textarea>
-                </div>
-                <button class="button bg-rose large submit" type="submit" [ngClass]="{'loading' : isLoading}"
-                    [disabled]="!tipForm.valid">
-                    <div class="lds-ellipsis" style="display: none;">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <span>Ajouter</span>
-                    <i class="material-icons" style="transform: rotate(180deg);">tungsten</i>
+            <div id="container-add-tp-tab">
+                <button id="close" (click)="toggleTipTab()">
+                    <ion-icon name="close-outline"></ion-icon>
                 </button>
-            </form>
+                <form style="height: 100%;" action="" mode="ios" [formGroup]="tipForm" (ngSubmit)="sendTip()">
+                    <div class="tabs tips-tab">
+                        <a class="button rose" (click)="toggleTag('orthographe', 'rose')" id="orthographe">
+                            <span>Orthographe</span>
+                        </a>
+                        <a class="button jaune" (click)="toggleTag('grammaire', 'jaune')" id="grammaire">
+                            <span>Grammaire</span>
+                        </a>
+                        <a class="button vert" (click)="toggleTag('conjugaison', 'vert')" id="conjugaison">
+                            <span>Conjugaison</span>
+                        </a>
+                        <a class="button bleu" (click)="toggleTag('vocabulaire', 'bleu')" id="vocabulaire">
+                            <span>Vocabulaire</span>
+                        </a>
+                    </div>
+                    <div class="block">
+                        <textarea placeholder="Entrez votre conseil... (250 carac. max)" class="validate"
+                            formControlName="content" maxlength="250"></textarea>
+                    </div>
+                    <button class="button bg-rose large submit" type="submit" [ngClass]="{'loading' : isLoading}"
+                        [disabled]="!tipForm.valid">
+                        <div class="lds-ellipsis" style="display: none;">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <span>Ajouter</span>
+                        <i class="material-icons" style="transform: rotate(180deg);">tungsten</i>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

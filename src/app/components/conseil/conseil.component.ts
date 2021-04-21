@@ -105,7 +105,7 @@ export class ConseilComponent implements OnInit {
     this.addTipTab = !this.addTipTab;
     document.getElementById('add-tip-tab').classList.toggle("open");
 
-    document.getElementById('footer').hidden = !document.getElementById('footer').hidden
+    // document.getElementById('footer').hidden = !document.getElementById('footer').hidden
   }
   toggleTag(tagName: string, color: string) {
     if (document.getElementById(tagName).classList.contains("activated")) {

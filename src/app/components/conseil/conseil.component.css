@@ -172,12 +172,18 @@ form > .submit {
     transition: height, 0.3s linear;
   }
   #add-tip-tab.open {
-    height: 65%;
-    -webkit-transition: height, 0.3s linear;
-    -moz-transition: height, 0.3s linear;
-    -ms-transition: height, 0.3s linear;
-    -o-transition: height, 0.3s linear;
+    height: 100%;
+    display: flex;
     transition: height, 0.3s linear;
+    background-color: #80808000;
+  }
+
+  #container-add-tp-tab {
+    height: 70%;
+    width: 70%;
+    margin: auto;
+    background: white;
+    border-radius: 50px;
   }
 
   .content {
