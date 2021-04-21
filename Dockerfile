@@ -1,6 +1,6 @@
 # build environment
-FROM node:12.7-alpine as builder
-RUN mkdir /usr/src/app
+FROM node:14.16.1-alpine as builder
+#RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY . /usr/src/app
