@@ -6,9 +6,8 @@
             alt="Photo de profil">
     </div>
     <div class="block infos">
-        <p class="name rose" style="text-align: center; padding-bottom: 15px;">{{userService.loggedUser.username |
-            uppercase}}
-            {{userService.loggedUser.lastname | uppercase}}</p>
+        <p class="name rose" style="text-align: center; padding-bottom: 15px;">{{(userService.loggedUser.username ? userService.loggedUser.username : userService.loggedUser.firstname + ' ' + userService.loggedUser.lastname) |
+            uppercase}}</p>
         <!-- BETA : Fonctionnalité non implémenté
             <div class="item">
             <div class="rose" style="display: inline-block;">
