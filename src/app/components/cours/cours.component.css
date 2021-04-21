@@ -75,11 +75,20 @@
 .container-grid {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 2rem;
 }
 
 .grid {
   width: 27rem;
+  justify-self: center;
+}
+
+.grid:first-child {
+  justify-self: start;
+}
+
+.grid:last-child {
+  justify-self: end;
 }
