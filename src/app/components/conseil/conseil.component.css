@@ -38,6 +38,7 @@
 }
 .like-icon {
   font-size: 30px;
+  cursor: pointer;
 }
 .button {
   width: 30%;
