@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY . /usr/src/app
 RUN npm install
-RUN ng build --prod
+RUN node_modules/.bin/ng build --prod
 
 # production environment
 FROM nginx:alpine
