@@ -13,3 +13,17 @@ h4 {
     margin: auto;
     text-align: center;
 }
+
+/* Version PC */
+
+.container-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container-book > img {
+    border-radius: 10px;
+    width: 35%;
+    height: auto;
+  }
