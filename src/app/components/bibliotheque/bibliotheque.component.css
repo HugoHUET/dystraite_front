@@ -81,10 +81,10 @@
   justify-self: center;
 }
 
-.grid:first-child {
-  justify-self: start;
-}
-
 .grid:last-child {
   justify-self: end;
+}
+
+.grid:first-child {
+  justify-self: start;
 }
