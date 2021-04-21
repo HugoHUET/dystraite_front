@@ -95,12 +95,16 @@ export class AppComponent {
     if (this.mini) {
       document.getElementById("side-nav").style.width = "220px";
       document.getElementById("container-router-outlet").style.marginLeft = "220px";
+      document.getElementById("add-tip-tab").style.marginLeft = "220px";
+      document.getElementById("add-tip-tab").style.width = "86%";
       document.getElementById("menuIcon").style.display = "none";
       document.getElementById("closeIcon").style.display = "block";
       this.mini = false;
     } else {
       document.getElementById("side-nav").style.width = "85px";
       document.getElementById("container-router-outlet").style.marginLeft = "85px";
+      document.getElementById("add-tip-tab").style.marginLeft = "85px";
+      document.getElementById("add-tip-tab").style.width = "95%";
       document.getElementById("menuIcon").style.display = "block";
       document.getElementById("closeIcon").style.display = "none";
       this.mini = true;
