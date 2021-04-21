@@ -4,9 +4,9 @@
 		<router-outlet></router-outlet>
 	</div>
 	<div class="navbar" id="footer">
-		<a routerLink="accueil" routerLinkActive="selected"><i class="material-icons">home</i>Accueil</a>
+		<a routerLink="accueil" routerLinkActive="selected"><i class="material-icons-round">home</i>Accueil</a>
 		<a routerLink="cours" routerLinkActive="selected" style="margin-right: 10%"><i
-				class="material-icons">school</i>Cours</a>
+				class="material-icons-round">school</i>Cours</a>
 
 		<a routerLink="profil" class="profil" routerLinkActive="selected">
 			<img *ngIf="userService.loggedUser" id="profil_img"
@@ -14,23 +14,24 @@
 				alt="Photo de profil" routerLinkActive="selected">
 			<ion-icon *ngIf="!userService.loggedUser" name="log-in-outline" id="profil_icon"></ion-icon>
 		</a>
-		<a routerLink="conseil" routerLinkActive="selected"><i class="material-icons">supervisor_account</i>Conseils</a>
-		<a class="btn-plus" (click)="togglePlus()"><i class="material-icons plus"
+		<a routerLink="conseil" routerLinkActive="selected"><i
+				class="material-icons-round">supervisor_account</i>Conseils</a>
+		<a class="btn-plus" (click)="togglePlus()"><i class="material-icons-round plus"
 				[class.plus-active]="isPlusSelected">more_horiz</i>Plus</a>
 		<div [className]="currentPlusClass" (click)="untogglePlus()">
 			<div class="item-plus" style="bottom: 60px">
 				<a routerLink="jeux" routerLinkActive="selected" class="button-plus" style="pointer-events: none;"><i
-						class="material-icons icon-plus">videogame_asset</i>A
+						class="material-icons-round icon-plus">videogame_asset</i>A
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 130px">
 				<a routerLink="ortophoniste" routerLinkActive="selected" class="button-plus"
-					style="pointer-events: none;"><i class="material-icons icon-plus">work_outline</i>A
+					style="pointer-events: none;"><i class="material-icons-round icon-plus">work_outline</i>A
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 200px">
 				<a routerLink="bibliotheque" routerLinkActive="selected" class="button-plus"><i
-						class="material-icons icon-plus">menu_book</i>Bibliothèque</a>
+						class="material-icons-round icon-plus">menu_book</i>Bibliothèque</a>
 			</div>
 		</div>
 	</div>

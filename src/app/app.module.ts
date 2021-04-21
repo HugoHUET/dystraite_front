@@ -31,11 +31,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpErrorInterceptor } from './services/http/HttpErrorInterceptor';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { WordblitzComponent } from './components/jeux/wordblitz/wordblitz.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { FilterPipe } from './filter.pipe';
 import { BetaComponent } from './components/beta/beta.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -64,7 +66,7 @@ registerLocaleData(localeFr, 'fr');
     ChangePasswordComponent,
     TokenComponent,
     FilterPipe,
-    BetaComponent,
+    WordblitzComponent,
     SafeHtmlPipe
   ],
   imports: [
@@ -76,6 +78,7 @@ registerLocaleData(localeFr, 'fr');
     ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule,
+    ClickOutsideModule,
     ToastrModule.forRoot(),
     JwtModule.forRoot({
       config: {

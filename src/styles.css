@@ -245,3 +245,7 @@ button:disabled{
     border: 2px solid #FF647C;
     background-color: #FF647C;
   }
+
+.information{
+    padding: 10px 5% 20px 5%;
+}
