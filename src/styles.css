@@ -66,7 +66,7 @@ img{
 }
 .ligne{
     display: grid;
-    grid-template-columns: 25% 45% auto;
+    grid-template-columns: 25% 50% auto;
     grid-template-rows: auto auto auto;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
@@ -74,12 +74,13 @@ img{
     justify-items: center;
 }
 .ligne > img{
-    width: 75px;
-    height: 75px;
+    width: 100%;
+    height: auto;
     border-radius: 10px;
+    object-fit: contain;
 }
 .ligne > .button{
-    width: 50px;
+    width: 100%;
     margin-top: 0;
 }
 .bg-rose{
@@ -170,6 +171,17 @@ textarea {
 }
 button:disabled{
   opacity: 50%;
+}
+
+.list-title {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  margin: 0;
 }
 
 /* Loading for buttons */ 
