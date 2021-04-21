@@ -19,7 +19,7 @@
                 {{tip.content}}
             </div>
             <div class="username">
-                <b>{{tip.owner?.username}}</b>
+                <b>{{tip.owner.username ? tip.owner.username : "Anonyme"}}</b>
             </div>
         </div>
         <div class="like" *ngIf="!isMyTip(tip)">
