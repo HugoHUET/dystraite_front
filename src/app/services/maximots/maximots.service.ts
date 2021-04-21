@@ -16,8 +16,8 @@ export class MaximotsService {
 
   constructor(private httpService: HttpClient) { }
 
-  getGameData(entreeGetGrid: EntreeGetGrid): Observable<SortieGetGrid> {
-    return this.httpService.post<SortieGetGrid>(this.REST_API_SERVER + "getGrid", entreeGetGrid);
+  getGameData(): Observable<SortieGetGrid> {
+    return this.httpService.get<SortieGetGrid>(this.REST_API_SERVER + "getGrid");
   }
 
   verifyResponse(entreeVerifyResponse: EntreeVerifyResponse): Observable<SortieVerifyResponse>{

@@ -21,7 +21,7 @@ enum Direction {
 	styleUrls: ['./wordblitz.component.css']
 })
 export class WordblitzComponent implements OnInit {
-
+	gridAvailable: boolean = true;
 	isDown: boolean = false;
 	grille: HTMLElement;
 	saisie: HTMLElement;
@@ -29,7 +29,7 @@ export class WordblitzComponent implements OnInit {
 	wordsFindArr: string[] = [];
 	win = false;
 	theme = "";
-	difficulty = 5;
+	size = 5;
 	gridId = undefined;
 
 	previousCellNumber: number;
@@ -61,15 +61,15 @@ export class WordblitzComponent implements OnInit {
 		document.getElementById('progress-bar').setAttribute("style", "width:" + Math.round(100 - (this.getWordsLeft() / this.wordHashArr.length) * 100) + "%;");
 	}
 	loadGrid() {
+		this.gridAvailable = true;
 		//A changer en fonction de l'image
 		this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'rgb(199 199 199 / 12%)';
 
 		this.saisie = document.getElementById('saisie');
 		this.grille = document.getElementById('grille');
 		this.grille.innerHTML = "";
-		this.grille.setAttribute("style", "grid-template-columns: repeat(" + this.difficulty + ", 1fr);")
 
-		this.maximotsService.getGameData({ difficulty: this.difficulty }).subscribe((sGameplay: SortieGetGrid) => {
+		this.maximotsService.getGameData().subscribe((sGameplay: SortieGetGrid) => {			
 			this.displayNewGrid(sGameplay);
 		});
 
@@ -91,59 +91,65 @@ export class WordblitzComponent implements OnInit {
 		});
 	}
 	displayNewGrid(sGameplay: SortieGetGrid){
-		this.theme = sGameplay.gridLabel;
-		this.wordHashArr = sGameplay.wordsHash;
-		this.gridId = sGameplay.gridId;
-		this.setText(this.getWordsLeft() + " mots à trouver !");
-		this.grille.innerHTML = "";
-		this.wordsFindArr = [];
-		this.updateProgressBar();
-
-		sGameplay.grid.forEach((c, index) => {
-
-			let div: HTMLDivElement = document.createElement("div");
-			div.classList.add("lettre");
-
-			div.addEventListener('pointerdown', (e) => {
-				this.previousCellNumber = index;
-				this.isDown = true;
-				this.currentDirection = null;
-				this.select(div);
-				//this.clearAnimations();
-				this.saisie.setAttribute("style", "font-size: 3rem; line-height: 110%;");
-				this.saisie.innerHTML = (e.currentTarget as HTMLElement).innerText;
-				if (e.target instanceof HTMLElement) {
-					e.target.releasePointerCapture(e.pointerId)
-				}
-			})
-
-			div.addEventListener('pointerenter', (e: PointerEvent) => {
-				//vérifie si la sélection est activée et la lettre n'est pas déjà sélectionnée
-				if (this.isDown && div.style.opacity !== "0.5") {
-					if (this.currentDirection == null) {
-						this.currentDirection = this.getDirection(this.previousCellNumber, index);
-						if (!this.currentDirection) {
-							console.error("Impossible de déterminer la direction");
-						}
-						this.previousCellNumber = index;
-						this.select(div);
-						this.saisie.innerHTML = this.saisie.innerHTML + (e.currentTarget as HTMLElement).innerText;
-					} else {
-						// On vérifie si la direction correspond à la trajectoire prévue
-						if (this.checkDirection(index)) {
+		if (sGameplay == null) {
+			this.gridAvailable = false;
+		}else{
+			this.size = sGameplay.gridSize;
+			this.grille.setAttribute("style", "grid-template-columns: repeat(" + this.size + ", 1fr);")
+			this.theme = sGameplay.gridLabel;
+			this.gridId = sGameplay.gridId;
+			this.grille.innerHTML = "";
+			this.wordsFindArr = [];
+			this.wordHashArr = sGameplay.wordsHash;
+			this.updateProgressBar();
+			this.setText(this.getWordsLeft() + " mots à trouver !");
+	
+			sGameplay.grid.forEach((c, index) => {
+	
+				let div: HTMLDivElement = document.createElement("div");
+				div.classList.add("lettre");
+	
+				div.addEventListener('pointerdown', (e) => {
+					this.previousCellNumber = index;
+					this.isDown = true;
+					this.currentDirection = null;
+					this.select(div);
+					//this.clearAnimations();
+					this.saisie.setAttribute("style", "font-size: 3rem; line-height: 110%;");
+					this.saisie.innerHTML = (e.currentTarget as HTMLElement).innerText;
+					if (e.target instanceof HTMLElement) {
+						e.target.releasePointerCapture(e.pointerId)
+					}
+				})
+	
+				div.addEventListener('pointerenter', (e: PointerEvent) => {
+					//vérifie si la sélection est activée et la lettre n'est pas déjà sélectionnée
+					if (this.isDown && div.style.opacity !== "0.5") {
+						if (this.currentDirection == null) {
+							this.currentDirection = this.getDirection(this.previousCellNumber, index);
+							if (!this.currentDirection) {
+								console.error("Impossible de déterminer la direction");
+							}
+							this.previousCellNumber = index;
 							this.select(div);
 							this.saisie.innerHTML = this.saisie.innerHTML + (e.currentTarget as HTMLElement).innerText;
+						} else {
+							// On vérifie si la direction correspond à la trajectoire prévue
+							if (this.checkDirection(index)) {
+								this.select(div);
+								this.saisie.innerHTML = this.saisie.innerHTML + (e.currentTarget as HTMLElement).innerText;
+							}
 						}
 					}
-				}
+				})
+	
+				let span: HTMLSpanElement = document.createElement("span");
+				span.innerHTML = c.toUpperCase();
+	
+				div.appendChild(span);
+				this.grille.appendChild(div);
 			})
-
-			let span: HTMLSpanElement = document.createElement("span");
-			span.innerHTML = c.toUpperCase();
-
-			div.appendChild(span);
-			this.grille.appendChild(div);
-		})
+		}
 	}
 	checkMatchWord(): MatchWordResult {
 		let word = this.saisie.innerHTML.replace(/(\r\n|\n|\r)/gm, "");
@@ -274,10 +280,10 @@ export class WordblitzComponent implements OnInit {
 	}
 	getPosition(cellNumber: number) {
 		//numéro de ligne
-		let x = Math.floor(cellNumber / this.difficulty);
+		let x = Math.floor(cellNumber / this.size);
 
 		//numéro de colonne
-		let y = cellNumber % this.difficulty;
+		let y = cellNumber % this.size;
 
 		return {
 			x: x,

@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" [hidden]="!gridAvailable">
     <!--<h6 id="title">Trouve le maximum de mots</h6>
     <svg xmlns="http://www.w3.org/2000/svg" width="25.833" height="33.004" viewBox="0 0 25.833 33.004">
         <path id="Tracé_23" data-name="Tracé 23"
@@ -56,4 +56,7 @@
                 style="vertical-align: -4px; font-size: 22px; font-weight: bold;">lock_open</i>
             Niveau suivant</a>
     </div>
+</div>
+<div [hidden]="gridAvailable">
+    Aïe, il n'y a plus de grilles de disponible. Il semblerait que tu les aies toutes faites.
 </div>

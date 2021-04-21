@@ -3,4 +3,5 @@ export interface SortieGetGrid {
     wordsHash: string[];
     gridId: number;
     gridLabel: string;
+    gridSize: number;
 }
