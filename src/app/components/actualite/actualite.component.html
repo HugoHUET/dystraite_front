@@ -39,7 +39,7 @@
 		alt="illustration livre du moment">
 	<div class="information-block">
 		<h6>{{lastBook?.title}}</h6>
-		<p class="description" [innerHTML]="lastBook?.description | safeHtml"></p>
+		<p class="description" [innerHTML]="lastBook?.description"></p>
 		<a class="button rose" href="#" [routerLink]="['/bibliotheque/article/'+lastBook?.id]">Lire</a>
 	</div>
 </div>
