@@ -69,7 +69,7 @@ export class WordblitzComponent implements OnInit {
 		this.grille = document.getElementById('grille');
 		this.grille.innerHTML = "";
 
-		this.maximotsService.getGameData().subscribe((sGameplay: SortieGetGrid) => {			
+		this.maximotsService.getGameData().subscribe((sGameplay: SortieGetGrid) => {
 			this.displayNewGrid(sGameplay);
 		});
 
@@ -90,10 +90,10 @@ export class WordblitzComponent implements OnInit {
 			})
 		});
 	}
-	displayNewGrid(sGameplay: SortieGetGrid){
+	displayNewGrid(sGameplay: SortieGetGrid) {
 		if (sGameplay == null) {
 			this.gridAvailable = false;
-		}else{
+		} else {
 			this.size = sGameplay.gridSize;
 			this.grille.setAttribute("style", "grid-template-columns: repeat(" + this.size + ", 1fr);")
 			this.theme = sGameplay.gridLabel;
@@ -103,13 +103,15 @@ export class WordblitzComponent implements OnInit {
 			this.wordHashArr = sGameplay.wordsHash;
 			this.updateProgressBar();
 			this.setText(this.getWordsLeft() + " mots à trouver !");
-	
+
 			sGameplay.grid.forEach((c, index) => {
-	
+
 				let div: HTMLDivElement = document.createElement("div");
 				div.classList.add("lettre");
-	
+
 				div.addEventListener('pointerdown', (e) => {
+					this.saisie.classList.remove("word-correct", "word-incorrect");
+					this.saisie.removeEventListener('animationend', () => { });
 					this.previousCellNumber = index;
 					this.isDown = true;
 					this.currentDirection = null;
@@ -121,7 +123,7 @@ export class WordblitzComponent implements OnInit {
 						e.target.releasePointerCapture(e.pointerId)
 					}
 				})
-	
+
 				div.addEventListener('pointerenter', (e: PointerEvent) => {
 					//vérifie si la sélection est activée et la lettre n'est pas déjà sélectionnée
 					if (this.isDown && div.style.opacity !== "0.5") {
@@ -142,10 +144,10 @@ export class WordblitzComponent implements OnInit {
 						}
 					}
 				})
-	
+
 				let span: HTMLSpanElement = document.createElement("span");
 				span.innerHTML = c.toUpperCase();
-	
+
 				div.appendChild(span);
 				this.grille.appendChild(div);
 			})
@@ -174,16 +176,16 @@ export class WordblitzComponent implements OnInit {
 		this.saisie.setAttribute("style", "font-size: 1.6rem; line-height: 200%;")
 		this.saisie.innerHTML = content;
 	}
-	nextGrid(){
+	nextGrid() {
 		this.loadGrid();
 		this.win = false;
 	}
 	isWin(): void {
 		if (this.wordsFindArr.length == this.wordHashArr.length) {
-			this.maximotsService.verifyResponse({words: this.wordsFindArr, gridId: this.gridId}).subscribe((sortieVerifyResponse: SortieVerifyResponse) => {
+			this.maximotsService.verifyResponse({ words: this.wordsFindArr, gridId: this.gridId }).subscribe((sortieVerifyResponse: SortieVerifyResponse) => {
 				if (sortieVerifyResponse.finish) {
 					this.win = true;
-				}else{
+				} else {
 					this.displayNewGrid(sortieVerifyResponse.sortieGetGrid);
 				}
 			});
@@ -204,7 +206,7 @@ export class WordblitzComponent implements OnInit {
 	}
 	motivatingMessages(matchWordResult: MatchWordResult, saisie: HTMLElement) {
 		if (matchWordResult == MatchWordResult.FOUND) {
-			if (this.getWordsLeft() < 2) {
+			if (this.getWordsLeft() == 1) {
 				this.setText("Courage, plus qu'" + this.getWordsLeft() + " mot à trouver !");
 			} else {
 				this.setText("");
