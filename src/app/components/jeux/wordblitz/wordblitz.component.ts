@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { SortieGetGrid } from 'src/app/models/maximots/sortie-get-grid';
 import { MaximotsService } from 'src/app/services/maximots/maximots.service';
 import { sha256 } from 'js-sha256';
@@ -18,9 +18,10 @@ enum Direction {
 @Component({
 	selector: 'app-wordblitz',
 	templateUrl: './wordblitz.component.html',
-	styleUrls: ['./wordblitz.component.css']
+	styleUrls: ['./wordblitz.component.css'],
+	//encapsulation: ViewEncapsulation.None
 })
-export class WordblitzComponent implements OnInit {
+export class WordblitzComponent implements OnInit, OnDestroy {
 	gridAvailable: boolean = true;
 	isDown: boolean = false;
 	grille: HTMLElement;
@@ -39,6 +40,9 @@ export class WordblitzComponent implements OnInit {
 
 	ngOnInit() {
 		this.loadGrid();
+	}
+	ngOnDestroy() {
+		this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'white';
 	}
 
 	select(div: HTMLDivElement): void {
