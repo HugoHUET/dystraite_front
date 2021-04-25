@@ -32,7 +32,7 @@
 	<hr class="solid">
 </div>
 <div class="ligne" *ngFor="let book of books">
-	<img src="data:image/bmp;base64,{{book.thumbnail}}" alt="test">
+	<img src="data:image/bmp;base64,{{book.thumbnail}}" alt="Image d'illustration">
 	<h6 class="list-title">{{book.title}}</h6>
 	<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', book.id]">Lire</a>
 </div>
