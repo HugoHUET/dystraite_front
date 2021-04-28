@@ -72,43 +72,45 @@
 		</div>
 	</div>
 	<hr class="solid">
-	<h5>LE COURS DU MOMENT</h5>
+	<h5>LES COURS DU MOMENT</h5>
 	<div class="container-grid">
 		<div class="grid-cours" *ngFor="let lessons of lessons">
-			<div class="block" [hidden]="!lessons">
+			<div class="block-pc" [hidden]="!lessons">
 				<img *ngIf="lessons?.thumbnail" src="data:image/jpeg;base64,{{lessons?.thumbnail}}"
 					alt="illustration cours du moment">
+				<div *ngIf="!lessons?.thumbnail" class="image-not-found"></div>
 				<div class="information-block">
-					<h6 *ngIf="lessons?.title">{{lessons?.title}}</h6>
-					<p class="description" *ngIf="lessons?.description">
+					<h6 class="title-pc" *ngIf="lessons?.title">{{lessons?.title}}</h6>
+					<p class="description-pc" *ngIf="lessons?.description">
 						{{lessons?.description}}
 					</p>
 					<a class="button rose" href="#" [routerLink]="['/cours/lecon/'+lessons?.id]">Lire</a>
 				</div>
-			</div>
-			<a class="button bg-rose large" href="#" [routerLink]="['/cours']">
-				Accéder aux cours
-			</a>				
+			</div>				
 		</div>
 	</div>
+	<a class="button bg-rose large" href="#" [routerLink]="['/cours']">
+		Accéder aux cours
+	</a>
 	<hr class="solid">
-	<h5>LE LIVRE DU MOMENT</h5>
+	<h5>LES LIVRES DU MOMENT</h5>
 	<div class="container-grid">
 		<div class="grid-bibliotheque" *ngFor="let books of books">
-			<div class="block" [hidden]="!books">
+			<div class="block-pc" [hidden]="!books">
 				<img *ngIf="books?.thumbnail" src="data:image/jpeg;base64,{{books?.thumbnail}}"
 					alt="illustration livre du moment">
+				<div *ngIf="!books?.thumbnail" class="image-not-found"></div>
 				<div class="information-block">
-					<h6 *ngIf="books?.title">{{books?.title}}</h6>
-					<p class="description" *ngIf="books?.description">
+					<h6 class="title-pc" *ngIf="books?.title">{{books?.title}}</h6>
+					<p class="description-pc" *ngIf="books?.description">
 						{{books?.description}}
 					</p>
 					<a class="button rose" href="#" [routerLink]="['/bibliotheque/article/'+books?.id]">Lire</a>
 				</div>
 			</div>
-			<a class="button bg-rose large" href="#" [routerLink]="['/bibliotheque']">
-				Accéder aux livres
-			</a>
 		</div>
 	</div>
+	<a class="button bg-rose large" href="#" [routerLink]="['/bibliotheque']">
+		Accéder aux livres
+	</a>
 </div>
