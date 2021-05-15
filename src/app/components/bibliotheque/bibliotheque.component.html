@@ -64,28 +64,35 @@
 			</div>
 		</div>
 	</div>
-	<div [hidden]="filter || !currentBook">
-		<h5>Recommandé</h5>
-		<div class="container-grid">
-            <div class="grid">
-				<div class="block">
-					<img *ngIf="currentBook?.thumbnail" src="data:image/jpeg;base64,{{currentBook?.thumbnail}}"
-						alt="Image d'illustration">
-					<div class="information">
-						<h6>{{currentBook?.title}}</h6>
-						<p class="description">
-							{{currentBook?.description}}
-						</p>
-						<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
-					</div>
+	<div class="container-grid">
+        <div class="grid-first" [hidden]="filter || !currentBook">
+			<div class="block">
+                <div class="headband"><p>RECOMMANDER</p></div>
+				<img *ngIf="currentBook?.thumbnail" src="data:image/jpeg;base64,{{currentBook?.thumbnail}}"
+					alt="Image d'illustration">
+				<div *ngIf="!currentBook?.thumbnail" class="image-not-found"></div>
+				<div class="information">
+					<h6>{{currentBook?.title}}</h6>
+					<p class="description">
+						{{currentBook?.description}}
+					</p>
+					<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
 				</div>
 			</div>
 		</div>
-		<hr class="solid">
-	</div>
-	<div class="ligne" *ngFor="let book of books">
-		<img src="data:image/bmp;base64,{{book.thumbnail}}" alt="test">
-		<b>{{book.title}}</b>
-		<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', book.id]">Lire</a>
+		<div class="grid" *ngFor="let book of books | filter: filter">
+			<div class="block" >
+				<img *ngIf="book?.thumbnail" src="data:image/jpeg;base64,{{book?.thumbnail}}"
+					alt="Image d'illustration">
+				<div *ngIf="!book?.thumbnail" class="image-not-found"></div>
+				<div class="information">
+					<h6>{{book?.title}}</h6>
+					<p class="description">
+						{{book?.description}}
+					</p>
+					<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', book?.id]">Lire</a>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

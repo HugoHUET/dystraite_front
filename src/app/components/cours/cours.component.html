@@ -64,28 +64,35 @@
             </div>
         </div>
     </div>
-    <div [hidden]="filter || !currentLesson">
-        <h5>Recommandé</h5>
-		<div class="container-grid">
-            <div class="grid">
-                <div class="block">
-                    <img *ngIf="currentLesson?.thumbnail" src="data:image/jpeg;base64,{{currentLesson?.thumbnail}}"
-                        alt="Image d'illustration">
-                    <div class="information">
-                        <h6>{{currentLesson?.title}}</h6>
-                        <p class="description">
-                            {{currentLesson?.description}}
-                        </p>
-                        <a class="button bg-rose" [routerLink]="['/cours/lecon/', currentLesson?.id]">Lire</a>
-                    </div>
+	<div class="container-grid">
+        <div class="grid-first" [hidden]="filter || !currentLesson">
+            <div class="block">
+                <div class="headband"><p>RECOMMANDER</p></div>
+                <img *ngIf="currentLesson?.thumbnail" src="data:image/jpeg;base64,{{currentLesson?.thumbnail}}"
+                    alt="Image d'illustration">
+                <div *ngIf="!currentLesson?.thumbnail" class="image-not-found"></div>
+                <div class="information">
+                    <h6 class="title-pc">{{currentLesson?.title}}</h6>
+                    <p class="description">
+                        {{currentLesson?.description}}
+                    </p>
+                    <a class="button bg-rose" [routerLink]="['/cours/lecon/', currentLesson?.id]">Lire</a>
                 </div>
             </div>
         </div>
-        <hr class="solid">
-    </div>
-    <div class="ligne" *ngFor="let lesson of lessons | filter: filter">
-        <img src="data:image/bmp;base64,{{lesson.thumbnail}}" alt="thumbnail">
-        <b class="lesson-title">{{lesson.title}}</b>
-        <a class="button bg-rose" [routerLink]="['/cours/lecon/', lesson.id]">Lire</a>
+        <div class="grid" *ngFor="let lesson of lessons | filter: filter">
+            <div class="block">
+                <img *ngIf="lesson?.thumbnail" src="data:image/jpeg;base64,{{lesson?.thumbnail}}"
+                    alt="Image d'illustration">
+                <div *ngIf="!lesson?.thumbnail" class="image-not-found"></div>
+                <div class="information">
+                    <h6 class="title-pc">{{lesson?.title}}</h6>
+                    <p class="description">
+                        {{lesson?.description}}
+                    </p>
+                    <a class="button bg-rose" [routerLink]="['/cours/lecon/', lesson?.id]">Lire</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
