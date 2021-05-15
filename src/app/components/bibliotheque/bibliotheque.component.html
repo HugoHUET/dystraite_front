@@ -65,9 +65,11 @@
 		</div>
 	</div>
 	<div class="container-grid">
-        <div class="grid-first" [hidden]="filter || !currentBook">
+		<div class="grid-first" [hidden]="filter || !currentBook">
 			<div class="block">
-                <div class="headband"><p>RECOMMANDER</p></div>
+				<div class="headband">
+					<p>RECOMMANDÉ</p>
+				</div>
 				<img *ngIf="currentBook?.thumbnail" src="data:image/jpeg;base64,{{currentBook?.thumbnail}}"
 					alt="Image d'illustration">
 				<div *ngIf="!currentBook?.thumbnail" class="image-not-found"></div>
@@ -81,7 +83,7 @@
 			</div>
 		</div>
 		<div class="grid" *ngFor="let book of books | filter: filter">
-			<div class="block" >
+			<div class="block">
 				<img *ngIf="book?.thumbnail" src="data:image/jpeg;base64,{{book?.thumbnail}}"
 					alt="Image d'illustration">
 				<div *ngIf="!book?.thumbnail" class="image-not-found"></div>
