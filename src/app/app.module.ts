@@ -37,7 +37,6 @@ import localeFr from '@angular/common/locales/fr';
 import { FilterPipe } from './filter.pipe';
 import { BetaComponent } from './components/beta/beta.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
-import { ClickOutsideModule } from 'ng-click-outside';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
