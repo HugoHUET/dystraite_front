@@ -1,12 +1,14 @@
 
 <!-- Version Mobile -->
 <div *ngIf="responsiveService.isMobile">
-    <h5>LES JEUX DU MOMENT</h5>
     <div class="container-maintenance-mobile">
-        <img src="../../../assets/mobile/undraw_Maintenance_re_59vn.svg" alt='Maintenance' />
-        <Button style="margin-top: '50px';" type='primary'></Button>
-        <p>Cette page est en cours de développement.</p>
-        <button class="button bg-rose large" [routerLink]="['/accueil']">Retourner à l'accueil</button>
+        <img src="../../assets/maximots.jpeg" alt="test">
+        <div class="information">
+            <h6>Maximots</h6>
+            <p>Trouvez le plus de mots possibles en reliant les lettres sur la grille. Complétez le plus
+                de grilles possible pour débloquer les niveaux supérieurs</p>
+            <a class="button rose" href="#" [routerLink]="['maximots']">Jouer</a>
+        </div>
     </div>
 </div>
 
@@ -14,9 +16,12 @@
 <div *ngIf="!responsiveService.isMobile">
     <h5>LES JEUX DU MOMENT</h5>
     <div class="container-maintenance">
-        <img src="../../../assets/mobile/undraw_Maintenance_re_59vn.svg" alt='Maintenance' />
-        <Button style="margin-top: '50px';" type='primary'></Button>
-        <p>Cette page est en cours de développement.</p>
-        <button class="button bg-rose large" [routerLink]="['/accueil']">Retourner à l'accueil</button>
+        <img src="../../assets/maximots.jpeg" alt="test">
+        <div class="information">
+            <h6>Maximots</h6>
+            <p>Trouvez le plus de mots possibles en reliant les lettres sur la grille. Complétez le plus
+                de grilles possible pour débloquer les niveaux supérieurs</p>
+            <a class="button rose" href="#" [routerLink]="['maximots']">Jouer</a>
+        </div>
     </div>
 </div>
