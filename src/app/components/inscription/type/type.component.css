@@ -1,62 +1,111 @@
-.background{
-    background-color: #FF647C;
-    margin: -30px;
-    height: 200px;
-    z-index: 5;
+.background {
+  background-color: #ff647c;
+  margin: -30px;
+  height: 200px;
+  z-index: 5;
 }
-.main-container{
-    z-index: 10;
-    position: relative;
+.main-container {
+  z-index: 10;
+  position: relative;
 }
-.background > .text{
-    color: white;
-    width: 80%;
-    margin: auto;
-    padding-top: 10%;
+.background > .text {
+  color: white;
+  width: 80%;
+  margin: auto;
+  padding-top: 10%;
 }
-.background > .text > h4{
-    font-weight: bold;
+.background > .text > h4 {
+  font-weight: bold;
 }
-.main-container > .input{
-    color: black;
-    margin-top: -50px;
+.main-container > .input {
+  color: black;
+  margin-top: -50px;
 }
-.main-container > .input > .block{
-    padding: 5%;
-    z-index: 10;
-    margin-top: 5%;
+.main-container > .input > .block {
+  padding: 5%;
+  z-index: 10;
+  margin-top: 5%;
 }
-.main-container > .input > .block > label{
-    color: black;
+.main-container > .input > .block > label {
+  color: black;
 }
 .main-container > .input > .option {
-    text-align: center;
+  text-align: center;
 }
-.main-container > .input > .option > p > a{
-    text-decoration: underline;
-    color: black;
+.main-container > .input > .option > p > a {
+  text-decoration: underline;
+  color: black;
 }
-.button{
-    padding: 0 10px 0 10px;
-    display: grid;
-    grid-template-columns: 68% 28%;
-    grid-column-gap: 10px;
-    margin-top: 5%;
+.button {
+  padding: 0 10px 0 10px;
+  display: grid;
+  grid-template-columns: 68% 28%;
+  grid-column-gap: 10px;
+  margin-top: 5%;
+  cursor: pointer;
 }
-.button > span{
-    justify-self: start;
+.button > span {
+  justify-self: start;
 }
-.button > i{
-    justify-self: end;
+.button > i {
+  justify-self: end;
 }
-.bottom-container{
-    font-size: 10px;
-    text-align: center;
-    width: 100%;
+.bottom-container {
+  font-size: 10px;
+  text-align: center;
+  width: 100%;
 }
-.cgu{
-    margin-bottom: 5%;
+.cgu {
+  margin-bottom: 5%;
 }
 a {
-    -webkit-appearance: unset;
+  -webkit-appearance: unset;
+}
+
+/* Version PC */
+
+.background-pc {
+  background-color: #ee6e73;
+  margin: -30px -29px 0 -30px;
+  height: 200px;
+  z-index: 5;
+}
+.main-container-pc {
+  z-index: 10;
+  position: relative;
+}
+.background-pc > .text {
+  color: white;
+  max-width: 50rem;
+  margin: auto;
+  padding-top: 3rem;
+}
+.background-pc > .text > h4 {
+  font-weight: bold;
+}
+.main-container-pc > .input {
+  max-width: 50rem;
+  color: black;
+  margin: auto;
+  margin-top: -70px;
+}
+.main-container-pc > .input > .block {
+  padding: 3vh;
+  z-index: 10;
+  margin-top: 2vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+.main-container-pc > .input > .block > label {
+  color: black;
+}
+.main-container-pc > .input > .option {
+  text-align: center;
+}
+.main-container-pc > .input > .option > p > a {
+  text-decoration: underline;
+  color: black;
+}
+input{
+  margin: 0 !important;
 }

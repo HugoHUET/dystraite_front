@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TitreService } from 'src/app/services/titre/titre.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-profil',
@@ -14,7 +15,7 @@ export class ProfilComponent implements OnInit {
   nom = 'ALYSSA BERTRAND';
   score = 3476;
 
-  constructor(private titreService: TitreService, public userService: UserService, private router: Router, private toastr: ToastrService) {
+  constructor(private titreService: TitreService, public userService: UserService, private router: Router, private toastr: ToastrService, public responsiveService: ResponsiveService) {
 
   }
 

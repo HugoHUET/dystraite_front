@@ -1,40 +1,100 @@
-<div id="input_container">
-    <input type="text" id="filter" name="filter" class="filter" placeholder="Filtre..." [(ngModel)]=filter>
-    <ion-icon name="search-outline" id="search-icon"></ion-icon>
-    <ion-icon name="options-outline" id="filter-icon" class="rose"
-        (click)="filter_tags_selected = !filter_tags_selected" [hidden]="true"></ion-icon>
+<!-- Version Mobile -->
+<div *ngIf="responsiveService.isMobile">
+    <div id="input_container">
+        <input type="text" id="filter" name="filter" class="filter" placeholder="Filtre..." [(ngModel)]=filter>
+        <ion-icon name="search-outline" id="search-icon"></ion-icon>
+        <ion-icon name="options-outline" id="filter-icon" class="rose"
+            (click)="filter_tags_selected = !filter_tags_selected" [hidden]="true"></ion-icon>
+    </div>
+
+    <div id="filter-tags" [hidden]="!filter_tags_selected">
+        <div style="display: flex; font-size: 22px !important; font-weight: bold;">
+            <h5 style="font-size: inherit; font-weight: inherit;">Filtre</h5>
+            <ion-icon style="margin: 1.0933333333rem 0 .656rem auto;" name="close-outline"
+                (click)="filter_tags_selected = !filter_tags_selected"></ion-icon>
+        </div>
+        <div class="tags" *ngFor="let tag_list of filter_tags | keyvalue">
+            <h6>{{tag_list.key}}</h6>
+            <div *ngFor="let tag of tag_list.value" class="tag button">
+                {{tag}}
+            </div>
+        </div>
+    </div>
+    <div [hidden]="filter || !currentLesson">
+        <h5>Recommandé</h5>
+        <div class="block">
+            <img *ngIf="currentLesson?.thumbnail" src="data:image/jpeg;base64,{{currentLesson?.thumbnail}}"
+                alt="Image d'illustration">
+            <div class="information">
+                <h6>{{currentLesson?.title}}</h6>
+                <p class="description">
+                    {{currentLesson?.description}}
+                </p>
+                <a class="button bg-rose" [routerLink]="['/cours/lecon/', currentLesson?.id]">Lire</a>
+            </div>
+        </div>
+        <hr class="solid">
+    </div>
+    <div class="ligne" *ngFor="let lesson of lessons | filter: filter">
+        <img src="data:image/bmp;base64,{{lesson.thumbnail}}" alt="thumbnail">
+        <b class="lesson-title">{{lesson.title}}</b>
+        <a class="button bg-rose" [routerLink]="['/cours/lecon/', lesson.id]">Lire</a>
+    </div>
 </div>
 
-<div id="filter-tags" [hidden]="!filter_tags_selected">
-    <div style="display: flex; font-size: 22px !important; font-weight: bold;">
-        <h5 style="font-size: inherit; font-weight: inherit;">Filtre</h5>
-        <ion-icon style="margin: 1.0933333333rem 0 .656rem auto;" name="close-outline"
-            (click)="filter_tags_selected = !filter_tags_selected"></ion-icon>
+<!-- Version PC -->
+<div *ngIf="!responsiveService.isMobile">
+    <div id="input_container">
+        <input type="text" id="filter" name="filter" class="filter" placeholder="Filtre..." [(ngModel)]=filter>
+        <ion-icon name="search-outline" id="search-icon"></ion-icon>
+        <ion-icon name="options-outline" id="filter-icon" class="rose"
+            (click)="filter_tags_selected = !filter_tags_selected" [hidden]="true"></ion-icon>
     </div>
-    <div class="tags" *ngFor="let tag_list of filter_tags | keyvalue">
-        <h6>{{tag_list.key}}</h6>
-        <div *ngFor="let tag of tag_list.value" class="tag button">
-            {{tag}}
+
+    <div id="filter-tags" [hidden]="!filter_tags_selected">
+        <div style="display: flex; font-size: 22px !important; font-weight: bold;">
+            <h5 style="font-size: inherit; font-weight: inherit;">Filtre</h5>
+            <ion-icon style="margin: 1.0933333333rem 0 .656rem auto;" name="close-outline"
+                (click)="filter_tags_selected = !filter_tags_selected"></ion-icon>
+        </div>
+        <div class="tags" *ngFor="let tag_list of filter_tags | keyvalue">
+            <h6>{{tag_list.key}}</h6>
+            <div *ngFor="let tag of tag_list.value" class="tag button">
+                {{tag}}
+            </div>
         </div>
     </div>
-</div>
-<div [hidden]="filter || !currentLesson">
-    <h5>Recommandé</h5>
-    <div class="block">
-        <img *ngIf="currentLesson?.thumbnail" src="data:image/jpeg;base64,{{currentLesson?.thumbnail}}"
-            alt="Image d'illustration">
-        <div class="information">
-            <h6>{{currentLesson?.title}}</h6>
-            <p class="description">
-                {{currentLesson?.description}}
-            </p>
-            <a class="button bg-rose" [routerLink]="['/cours/lecon/', currentLesson?.id]">Lire</a>
+    <div class="container-grid">
+        <div class="grid-first" [hidden]="filter || !currentLesson">
+            <div class="block">
+                <div class="headband">
+                    <p>RECOMMANDÉ</p>
+                </div>
+                <img *ngIf="currentLesson?.thumbnail" src="data:image/jpeg;base64,{{currentLesson?.thumbnail}}"
+                    alt="Image d'illustration">
+                <div *ngIf="!currentLesson?.thumbnail" class="image-not-found"></div>
+                <div class="information">
+                    <h6 class="title-pc">{{currentLesson?.title}}</h6>
+                    <p class="description">
+                        {{currentLesson?.description}}
+                    </p>
+                    <a class="button bg-rose" [routerLink]="['/cours/lecon/', currentLesson?.id]">Lire</a>
+                </div>
+            </div>
+        </div>
+        <div class="grid" *ngFor="let lesson of lessons | filter: filter">
+            <div class="block">
+                <img *ngIf="lesson?.thumbnail" src="data:image/jpeg;base64,{{lesson?.thumbnail}}"
+                    alt="Image d'illustration">
+                <div *ngIf="!lesson?.thumbnail" class="image-not-found"></div>
+                <div class="information">
+                    <h6 class="title-pc">{{lesson?.title}}</h6>
+                    <p class="description">
+                        {{lesson?.description}}
+                    </p>
+                    <a class="button bg-rose" [routerLink]="['/cours/lecon/', lesson?.id]">Lire</a>
+                </div>
+            </div>
         </div>
     </div>
-    <hr class="solid">
-</div>
-<div class="ligne" *ngFor="let lesson of lessons | filter: filter">
-    <img src="data:image/bmp;base64,{{lesson.thumbnail}}" alt="Image d'illustration">
-    <h6 class="list-title">{{lesson.title}}</h6>
-    <a class="button bg-rose" [routerLink]="['/cours/lecon/', lesson.id]">Lire</a>
 </div>

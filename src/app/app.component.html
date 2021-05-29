@@ -21,12 +21,12 @@
 		<div [className]="currentPlusClass" (click)="untogglePlus()">
 			<div class="item-plus" style="bottom: 60px">
 				<a routerLink="jeux" routerLinkActive="selected" class="button-plus" style="pointer-events: none;"><i
-						class="material-icons-round icon-plus">videogame_asset</i>A
+						class="material-icons icon-plus">videogame_asset</i>A
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 130px">
-				<a routerLink="ortophoniste" routerLinkActive="selected" class="button-plus"
-					style="pointer-events: none;"><i class="material-icons-round icon-plus">work_outline</i>A
+				<a routerLink="ortophoniste" routerLinkActive="selected" class="button-plus" style="pointer-events: none;"><i
+						class="material-icons icon-plus">work_outline</i>A
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 200px">
@@ -41,32 +41,51 @@
 	<header>
 		<div class="navbar-fixed">
 			<nav class="noBoxShadow">
-				<div class="nav-wrapper">
-					<span class="brand-logo center">Dystraite</span>
+				<div>
+					<button id="toggleButton" (click)="expandedSidenav()" (clickOutside)="onClickedOutside($event)">
+						<i class="material-icons" id="menuIcon">menu</i>
+						<i class="material-icons" id="closeIcon">close</i>
+					</button>
+				</div>
+				<div class="nav-wrapper nav">
+					<span class="brand-logo center" [routerLink]="['/accueil']">DYSTRAITE</span>
+				</div>
+				<div class="beta-container">
+					<h6>Version BETA</h6>
+					<button class="beta-btn" [routerLink]="['/beta']">
+						<span style="vertical-align: middle;">Plus d'infos</span>
+						<ion-icon name="information-circle-outline"></ion-icon>
+					</button>
 				</div>
 			</nav>
 		</div>
 	</header>
 
 	<main>
-		<!--<ul class="sidenav sidenav-fixed" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
-			<li><a href="/"><i class="material-icons">home</i>Accueil</a></li>
-			<li><a href="/jeux"><i class="material-icons">videogame_asset</i>Jeux</a></li>
-			<li><a href="/cours"><i class="material-icons">school</i>Cours</a></li>
-			<li><a href="/bibliotheque"><i class="material-icons">menu_book</i>Bibliothèque</a></li>
-			<li><a href="/conseil"><i class="material-icons">supervisor_account</i>Conseils</a></li>
-			<li><a href="/profil"><i class="material-icons">account_circle</i>Profil</a></li>
-			<li><a href="/ortophoniste"><i class="material-icons">work_outline</i>Orthophoniste</a></li>
-		</ul> -->
-		<div class="row container-master" style="text-align: center;">
-			<h5>La version pour ordinateur arrivera très prochainement. <br>Vous pouvez dès à présent utiliser la
-				version
-				BETA en
-				vous connectant sur cette page avec votre smartphone.</h5>
-			<br>
-			<img src="../assets/mobile_image_beta.png"
-				style="width: 503px; height: 553px; margin: auto; display: flex;">
-			<!--<router-outlet></router-outlet> -->
+		<ul class="sidenav sidenav-fixed" id="side-nav" (mouseover)="toggleSidebar()" (mouseout)="toggleSidebar()">
+			<li class="hoverLi"><a routerLink="accueil" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">home</i>Accueil</a></li>
+			<li class="hoverLi"><a routerLink="jeux" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">videogame_asset</i>Jeux</a></li>
+			<li class="hoverLi"><a routerLink="cours" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">school</i>Cours</a></li>
+			<li class="hoverLi"><a routerLink="bibliotheque" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">menu_book</i>Bibliothèque</a></li>
+			<li class="hoverLi"><a routerLink="conseil" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">supervisor_account</i>Conseils</a></li>
+
+			<li class="hoverLi" *ngIf="userService.loggedUser"><a routerLink="profil" routerLinkActive="selected"
+					class="hoverA" style="padding-left: 20px;"><img *ngIf="userService.loggedUser" id="profil_img_pc"
+						src="{{userService.loggedUser.profilePicture ? userService.loggedUser.profilePicture : '../assets/heidy/heidy_head_1.png'}}"
+						alt="Photo de profil" routerLinkActive="selected">
+					Profil</a></li>
+			<li class="hoverLi" *ngIf="!userService.loggedUser"><a routerLink="profil" routerLinkActive="selected"
+					class="hoverA"><i class="material-icons">login</i>Connexion</a></li>
+			<!--<li class="hoverLi"><a routerLink="ortophoniste" routerLinkActive="selected" class="hoverA"><i
+						class="material-icons">work_outline</i>Orthophoniste</a></li> -->
+		</ul>
+		<div id="container-router-outlet" class="row container-main">
+			<router-outlet></router-outlet>
 		</div>
 	</main>
 </div>
