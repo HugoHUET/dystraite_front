@@ -1,30 +1,67 @@
-<div class="main-container">
-  <div class="background">
-    <div class="text">
-      <h4>Changer de mot de passe</h4>
-      <p>Retenez-le bien cette fois 😉</p>
+<!-- Version Mobile -->
+<div *ngIf="responsiveService.isMobile">
+  <div class="main-container">
+    <div class="background">
+      <div class="text">
+        <h4>Changer de mot de passe</h4>
+        <p>Retenez-le bien cette fois 😉</p>
+      </div>
+    </div>
+    <div class="block full-page">
+      <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
+      <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" ngForm>
+        <div class="block align-left">
+          <label for="email">Adresse email*</label>
+          <input placeholder="Entrez votre adresse email..." name="email" type="email" class="validate" ngModel>
+        </div>
+        <div class="block align-left">
+          <label for="password1">Mot de passe*</label>
+          <input placeholder="Entrez votre mot de passe..." name="password1" type="password" class="validate" ngModel>
+        </div>
+        <div class="block align-left">
+          <label for="password2">Mot de passe*</label>
+          <input placeholder="Entrez votre mot de passe une seconde fois..." name="password2" type="password"
+            class="validate" ngModel>
+        </div>
+        <button class="button bg-rose large" type="submit" value="Send">
+          <span>Confirmez</span>
+          <i class="material-icons">arrow_forward</i>
+        </button>
+      </form>
     </div>
   </div>
-  <div class="block full-page">
-    <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
-    <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" ngForm>
-      <div class="block align-left">
-        <label for="email">Adresse email*</label>
-        <input placeholder="Entrez votre adresse email..." name="email" type="email" class="validate" ngModel>
+</div>
+
+<!-- Version PC -->
+<div *ngIf="!responsiveService.isMobile">
+  <div class="main-container-pc">
+    <div class="background-pc">
+      <div class="text">
+        <h4>Changer de mot de passe</h4>
+        <p>Retenez-le bien cette fois 😉</p>
       </div>
-      <div class="block align-left">
-        <label for="password1">Mot de passe*</label>
-        <input placeholder="Entrez votre mot de passe..." name="password1" type="password" class="validate" ngModel>
-      </div>
-      <div class="block align-left">
-        <label for="password2">Mot de passe*</label>
-        <input placeholder="Entrez votre mot de passe une seconde fois..." name="password2" type="password"
-          class="validate" ngModel>
-      </div>
-      <button class="button bg-rose large" type="submit" value="Send">
-        <span>Confirmez</span>
-        <i class="material-icons">arrow_forward</i>
-      </button>
-    </form>
+    </div>
+    <div class="block full-page">
+      <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
+      <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" ngForm>
+        <div class="block align-left">
+          <label for="email">Adresse email*</label>
+          <input placeholder="Entrez votre adresse email..." name="email" type="email" class="validate" ngModel>
+        </div>
+        <div class="block align-left">
+          <label for="password1">Mot de passe*</label>
+          <input placeholder="Entrez votre mot de passe..." name="password1" type="password" class="validate" ngModel>
+        </div>
+        <div class="block align-left">
+          <label for="password2">Mot de passe*</label>
+          <input placeholder="Entrez votre mot de passe une seconde fois..." name="password2" type="password"
+            class="validate" ngModel>
+        </div>
+        <button class="button bg-rose large" type="submit" value="Send">
+          <span>Confirmez</span>
+          <i class="material-icons">arrow_forward</i>
+        </button>
+      </form>
+    </div>
   </div>
 </div>
