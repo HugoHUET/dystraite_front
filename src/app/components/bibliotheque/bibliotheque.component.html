@@ -42,7 +42,7 @@
 	</div>
 </div>
 
-<!-- Version Mobile -->
+<!-- Version Pc -->
 <div *ngIf="!responsiveService.isMobile">
 	<div id="input_container">
 		<input type="text" id="filter" name="filter" class="filter" placeholder="Filtre..." [(ngModel)]=filter>
@@ -74,9 +74,9 @@
 					alt="Image d'illustration">
 				<div *ngIf="!currentBook?.thumbnail" class="image-not-found"></div>
 				<div class="information">
-					<h6>{{currentBook?.title}}</h6>
+					<h6 class="title-pc">{{currentBook?.title}}</h6>
 					<p class="description">
-						{{currentBook?.description}}
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur augue nunc, faucibus vitae finibus a, tempor sed diam. Fusce id nibh tincidunt, tristique nisl rutrum, tristique diam. Curabitur dictum, est quis rutrum pulvinar, orci risus mattis nunc, vel posuere dui velit et mi. Phasellus fermentum, lacus in dignissim placerat, dui ante cursus ex, quis malesuada mi neque eget neque. Suspendisse elementum justo nec sem interdum, nec convallis leo laoreet. Praesent nunc massa, iaculis a elementum vitae, egestas blandit tortor. Integer vulputate commodo sem in porttitor. Duis et est a augue suscipit scelerisque. Pellentesque ac aliquam leo.
 					</p>
 					<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
 				</div>
