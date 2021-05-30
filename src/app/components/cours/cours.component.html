@@ -75,7 +75,7 @@
                 <div *ngIf="!currentLesson?.thumbnail" class="image-not-found"></div>
                 <div class="information">
                     <h6 class="title-pc">{{currentLesson?.title}}</h6>
-                    <p class="description">
+                    <p class="description-pc">
                         {{currentLesson?.description}}
                     </p>
                     <a class="button bg-rose" [routerLink]="['/cours/lecon/', currentLesson?.id]">Lire</a>
@@ -89,7 +89,7 @@
                 <div *ngIf="!lesson?.thumbnail" class="image-not-found"></div>
                 <div class="information">
                     <h6 class="title-pc">{{lesson?.title}}</h6>
-                    <p class="description">
+                    <p class="description-pc">
                         {{lesson?.description}}
                     </p>
                     <a class="button bg-rose" [routerLink]="['/cours/lecon/', lesson?.id]">Lire</a>

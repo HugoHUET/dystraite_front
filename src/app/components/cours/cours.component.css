@@ -5,7 +5,7 @@
 }
 .description {
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 9;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -65,7 +65,6 @@
   border: 0px;
 }
 
-
 .lesson-title {
   width: 100%;
 }
@@ -111,7 +110,7 @@
 
 .image-not-found {
   width: 405px;
-  height: 207px;
+  height: 206.4px;
 }
 
 .title-pc {
@@ -122,6 +121,14 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.description-pc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 40px;
 }
 
 @media screen and (max-width: 1500px) {
