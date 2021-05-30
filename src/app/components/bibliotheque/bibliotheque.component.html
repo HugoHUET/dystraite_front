@@ -42,7 +42,7 @@
 	</div>
 </div>
 
-<!-- Version Mobile -->
+<!-- Version Pc -->
 <div *ngIf="!responsiveService.isMobile">
 	<div id="input_container">
 		<input type="text" id="filter" name="filter" class="filter" placeholder="Filtre..." [(ngModel)]=filter>
@@ -74,7 +74,7 @@
 					alt="Image d'illustration">
 				<div *ngIf="!currentBook?.thumbnail" class="image-not-found"></div>
 				<div class="information">
-					<h6>{{currentBook?.title}}</h6>
+					<h6 class="title-pc">{{currentBook?.title}}</h6>
 					<p class="description">
 						{{currentBook?.description}}
 					</p>
