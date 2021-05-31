@@ -1,177 +1,40 @@
-/* Version Mobile */
-
-.information-block {
-  padding: 10px 5% 20px 5%;
+.information-block{
+    padding: 10px 5% 20px 5%;
 }
-.filled {
-  height: 40px;
+.filled{
+    height: 40px;
 }
-img {
-  border-radius: 10px 10px 0px 0px;
-  width: 100%;
+img{
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
 }
-h6 {
-  font-size: 22px;
+h6{
+    font-size: 22px;
 }
-.description {
-  display: -webkit-box;
-  -webkit-line-clamp: 9;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.description{
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .beta-container {
-  background-color: #fff3cd;
-  color: #7d6520;
-  display: inline-flex;
-  width: 100%;
-  border-radius: 6px;
-  padding: 5px;
-  padding-left: 15px;
+    background-color: #FFF3CD;
+    color: #7D6520;
+    display: inline-flex;
+    width: 100%;
+    border-radius: 6px;
+    padding: 5px;
+    padding-left: 15px;
 }
 .beta-btn {
-  background-color: #fff3cd;
-  color: #7d6520;
-  border-radius: 5px;
-  margin-left: auto;
-  font-size: 18px;
-  border: none;
+    background-color: #FFF3CD;
+    color: #7D6520;
+    border-radius: 5px;
+    margin-left: auto;
+    font-size: 18px;
+    border: none;
 }
 .beta-btn > ion-icon {
-  margin-left: 5px;
-  vertical-align: middle;
-}
-
-/* Version PC */
-
-.container-actualite {
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-}
-
-.container-grid {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.grid-games {
-  width: 27rem;
-  justify-self: center;
-}
-
-.grid-games:last-child {
-  justify-self: end;
-}
-
-.grid-games:first-child {
-  justify-self: start;
-}
-
-.grid-cours {
-  width: 27rem;
-  justify-self: center;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-}
-
-.grid-cours:last-child {
-  justify-self: end;
-}
-
-.grid-cours:first-child {
-  justify-self: start;
-}
-
-.grid-bibliotheque {
-  width: 27rem;
-  justify-self: center;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-}
-
-.grid-bibliotheque:last-child {
-  justify-self: end;
-}
-
-.grid-bibliotheque:first-child {
-  justify-self: start;
-}
-
-.disabled-beta img {
-  height: 150px;
-}
-
-.bloc-pc {
-  height: 450px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  background-color: white;
-}
-
-.image-not-found {
-  width: 405px;
-  height: 207px;
-}
-
-.title-pc {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.description-pc {
-  width: 100%;
-  height: 90px;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 1500px) {
-  .container-grid {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .grid-games:nth-child(1) {
-    justify-self: start;
-  }
-
-  .grid-games:nth-child(2) {
-    justify-self: end;
-  }
-
-  .grid-games:nth-child(3) {
-    display: none;
-  }
-
-  .grid-cours:nth-child(1) {
-    justify-self: start;
-  }
-
-  .grid-cours:nth-child(2) {
-    justify-self: end;
-  }
-
-  .grid-cours:nth-child(3) {
-    display: none;
-  }
-
-  .grid-bibliotheque:nth-child(1) {
-    justify-self: start;
-  }
-
-  .grid-bibliotheque:nth-child(2) {
-    justify-self: end;
-  }
-
-  .grid-bibliotheque:nth-child(3) {
-    display: none;
-  }
+    margin-left: 5px;
+    vertical-align: middle;
 }

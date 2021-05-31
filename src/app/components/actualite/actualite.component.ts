@@ -4,7 +4,6 @@ import { Lesson } from 'src/app/models/lesson/lesson.model';
 import { BookService } from 'src/app/services/book/book.service';
 import { LessonService } from 'src/app/services/lesson/lesson.service';
 import { TitreService } from 'src/app/services/titre/titre.service';
-import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-actualite',
@@ -16,10 +15,8 @@ export class ActualiteComponent implements OnInit {
 
   lastLesson: Lesson;
   lastBook: Book;
-  lessons: Lesson[];
-  books: Book[];
 
-  constructor(private lessonService: LessonService, private titreService: TitreService, private bookService: BookService, public responsiveService: ResponsiveService) { }
+  constructor(private lessonService: LessonService, private titreService: TitreService, private bookService: BookService) { }
 
   ngOnInit() {
     this.lessonService.getLast(1).subscribe(lessons => {
@@ -28,12 +25,7 @@ export class ActualiteComponent implements OnInit {
     this.bookService.getLast(1).subscribe(books => {
       this.lastBook = books[0];
     })
-    this.lessonService.getLast(3).subscribe(lessons => {
-      this.lessons = lessons;
-    })
-    this.bookService.getLast(3).subscribe(books => {
-      this.books = books;
-    })
     this.titreService.updateTitle('Accueil');
+
   }
 }

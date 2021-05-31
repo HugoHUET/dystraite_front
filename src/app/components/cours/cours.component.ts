@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Lesson } from 'src/app/models/lesson/lesson.model';
 import { LessonService } from 'src/app/services/lesson/lesson.service';
 import { TitreService } from 'src/app/services/titre/titre.service';
-import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-cours',
@@ -19,7 +18,7 @@ export class CoursComponent implements OnInit {
     age: ["8-10", "11-13", "14-16", "+17"]
   };
 
-  constructor(private titreService: TitreService, private lessonService: LessonService, public responsiveService: ResponsiveService) { }
+  constructor(private titreService: TitreService, private lessonService: LessonService) { }
 
   ngOnInit() {
     this.titreService.updateTitle('Cours');

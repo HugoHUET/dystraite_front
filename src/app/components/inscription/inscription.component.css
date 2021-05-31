@@ -1,136 +1,73 @@
-/* Version Mobile */
-
-.background {
-  background-color: #ff647c;
-  width: 100%;
-  height: 30%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
+.background{
+    background-color: #FF647C;
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
 }
-.main-container {
-  z-index: 10;
-  position: fixed;
-  left: 50%;
-  width: 80%;
-  transform: translate(-50%, 0);
-  top: 8%;
-  text-align: center;
-  color: black;
-  height: 100%;
+.main-container{
+    z-index: 10;
+    position: fixed;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, 0);
+    top: 8%;
+    text-align: center;
+    color: black;
+    height: 100%;
 }
-.main-container > a {
-  font-size: 20px;
-  color: goldenrod;
-  display: flex;
-  align-items: center;
-  justify-content: left;
+.main-container > a{
+    font-size: 20px;
+    color: goldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
-.main-container > .text {
-  color: white;
+.main-container > .text{
+    color: white;
 }
-.main-container > .text > h4 {
-  font-weight: bold;
+.main-container > .text > h4{
+    font-weight: bold;
 }
 .main-container > .text > p {
-  text-align: left;
+    text-align: left;
 }
-.main-container > .full-page {
-  height: 100%;
+.main-container > .full-page{
+    height: 100%;
 }
-.main-container > .block {
-  padding: 5%;
-  z-index: 10;
-  margin-top: 5%;
+.main-container > .block{
+    padding: 5%;
+    z-index: 10;
+    margin-top: 5%;
 }
-.main-container > .align-left {
-  text-align: left;
+.main-container > .align-left{
+    text-align: left;
 }
-.main-container > .block > img {
-  object-fit: contain;
-  height: 20%;
+.main-container > .block > img{
+    object-fit: contain;
+    height: 20%;
 }
-.main-container > .block > p {
-  margin-bottom: 50%;
+.main-container > .block > p{
+    margin-bottom: 50%;
 }
 .main-container > .block > .action {
-  position: absolute;
-  width: 90%;
-  bottom: 180px;
+    position: absolute;
+    width: 90%;
+    bottom: 180px;
 }
-.button {
-  padding: 0 10px 0 10px;
-  display: grid;
-  grid-template-columns: 68% 28%;
-  grid-column-gap: 10px;
-  margin-top: 5%;
-  width: 100%;
+.button{
+    padding: 0 10px 0 10px;
+    display: grid;
+    grid-template-columns: 68% 28%;
+    grid-column-gap: 10px;
+    margin-top: 5%;
+    width: 100%;
 }
-.action > a > span {
-  justify-self: start;
+.action > a > span{
+    justify-self: start;
 }
-.action > a > i {
-  justify-self: end;
-}
-
-/* Version PC */
-
-.background-pc {
-  background-color: #ee6e73;
-  height: 27vh;
-  margin: -30px -29px 0px -30px;
-  z-index: 5;
-}
-
-.main-container-pc {
-  z-index: 10;
-  position: fixed;
-  left: 50%;
-  max-width: 50rem;
-  transform: translate(-50%, 0);
-  top: 15%;
-  text-align: center;
-  color: black;
-  height: 100%;
-}
-.main-container-pc > a {
-  font-size: 20px;
-  color: goldenrod;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-
-.main-container-pc > .text {
-  color: white;
-  max-width: 50rem;
-  margin: auto;
-}
-.main-container-pc > .text > h4 {
-  font-weight: bold;
-}
-.main-container-pc > .text > p {
-  text-align: left;
-}
-.main-container-pc > .full-page {
-  height: 100%;
-}
-.main-container-pc > .block {
-  padding: 5%;
-  z-index: 10;
-  margin-top: 5%;
-  height: 31rem;
-}
-.main-container-pc > .align-left {
-  text-align: left;
-}
-.main-container-pc > .block > img {
-  object-fit: contain;
-  height: 40%;
-}
-.main-container-pc > .block > p {
-  margin-bottom: 5rem;
-}
-.main-container-pc > .block > .action {
+.action > a > i{
+    justify-self: end;
 }

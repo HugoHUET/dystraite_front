@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Lesson } from 'src/app/models/lesson/lesson.model';
 import { LessonService } from 'src/app/services/lesson/lesson.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-lecon',
@@ -17,7 +16,7 @@ export class LeconComponent implements OnInit {
   safeVideoUrl;
   thumbnail: any;
 
-  constructor(private route: ActivatedRoute, private lessonService: LessonService, private _sanitizer: DomSanitizer, public responsiveService: ResponsiveService) {
+  constructor(private route: ActivatedRoute, private lessonService: LessonService, private _sanitizer: DomSanitizer) {
     this.route.paramMap.subscribe(params => {
       this.id = Number(params.get('id'));
     });

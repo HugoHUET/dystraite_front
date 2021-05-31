@@ -1,55 +1,23 @@
-<!-- Version Mobile -->
-<div *ngIf="responsiveService.isMobile">
-    <div class="row">
-        <!-- Il n'y a pas de système d'exercice pour le moment. Donc on n'affiche pas le bouton
-            <a class="button rose col s4" href="#" onclick="return false">Exercice</a>-->
-    </div>
-    <div>
-        <img *ngIf="lesson?.thumbnail" [src]="thumbnail" alt="Image d'illustration">
-        <h5>{{lesson?.title}}</h5>
-        <div>{{lesson?.createdAt | date}}</div>
-        <div class="video-container" *ngIf="lesson?.video">
-            <iframe width="560" height="315" [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p [innerHTML]="lesson?.content | safeHtml"></p>
-    </div>
-    <!--<ng-template #default>
-        <img src="../../assets/ponctuation.png" alt="test">
-        <h5>La ponctuation</h5>
-        <p>
-            Le point indique qu'une phrase déclarative se termine. On commence ensuite le premier mot de la phrase suivante par une majuscule. À l'oral, le point est marqué par une pause et la voix qui descend.<br><br>
-            "Il faut bien un exemple."<br><br>
-            Le point se met immédiatement après un mot. Ensuite, il faut mettre une espace pour commencer une nouvelle phrase.<br><br>
-            À noter qu'en typographie, une espace est un mot féminin.
-        </p>
-    </ng-template>-->
+<div class="row">
+    <!-- Il n'y a pas de système d'exercice pour le moment. Donc on n'affiche pas le bouton
+        <a class="button rose col s4" href="#" onclick="return false">Exercice</a>-->
 </div>
-
-<!-- Version PC -->
-<div *ngIf="!responsiveService.isMobile">
-    <div class="row">
-        <!-- Il n'y a pas de système d'exercice pour le moment. Donc on n'affiche pas le bouton
-            <a class="button rose col s4" href="#" onclick="return false">Exercice</a>-->
+<div>
+    <img *ngIf="lesson?.thumbnail" [src]="thumbnail" alt="Image d'illustration">
+    <h5>{{lesson?.title}}</h5>
+    <div>{{lesson?.createdAt | date}}</div>
+    <div class="video-container" *ngIf="lesson?.video">
+        <iframe width="560" height="315" [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div>
-        <div class="container-image">
-            <img *ngIf="lesson?.thumbnail" [src]="thumbnail" alt="Image d'illustration">
-        </div>
-        <h5>{{lesson?.title}}</h5>
-        <div>{{lesson?.createdAt | date}}</div>
-        <div class="video-container-pc">
-            <iframe width="560" height="315" [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p [innerHTML]="lesson?.content | safeHtml"></p>
-    </div>
-    <!--<ng-template #default>
-        <img src="../../assets/ponctuation.png" alt="test">
-        <h5>La ponctuation</h5>
-        <p>
-            Le point indique qu'une phrase déclarative se termine. On commence ensuite le premier mot de la phrase suivante par une majuscule. À l'oral, le point est marqué par une pause et la voix qui descend.<br><br>
-            "Il faut bien un exemple."<br><br>
-            Le point se met immédiatement après un mot. Ensuite, il faut mettre une espace pour commencer une nouvelle phrase.<br><br>
-            À noter qu'en typographie, une espace est un mot féminin.
-        </p>
-    </ng-template>-->
+    <p [innerHTML]="lesson?.content | safeHtml"></p>
 </div>
+<!--<ng-template #default>
+    <img src="../../assets/ponctuation.png" alt="test">
+    <h5>La ponctuation</h5>
+    <p>
+        Le point indique qu'une phrase déclarative se termine. On commence ensuite le premier mot de la phrase suivante par une majuscule. À l'oral, le point est marqué par une pause et la voix qui descend.<br><br>
+        "Il faut bien un exemple."<br><br>
+        Le point se met immédiatement après un mot. Ensuite, il faut mettre une espace pour commencer une nouvelle phrase.<br><br>
+        À noter qu'en typographie, une espace est un mot féminin.
+    </p>
+</ng-template>-->

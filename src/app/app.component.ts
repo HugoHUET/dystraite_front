@@ -56,21 +56,15 @@ export class AppComponent {
     }*/
   }
 
-  onClickedOutside(e: Event) {
-    document.getElementById("side-nav").style.width = "85px";
-    document.getElementById("container-router-outlet").style.marginLeft = "85px";
-    document.getElementById("menuIcon").style.display = "block";
-    document.getElementById("closeIcon").style.display = "none";
-  }
-  
   ngOnInit() {
     this.userService.loadLoggedUser();
 
     this.titreService.titre$.subscribe(titre => {
       this.titre_page = titre;
     });
-  }
 
+
+  }
   togglePlus() {
     this.isPlusSelected = !this.isPlusSelected;
     if (this.isPlusSelected) {
@@ -79,57 +73,12 @@ export class AppComponent {
       this.currentPlusClass = 'plus-notselected';
     }
   }
-
   untogglePlus() {
     this.isPlusSelected = false;
     this.currentPlusClass = 'plus-notselected';
   }
-
   isRouteAllowed(route) {
     return this.allowed_routes.indexOf(route) !== -1;
   }
 
-  mini = true;
-
-  toggleSidebar() {
-    if (this.mini) {
-      document.getElementById("side-nav").style.width = "220px";
-      document.getElementById("container-router-outlet").style.marginLeft = "220px";
-      document.getElementById("menuIcon").style.display = "none";
-      document.getElementById("closeIcon").style.display = "block";
-      this.mini = false;
-    } else {
-      document.getElementById("side-nav").style.width = "85px";
-      document.getElementById("container-router-outlet").style.marginLeft = "85px";
-      document.getElementById("menuIcon").style.display = "block";
-      document.getElementById("closeIcon").style.display = "none";
-      this.mini = true;
-    }
-  }
-
-  previousClick = false;
-
-  expandedSidenav() {
-    if (document.getElementById("menuIcon").style.display === "") {
-      document.getElementById("menuIcon").style.display = "block";
-    }
-    if (document.getElementById("menuIcon").style.display === "block") {
-      this.previousClick = false;
-    } else {
-      this.previousClick = true
-    }
-    if (this.previousClick) {
-      document.getElementById("side-nav").style.width = "85px";
-      document.getElementById("container-router-outlet").style.marginLeft = "85px";
-      document.getElementById("menuIcon").style.display = "block";
-      document.getElementById("closeIcon").style.display = "none";
-      this.previousClick = false;
-    } else {
-      document.getElementById("side-nav").style.width = "220px";
-      document.getElementById("container-router-outlet").style.marginLeft = "220px";
-      document.getElementById("menuIcon").style.display = "none";
-      document.getElementById("closeIcon").style.display = "block";
-      this.previousClick = true;
-    }
-  }
 }

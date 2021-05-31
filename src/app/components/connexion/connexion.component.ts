@@ -3,7 +3,6 @@ import { TitreService } from 'src/app/services/titre/titre.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user/user.service';
-import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-connexion',
@@ -18,7 +17,7 @@ export class ConnexionComponent implements OnInit {
   });
   isLoading = false;
 
-  constructor(private titreService: TitreService, private userService: UserService, private route: Router, public responsiveService: ResponsiveService) { }
+  constructor(private userService: UserService, private route: Router) { }
 
   ngOnInit() {
   }

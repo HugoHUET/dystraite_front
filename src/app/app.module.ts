@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ClickOutsideModule } from 'ng-click-outside';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ActualiteComponent } from './components/actualite/actualite.component';
@@ -37,6 +37,7 @@ import localeFr from '@angular/common/locales/fr';
 import { FilterPipe } from './filter.pipe';
 import { BetaComponent } from './components/beta/beta.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -71,7 +72,6 @@ registerLocaleData(localeFr, 'fr');
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ClickOutsideModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,

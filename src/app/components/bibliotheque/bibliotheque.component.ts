@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book/book.model';
 import { BookService } from 'src/app/services/book/book.service';
 import { TitreService } from 'src/app/services/titre/titre.service';
-import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-bibliotheque',
@@ -20,7 +19,7 @@ export class BibliothequeComponent implements OnInit {
     age: ["8-10", "11-13", "14-16", "+17"]
   };
 
-  constructor(private titreService: TitreService, private bookService: BookService, public responsiveService: ResponsiveService) { }
+  constructor(private titreService: TitreService, private bookService: BookService) { }
 
   ngOnInit() {
     this.titreService.updateTitle("Bibliotheque");

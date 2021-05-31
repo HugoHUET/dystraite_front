@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-inscription',
@@ -8,7 +7,7 @@ import { ResponsiveService } from 'src/app/services/responsive/responsive.servic
 })
 export class InscriptionComponent implements OnInit {
   
-  constructor(public responsiveService: ResponsiveService) {
+  constructor() {
   }
 
   ngOnInit(){

@@ -1,20 +1,11 @@
 .action {
-  position: absolute;
-  width: 100%;
-  bottom: 180px;
+    position: absolute;
+    width: 100%;
+    bottom: 180px;
 }
 .main-container > .block > p > a {
-  text-decoration: underline;
+    text-decoration: underline;
 }
-.main-container {
-  text-align: left;
-}
-
-/* Version PC */
-
-.main-container-pc > .block > p > a {
-  text-decoration: underline;
-}
-.main-container-pc {
-  text-align: left;
+.main-container{
+    text-align: left;
 }

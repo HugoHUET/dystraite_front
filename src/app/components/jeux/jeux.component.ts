@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { TitreService } from 'src/app/services/titre/titre.service';
-import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-jeux',
@@ -9,7 +8,7 @@ import { ResponsiveService } from 'src/app/services/responsive/responsive.servic
 })
 export class JeuxComponent implements OnInit {
 
-  constructor(private titreService: TitreService, public responsiveService: ResponsiveService) { }
+  constructor(private titreService: TitreService) { }
 
   ngOnInit() {
     this.titreService.updateTitle("Jeux");

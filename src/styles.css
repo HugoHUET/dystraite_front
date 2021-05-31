@@ -12,9 +12,6 @@
 }
 .noBoxShadow {
     box-shadow: none !important;
-    display: grid;
-    grid-template-columns: 30% auto 30%;
-    align-items: center;    
 }
 hr{
     border: 1px solid #eeeeee;
