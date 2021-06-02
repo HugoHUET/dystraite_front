@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from 'src/app/models/book/book.model';
 import { BookService } from 'src/app/services/book/book.service';
+import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-article',
@@ -15,7 +16,7 @@ export class ArticleComponent implements OnInit {
   book: Book;
   thumbnail: any;
 
-  constructor(private route: ActivatedRoute, private bookService: BookService, private _sanitizer: DomSanitizer) {
+  constructor(private route: ActivatedRoute, private bookService: BookService, private _sanitizer: DomSanitizer, public responsiveService: ResponsiveService) {
     this.route.paramMap.subscribe(params => {
       this.id = Number(params.get('id'));
 

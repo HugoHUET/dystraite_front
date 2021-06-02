@@ -1,21 +1,49 @@
-<div class="background"></div>
-<div class="main-container">
-    <div class="text">
-        <h4>Vous êtes ?</h4>
-        <p>Indiquez si vous êtes un utilisateur ou un orthophoniste.</p>
+<!-- Version Mobile -->
+<div *ngIf="responsiveService.isMobile">
+    <div class="background"></div>
+    <div class="main-container">
+        <div class="text">
+            <h4>Vous êtes ?</h4>
+            <p>Indiquez si vous êtes un utilisateur ou un orthophoniste.</p>
+        </div>
+        <div class="block full-page">
+            <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
+            <p class="cgu">Création de votre compte en deux minutes, préparer votre boite mail !</p>
+            <div class="action">
+                <a class="button bg-rose large" [routerLink]="['/inscription', 'user']">
+                    <span>Je suis un utilisateur</span>
+                    <i class="material-icons">arrow_forward</i>
+                </a>
+                <a class="button rose large disabled-beta" [routerLink]="['/inscription', 'ortho']">
+                    <span>Je suis un orthophoniste</span>
+                    <i class="material-icons">arrow_forward</i>
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="block full-page">
-        <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
-        <p class="cgu">Création de votre compte en deux minutes, préparer votre boite mail !</p>
-        <div class="action">
-            <a class="button bg-rose large" [routerLink]="['/inscription', 'user']">
-                <span>Je suis un utilisateur</span>
-                <i class="material-icons">arrow_forward</i>
-            </a>
-            <a class="button rose large disabled-beta" [routerLink]="['/inscription', 'ortho']">
-                <span>Je suis un orthophoniste</span>
-                <i class="material-icons">arrow_forward</i>
-            </a>
+</div>
+
+<!-- Version PC -->
+<div *ngIf="!responsiveService.isMobile">
+    <div class="background-pc"></div>
+    <div class="main-container-pc">
+        <div class="text">
+            <h4>Vous êtes ?</h4>
+            <p>Indiquez si vous êtes un utilisateur ou un orthophoniste.</p>
+        </div>
+        <div class="block full-page">
+            <img src="../../../assets/mobile/Social-girl.svg" alt="Social-girl">
+            <p class="cgu">Création de votre compte en deux minutes, préparez votre boite mail !</p>
+            <div class="action">
+                <a class="button bg-rose large" [routerLink]="['/inscription', 'user']">
+                    <span>Je suis un utilisateur</span>
+                    <i class="material-icons">arrow_forward</i>
+                </a>
+                <a class="button rose large disabled-beta" [routerLink]="['/inscription', 'ortho']">
+                    <span>Je suis un orthophoniste</span>
+                    <i class="material-icons">arrow_forward</i>
+                </a>
+            </div>
         </div>
     </div>
 </div>

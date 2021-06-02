@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 import { PasswordResetTokenService } from "src/app/services/passwordResetToken/passwordResetToken.service"
+import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: "app-change-password",
@@ -10,7 +11,7 @@ import { PasswordResetTokenService } from "src/app/services/passwordResetToken/p
 })
 export class ChangePasswordComponent implements OnInit {
   isLoading = false;
-  constructor(private passwordResetTokenService: PasswordResetTokenService, private route: Router) { }
+  constructor(private passwordResetTokenService: PasswordResetTokenService, private route: Router, public responsiveService: ResponsiveService) { }
 
   ngOnInit() { }
 

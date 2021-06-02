@@ -6,6 +6,7 @@ import { Tips } from 'src/app/models/tips/tips';
 import { TipsService } from 'src/app/services/tips/tips.service';
 import { TitreService } from 'src/app/services/titre/titre.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-conseil',
@@ -24,7 +25,7 @@ export class ConseilComponent implements OnInit {
     tags: new FormControl([]),
   });
 
-  constructor(private titreService: TitreService, private tipsService: TipsService, public userService: UserService, private route: Router, private toastr: ToastrService) { }
+  constructor(private titreService: TitreService, private tipsService: TipsService, public userService: UserService, private route: Router, private toastr: ToastrService, public responsiveService: ResponsiveService) { }
 
   ngOnInit() {
     this.tipsService.getAll().subscribe(tips => {

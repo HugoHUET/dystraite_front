@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
+import { ResponsiveService } from 'src/app/services/responsive/responsive.service';
 
 @Component({
   selector: 'app-type',
@@ -22,7 +23,7 @@ export class TypeComponent implements OnInit {
     username: new FormControl(null)
   });
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) {
+  constructor(private route: ActivatedRoute, private userService: UserService, private router: Router, public responsiveService: ResponsiveService) {
     this.route.paramMap.subscribe(params => {
       if (params.get('type') === 'ortho') {
         this.ortho = true;

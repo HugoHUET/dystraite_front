@@ -1,15 +1,31 @@
-.row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Version PC */
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.button{
-    margin-top: 0;
+.button {
+  margin-top: 0;
 }
-img{
-    border-radius: 10px;
+img {
+  border-radius: 10px;
 }
 h4 {
-    margin: auto;
-    text-align: center;
+  margin: auto;
+  text-align: center;
+}
+
+/* Version PC */
+
+.container-book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-book > img {
+  border-radius: 10px;
+  width: 35%;
+  height: auto;
 }

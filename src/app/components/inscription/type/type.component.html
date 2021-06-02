@@ -1,57 +1,117 @@
-<div class="main-container">
-    <div class="background">
-        <div class="text">
-            <h4>S'inscrire</h4>
-            <p *ngIf="!ortho">Remplissez les champs suivants pour créer votre compte utilisateur</p>
-            <p *ngIf="ortho">Remplissez les champs suivants pour créer votre compte orthophoniste</p>
+<!-- Version Mobile -->
+<div *ngIf="responsiveService.isMobile">
+    <div class="main-container">
+        <div class="background">
+            <div class="text">
+                <h4>S'inscrire</h4>
+                <p *ngIf="!ortho">Remplissez les champs suivants pour créer votre compte utilisateur</p>
+                <p *ngIf="ortho">Remplissez les champs suivants pour créer votre compte orthophoniste</p>
+            </div>
         </div>
+        <form class="input" action="" mode="ios" [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="block">
+                <label for="nom">Nom*</label>
+                <input placeholder="Entrez votre nom..." id="nom" type="text" class="validate" formControlName="lastname">
+            </div>
+            <div class="block">
+                <label for="prenom">Prénom*</label>
+                <input placeholder="Entrez votre prénom..." id="prenom" type="text" class="validate"
+                    formControlName="firstname">
+            </div>
+            <div class="block">
+                <label for="email">Adresse email*</label>
+                <input placeholder="Entrez votre adresse email..." id="email" type="email" class="validate"
+                    formControlName="email">
+                <div class="form-error" *ngIf="registerForm.get('email').errors?.used">
+                    Cette adresse est déjà utilisée
+                </div>
+            </div>
+            <div class="block">
+                <label for="motdepasse">Mot de passe*</label>
+                <input placeholder="Entrez votre mot de passe..." id="motdepasse" type="password" class="validate"
+                    formControlName="password">
+            </div>
+            <div class="block">
+                <label for="username">Pseudonyme</label>
+                <input placeholder="Entrez votre pseudonyme" id="username" type="text" class="validate" formControlName="username">
+            </div>
+            <div class="block">
+                <label for="ville">Ville</label>
+                <input placeholder="Entrez votre ville..." id="ville" type="text" class="validate" formControlName="city">
+            </div>
+            <div class="block">
+                <label for="ville">Date de naissance</label>
+                <input placeholder="Entrez votre date de naissance..." id="date" type="date" class="validate"
+                    formControlName="birthdate">
+            </div>
+            <button class="button bg-rose large" [ngClass]="{'loading' : isLoading}" type="submit"
+                [disabled]="!registerForm.valid">
+                <div class="lds-ellipsis" style="display: none;">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <span>S'inscrire</span>
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </form>
     </div>
-    <form class="input" action="" mode="ios" [formGroup]="registerForm" (ngSubmit)="register()">
-        <div class="block">
-            <label for="nom">Nom*</label>
-            <input placeholder="Entrez votre nom..." id="nom" type="text" class="validate" formControlName="lastname">
-        </div>
-        <div class="block">
-            <label for="prenom">Prénom*</label>
-            <input placeholder="Entrez votre prénom..." id="prenom" type="text" class="validate"
-                formControlName="firstname">
-        </div>
-        <div class="block">
-            <label for="email">Adresse email*</label>
-            <input placeholder="Entrez votre adresse email..." id="email" type="email" class="validate"
-                formControlName="email">
-            <div class="form-error" *ngIf="registerForm.get('email').errors?.used">
-                Cette adresse est déjà utilisée
+</div>
+
+<!-- Version PC -->
+<div *ngIf="!responsiveService.isMobile">
+    <div class="main-container-pc">
+        <div class="background-pc">
+            <div class="text">
+                <h4>S'inscrire</h4>
+                <p *ngIf="!ortho">Remplissez les champs suivants pour créer votre compte utilisateur</p>
+                <p *ngIf="ortho">Remplissez les champs suivants pour créer votre compte orthophoniste</p>
             </div>
         </div>
-        <div class="block">
-            <label for="motdepasse">Mot de passe*</label>
-            <input placeholder="Entrez votre mot de passe..." id="motdepasse" type="password" class="validate"
-                formControlName="password">
-        </div>
-        <div class="block">
-            <label for="username">Pseudonyme</label>
-            <input placeholder="Entrez votre pseudonyme" id="username" type="text" class="validate" formControlName="username">
-        </div>
-        <div class="block">
-            <label for="ville">Ville</label>
-            <input placeholder="Entrez votre ville..." id="ville" type="text" class="validate" formControlName="city">
-        </div>
-        <div class="block">
-            <label for="ville">Date de naissance</label>
-            <input placeholder="Entrez votre date de naissance..." id="date" type="date" class="validate"
-                formControlName="birthdate">
-        </div>
-        <button class="button bg-rose large" [ngClass]="{'loading' : isLoading}" type="submit"
-            [disabled]="!registerForm.valid">
-            <div class="lds-ellipsis" style="display: none;">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+        <form class="input" action="" mode="ios" [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="block">
+                <label for="nom">Nom*</label>
+                <input placeholder="Entrez votre nom..." id="nom" type="text" class="validate" formControlName="lastname">
             </div>
-            <span>S'inscrire</span>
-            <i class="material-icons">arrow_forward</i>
-        </button>
-    </form>
+            <div class="block">
+                <label for="prenom">Prénom*</label>
+                <input placeholder="Entrez votre prénom..." id="prenom" type="text" class="validate"
+                    formControlName="firstname">
+            </div>
+            <div class="block">
+                <label for="email">Adresse email*</label>
+                <input placeholder="Entrez votre adresse email..." id="email" type="email" class="validate"
+                    formControlName="email">
+                <div class="form-error" *ngIf="registerForm.get('email').errors?.used">
+                    Cette adresse est déjà utilisée
+                </div>
+            </div>
+            <div class="block">
+                <label for="motdepasse">Mot de passe*</label>
+                <input placeholder="Entrez votre mot de passe..." id="motdepasse" type="password" class="validate"
+                    formControlName="password">
+            </div>
+            <div class="block">
+                <label for="ville">Ville</label>
+                <input placeholder="Entrez votre ville..." id="ville" type="text" class="validate" formControlName="city">
+            </div>
+            <div class="block">
+                <label for="ville">Date de naissance</label>
+                <input placeholder="Entrez votre date de naissance" id="date" type="date" class="validate"
+                    formControlName="birthdate">
+            </div>
+            <button class="button bg-rose large" [ngClass]="{'loading' : isLoading}" type="submit"
+                [disabled]="!registerForm.valid">
+                <div class="lds-ellipsis" style="display: none;">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <span>S'inscrire</span>
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </form>
+    </div>
 </div>
