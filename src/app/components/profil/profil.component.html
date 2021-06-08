@@ -8,9 +8,8 @@
                 alt="Photo de profil">
         </div>
         <div class="block infos">
-            <p class="name rose" style="text-align: center; padding-bottom: 15px;">{{userService.loggedUser.firstname |
-                uppercase}}
-                {{userService.loggedUser.lastname | uppercase}}</p>
+            <p class="name rose" style="text-align: center; padding-bottom: 15px;">{{(userService.loggedUser.username ? userService.loggedUser.username : userService.loggedUser.firstname + ' ' + userService.loggedUser.lastname) |
+                uppercase}}</p>
             <!-- BETA : Fonctionnalité non implémenté
                 <div class="item">
                 <div class="rose" style="display: inline-block;">
@@ -19,13 +18,13 @@
                 </div>
             </div>-->
             <div class="item" *ngIf="calculateAge()">
-                <p class="rose" style="display: flex; align-items: center;"><span class="material-icons bleu"
+                <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
                         style="display: inline-block; margin-right: 10px;">cake</span>{{calculateAge() + ' ans' |
                     uppercase}}
                 </p>
             </div>
             <div class="item">
-                <p class="rose" style="display: flex; align-items: center;"><span class="material-icons bleu"
+                <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
                         style="display: inline-block; margin-right: 10px;">mail</span>{{userService.loggedUser.email}}</p>
             </div>
             <!-- BETA : Fonctionnalité non implementé
@@ -39,7 +38,7 @@
                         style="display: inline-block; margin-right: 10px;">home</span>11 Rue des Potiers</p>
             </div> -->
             <div class="item" *ngIf="userService.loggedUser.city">
-                <p class="rose" style="display: flex; align-items: center;"><span class="material-icons bleu"
+                <p class="rose" style="display: inline-block;"><span class="material-icons bleu"
                         style="display: inline-block; margin-right: 10px;">place</span>{{userService.loggedUser.city |
                     uppercase}}</p>
             </div>

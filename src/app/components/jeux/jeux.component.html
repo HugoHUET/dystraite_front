@@ -1,6 +1,7 @@
 <!-- Version Mobile -->
 <div *ngIf="responsiveService.isMobile">
-    <div class="container-maintenance-mobile">
+    <h5>Le jeu du moment !</h5>
+    <div class="block">
         <img src="../../assets/maximots.jpeg" alt="test">
         <div class="information">
             <h6>Maximots</h6>
@@ -9,6 +10,17 @@
             <a class="button rose" href="#" [routerLink]="['maximots']">Jouer</a>
         </div>
     </div>
+    <hr>
+    <!--<div class="ligne">
+        <img src="../../assets/wordblitz.jpeg" alt="test">
+        <b>Maximots</b>
+        <a class="button bg-rose" [routerLink]="['maximots']">Jouer</a>
+    </div> -->
+    <!-- <div class="ligne" *ngFor="let lecon of cours">
+        <img src="data:image/bmp;base64,{{lecon.vignette}}" alt="test">
+        <b>{{lecon.titre}}</b>
+        <a class="button bg-rose" [routerLink]="['/cours/lecon', lecon.id]">Lire</a>
+    </div> -->
 </div>
 
 <!-- Version PC -->

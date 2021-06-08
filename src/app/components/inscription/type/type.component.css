@@ -42,7 +42,6 @@
   grid-template-columns: 68% 28%;
   grid-column-gap: 10px;
   margin-top: 5%;
-  cursor: pointer;
 }
 .button > span {
   justify-self: start;
@@ -106,6 +105,6 @@ a {
   text-decoration: underline;
   color: black;
 }
-input{
+input {
   margin: 0 !important;
 }

@@ -21,7 +21,7 @@
                     {{tip.content}}
                 </div>
                 <div class="username">
-                    <b>{{tip.owner?.firstname}}</b>
+                    <b>{{tip.owner.username ? tip.owner.username : "Anonyme"}}</b>
                 </div>
             </div>
             <div class="like" *ngIf="!isMyTip(tip)">
@@ -105,24 +105,24 @@
                 </div>
             </div>
             <div class="like" *ngIf="!isMyTip(tip)">
-                <i class="material-icons like-icon" (click)="like(tip)">{{isLiked(tip) ? 'favorite' :
+                <i class="material-icons like-icon click" (click)="like(tip)">{{isLiked(tip) ? 'favorite' :
                     'favorite_border'}}</i>
                 {{tip.nbLikes}}
             </div>
             <div class="like" *ngIf="isMyTip(tip)">
-                <ion-icon name="close-outline" class="like-icon" (click)="delete(tip)"></ion-icon>
+                <ion-icon name="close-outline" class="like-icon click" (click)="delete(tip)"></ion-icon>
                 {{tip.nbLikes}}
             </div>
         </div>
         <button id="add-tip" (click)="toggleTipTab()">
-            <ion-icon class="rose" name="add-circle-outline"></ion-icon>
+            <ion-icon class="rose click" name="add-circle-outline"></ion-icon>
         </button>
         <div *ngIf="addTipTab" id="greyFilter" (click)="toggleTipTab()"></div>
 
         <div id="add-tip-tab">
             <div id="container-add-tp-tab">
                 <button id="close" (click)="toggleTipTab()">
-                    <ion-icon name="close-outline"></ion-icon>
+                    <ion-icon name="close-outline" class="click"></ion-icon>
                 </button>
                 <form style="height: 100%;" action="" mode="ios" [formGroup]="tipForm" (ngSubmit)="sendTip()">
                     <div class="tabs tips-tab">

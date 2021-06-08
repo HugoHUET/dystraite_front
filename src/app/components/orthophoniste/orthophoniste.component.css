@@ -18,7 +18,6 @@
   align-items: center;
 }
 
-
 /* Version PC */
 
 .container-maintenance {
@@ -33,8 +32,4 @@
 .container-maintenance img {
   width: 35rem;
   height: 22rem;
-}
-
-.button {
-  cursor: pointer;
 }

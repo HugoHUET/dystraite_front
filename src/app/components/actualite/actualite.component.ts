@@ -35,5 +35,6 @@ export class ActualiteComponent implements OnInit {
       this.books = books;
     })
     this.titreService.updateTitle('Accueil');
+
   }
 }
