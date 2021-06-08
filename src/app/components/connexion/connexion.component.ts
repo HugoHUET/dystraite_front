@@ -18,7 +18,7 @@ export class ConnexionComponent implements OnInit {
   });
   isLoading = false;
 
-  constructor(private titreService: TitreService, private userService: UserService, private route: Router, public responsiveService: ResponsiveService) { }
+  constructor(private userService: UserService, private route: Router, public responsiveService: ResponsiveService) { }
 
   ngOnInit() {
   }

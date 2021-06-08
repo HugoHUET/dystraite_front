@@ -27,17 +27,15 @@
 				alt="Image d'illustration">
 			<div class="information">
 				<h6>{{currentBook?.title}}</h6>
-				<p class="description">
-					{{currentBook?.description}}
-				</p>
+				<p class="description" [innerHTML]="currentBook?.description"></p>
 				<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
 			</div>
 		</div>
 		<hr class="solid">
 	</div>
 	<div class="ligne" *ngFor="let book of books">
-		<img src="data:image/bmp;base64,{{book.thumbnail}}" alt="test">
-		<b>{{book.title}}</b>
+		<img src="data:image/bmp;base64,{{book.thumbnail}}" alt="Image d'illustration">
+		<h6 class="list-title">{{book.title}}</h6>
 		<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', book.id]">Lire</a>
 	</div>
 </div>
@@ -74,8 +72,8 @@
 					alt="Image d'illustration">
 				<div *ngIf="!currentBook?.thumbnail" class="image-not-found"></div>
 				<div class="information">
-					<h6>{{currentBook?.title}}</h6>
-					<p class="description">
+					<h6 class="title-pc">{{currentBook?.title}}</h6>
+					<p class="description-pc">
 						{{currentBook?.description}}
 					</p>
 					<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', currentBook?.id]">Lire</a>
@@ -88,8 +86,8 @@
 					alt="Image d'illustration">
 				<div *ngIf="!book?.thumbnail" class="image-not-found"></div>
 				<div class="information">
-					<h6>{{book?.title}}</h6>
-					<p class="description">
+					<h6 class="title-pc">{{book?.title}}</h6>
+					<p class="description-pc">
 						{{book?.description}}
 					</p>
 					<a class="button bg-rose" [routerLink]="['/bibliotheque/article/', book?.id]">Lire</a>

@@ -21,12 +21,12 @@
 		<div [className]="currentPlusClass" (click)="untogglePlus()">
 			<div class="item-plus" style="bottom: 60px">
 				<a routerLink="jeux" routerLinkActive="selected" class="button-plus" style="pointer-events: none;"><i
-						class="material-icons icon-plus">videogame_asset</i>A
+						class="material-icons-round icon-plus">videogame_asset</i>A
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 130px">
-				<a routerLink="ortophoniste" routerLinkActive="selected" class="button-plus" style="pointer-events: none;"><i
-						class="material-icons icon-plus">work_outline</i>A
+				<a routerLink="ortophoniste" routerLinkActive="selected" class="button-plus"
+					style="pointer-events: none;"><i class="material-icons-round icon-plus">work_outline</i>A
 					venir</a>
 			</div>
 			<div class="item-plus" style="bottom: 200px">
@@ -36,6 +36,7 @@
 		</div>
 	</div>
 </div>
+
 <!-- Version PC -->
 <div *ngIf="!responsiveService.isMobile">
 	<header>

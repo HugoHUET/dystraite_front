@@ -41,9 +41,7 @@
 			alt="illustration livre du moment">
 		<div class="information-block">
 			<h6>{{lastBook?.title}}</h6>
-			<p class="description">
-				{{lastBook?.description}}
-			</p>
+			<p class="description" [innerHTML]="lastBook?.description"></p>
 			<a class="button rose" href="#" [routerLink]="['/bibliotheque/article/'+lastBook?.id]">Lire</a>
 		</div>
 	</div>
@@ -66,9 +64,9 @@
 					<a class="button rose" href="#" [routerLink]="['/jeux/maximots']">Jouer</a>
 				</div>
 			</div>
-			<button class="button bg-rose large" href="#" [routerLink]="['/jeux']">Accéder aux jeux</button>
 		</div>
 	</div>
+	<button class="button bg-rose large" href="#" [routerLink]="['/jeux']">Accéder aux jeux</button>
 	<hr class="solid">
 	<h5>LES COURS DU MOMENT</h5>
 	<div class="container-grid">
@@ -111,4 +109,4 @@
 	<a class="button bg-rose large" href="#" [routerLink]="['/bibliotheque']">
 		Accéder aux livres
 	</a>
-</div>
+</div> 

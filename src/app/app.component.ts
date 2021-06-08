@@ -62,7 +62,7 @@ export class AppComponent {
     document.getElementById("menuIcon").style.display = "block";
     document.getElementById("closeIcon").style.display = "none";
   }
-  
+
   ngOnInit() {
     this.userService.loadLoggedUser();
 
@@ -88,7 +88,6 @@ export class AppComponent {
   isRouteAllowed(route) {
     return this.allowed_routes.indexOf(route) !== -1;
   }
-
   mini = true;
 
   toggleSidebar() {
